@@ -1,70 +1,350 @@
-Ricky Vishwakarma
-I build engaging and performant web experiences.
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ricky Vishwakarma - Portfolio</title>
+    <link rel="icon" type="image/jpeg" href="http://googleusercontent.com/file_content/1">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'roboto-condensed': ['"Roboto Condensed"', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#111111', // 
+                        'secondary': '#1a1a1a',
+                        'accent': '#4fd1c5',
+                        'light-gray': '#a0aec0',
+                        'white-text': '#e2e8f0', // Slightly softer white
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Basic scrollbar styling for a more modern look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111111;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2d3748;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4a5568;
+        }
+    </style>
+</head>
+<body class="bg-primary text-white-text font-roboto-condensed">
 
-things i'm proud of
-being a good son
-Graduating with honors in computer engineering
-Built and scaled web app on AI and the MERN
-I have a solid grasp of data structures and algorithms
-I also contributed in open-source projects
-Startup enthusiast with a strong foundation in AI research
-Can be good coder, comedian, and cricketer (not at the same time)
-I appeared for JEE Main and scored better than 94% of the students
-things i believe
-Shipping fast beats the best strategy
-you have no career ceiling
-be ruthlessly truth seeking
-communication is the job
-education is the best form of developer marketing
-leadership means owning outcomes beyond the org chart
-work can also be your hobby
-Grit > talent
-There's no substitute for putting in the hours
-Get 1% better every day
-demos > memos
-hiring is what separates good leaders from great
-always try to assume good intent
-projects
-Clara AI
-AI Agent Project Overview. This is a modern AI chat application built with Next.js that provides real-time conversations powered by AI. Here are the key details:
+    <div class="max-w-6xl mx-auto p-8 md:px-16 lg:px-24">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 lg:gap-16">
+            
+            <!-- Left Column: Main Content -->
+            <div class="md:col-span-8 lg:col-span-8">
+                <!-- Name and Subtitle -->
+                <header class="mb-12">
+                    <h1 class="text-5xl font-bold mb-2 text-white">Ricky Vishwakarma</h1>
+                    <p class="text-light-gray">I build engaging and performant web experiences.</p>
+                </header>
 
-View on GitHub
-Details
-ShopSphere
-This is a full-featured e-commerce web application built with Next.js and React. Here's a summary of its key features:
+                <!-- Content Sections -->
+                <main>
+                    <section class="mb-12">
+                        <h2 class="text-2xl font-semibold text-white mb-4">things i'm proud of</h2>
+                        <ul class="list-disc list-inside space-y-2 text-light-gray">
+                            <li>being a good son</li>
+                            <li>Graduating with honors in computer engineering</li>
+                            <li>Built and scaled web app on AI and the MERN</li>
+                            <li>I have a solid grasp of data structures and algorithms</li>
+                            <li>I also contributed in open-source projects</li>
+                            <li>Startup enthusiast with a strong foundation in AI research</li>
+                            <li>Can be good coder, comedian, and cricketer (not at the same time)</li>
+                            <li>I appeared for JEE Main and scored better than 94% of the students</li>
+                        </ul>
+                    </section>
 
-View on GitHub
-Live Demo
-Details
-Car Parking System
-This is a Computer Vision-based Car Parking Space Detection system that uses Deep Learning to identify and count available parking spaces in real-time. The system processes video feeds to determine which parking spots are occupied or vacant.
+                    <section class="mb-12">
+                        <h2 class="text-2xl font-semibold text-white mb-4">things i believe</h2>
+                        <ul class="list-disc list-inside space-y-2 text-light-gray">
+                            <li>Shipping fast beats the best strategy</li>
+                            <li>you have no career ceiling</li>
+                            <li>be ruthlessly truth seeking</li>
+                            <li>communication is the job</li>
+                            <li>education is the best form of developer marketing</li>
+                            <li>leadership means owning outcomes beyond the org chart</li>
+                            <li>work can also be your hobby</li>
+                            <li>Grit > talent</li>
+                            <li>There's no substitute for putting in the hours</li>
+                            <li>Get 1% better every day</li>
+                            <li>demos > memos</li>
+                            <li>hiring is what separates good leaders from great</li>
+                            <li>always try to assume good intent</li>
+                        </ul>
+                    </section>
 
-View on GitHub
-Details
-DSA Projects
-A collection of projects focused on implementing and demonstrating various data structures and algorithms.
+                    <section id="projects" class="mb-12">
+                        <h2 class="text-2xl font-semibold text-white mb-4">projects</h2>
+                        <ul class="space-y-8 text-light-gray">
+                             <li>
+                                <h3 class="font-semibold text-white">Clara AI</h3>
+                                <p class="mb-2">AI Agent Project Overview. This is a modern AI chat application built with Next.js that provides real-time conversations powered by AI. Here are the key details:</p>
+                                <div class="flex items-center space-x-4">
+                                    <a href="https://github.com/RickyVishwakarma/AI_Agent" target="_blank" class="text-accent hover:text-white transition-colors duration-300 group inline-flex items-center">
+                                        <span>View on GitHub</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 opacity-50 group-hover:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                    </a>
+                                    <button class="project-details-toggle text-accent hover:text-white transition-colors duration-300">Details</button>
+                                </div>
+                                <div class="project-details hidden mt-4 pl-4 border-l-2 border-gray-700">
+                                    <h4 class="font-semibold text-white mb-2">Key Features:</h4>
+                                    <ul class="list-disc list-inside mb-3">
+                                        <li>Natural Language Understanding</li>
+                                        <li>24/7 Automated Support</li>
+                                        <li>Seamless escalation to human agents</li>
+                                    </ul>
+                                    <h4 class="font-semibold text-white mb-2">Technical Stack:</h4>
+                                    <ul class="list-disc list-inside space-y-1 mb-3">
+                                        <li><strong>Frontend:</strong> Next.js 14 with TypeScript</li>
+                                        <li><strong>Authentication:</strong> Clerk</li>
+                                        <li><strong>Database:</strong> Convex</li>
+                                        <li><strong>Styling:</strong> Tailwind CSS with animations</li>
+                                        <li><strong>AI Integration:</strong> LangChain and Anthropic's Claude model</li>
+                                        <li><strong>State Management:</strong> SWR for data fetching</li>
+                                    </ul>
+                                    <h4 class="font-semibold text-white mb-2">Key Dependencies:</h4>
+                                    <ul class="list-disc list-inside space-y-1 mb-3">
+                                        <li><code>@clerk/nextjs</code>: For authentication</li>
+                                        <li><code>convex</code>: Real-time database</li>
+                                        <li><code>langchain</code> & <code>@langchain/anthropic</code>: AI model integration</li>
+                                        <li><code>framer-motion</code>: For animations</li>
+                                        <li><code>tailwindcss</code>: For styling</li>
+                                    </ul>
+                                    <h4 class="font-semibold text-white mb-2">Development Scripts:</h4>
+                                    <ul class="list-disc list-inside space-y-1 mb-3">
+                                        <li><code>pnpm dev</code>: Start development server</li>
+                                        <li><code>pnpm build</code>: Create production build</li>
+                                        <li><code>pnpm start</code>: Start production server</li>
+                                        <li><code>pnpm lint</code>: Run linter</li>
+                                    </ul>
+                                    <h4 class="font-semibold text-white mb-2">Future Scope:</h4>
+                                    <ul class="list-disc list-inside space-y-1">
+                                        <li>Implement multi-language support</li>
+                                        <li>Integrate with CRM platforms like Salesforce or Zendesk</li>
+                                        <li>Develop proactive chat engagement features</li>
+                                        <li>Enhance analytics and reporting dashboard</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <h3 class="font-semibold text-white">ShopSphere</h3>
+                                <p class="mb-2">This is a full-featured e-commerce web application built with Next.js and React. Here's a summary of its key features:</p>
+                                <div class="flex items-center space-x-4">
+                                    <a href="https://github.com/RickyVishwakarma/shopSphere" target="_blank" class="text-accent hover:text-white transition-colors duration-300 group inline-flex items-center">
+                                        <span>View on GitHub</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 opacity-50 group-hover:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                    </a>
+                                    <a href="https://shop-sphere-pi.vercel.app/" target="_blank" class="text-accent hover:text-white transition-colors duration-300 group inline-flex items-center">
+                                        <span>Live Demo</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 opacity-50 group-hover:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                    </a>
+                                    <button class="project-details-toggle text-accent hover:text-white transition-colors duration-300">Details</button>
+                                </div>
+                                <div class="project-details hidden mt-4 pl-4 border-l-2 border-gray-700">
+                                    <ul class="list-disc list-inside space-y-2">
+                                        <li><strong>Homepage:</strong> A welcoming homepage that showcases featured products and lists all available items. It includes functionality to search, sort, and filter products by category.</li>
+                                        <li><strong>Product Pages:</strong> Detailed pages for each product, displaying images, description, price, and an "Add to Cart" button.</li>
+                                        <li><strong>Shopping Cart:</strong> A complete shopping cart system where you can view added items, update quantities, or remove products.</li>
+                                        <li><strong>Checkout Flow:</strong> A multi-step checkout process that captures shipping information and simulates a payment step.</li>
+                                        <li><strong>Order History:</strong> A page where users can view their past orders and check their status.</li>
+                                        <li><strong>AI-Powered Recommendations:</strong> The application uses a Genkit AI flow to provide personalized product recommendations to users on product detail pages based on their browsing history.</li>
+                                        <li><strong>Modern Tech Stack:</strong> It's built with modern web technologies, including Next.js App Router, TypeScript, Tailwind CSS for styling, and shadcn/ui for components.</li>
+                                    </ul>
+                                </div>
+                            </li>
+                             <li>
+                                <h3 class="font-semibold text-white">Car Parking System</h3>
+                                <p class="mb-2">This is a Computer Vision-based Car Parking Space Detection system that uses Deep Learning to identify and count available parking spaces in real-time. The system processes video feeds to determine which parking spots are occupied or vacant.</p>
+                                <div class="flex items-center space-x-4">
+                                    <a href="https://github.com/RickyVishwakarma/CarParking" target="_blank" class="text-accent hover:text-white transition-colors duration-300 group inline-flex items-center">
+                                        <span>View on GitHub</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 opacity-50 group-hover:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                    </a>
+                                    <button class="project-details-toggle text-accent hover:text-white transition-colors duration-300">Details</button>
+                                </div>
+                                <div class="project-details hidden mt-4 pl-4 border-l-2 border-gray-700">
+                                    <h4 class="font-semibold text-white mb-2">Core Technology Stack:</h4>
+                                    <ul class="list-disc list-inside space-y-1 mb-3">
+                                        <li><strong>Backend:</strong> Python with Flask web framework</li>
+                                        <li><strong>Computer Vision:</strong> OpenCV for image processing</li>
+                                        <li><strong>Deep Learning:</strong> TensorFlow/Keras with a pre-trained CNN model</li>
+                                        <li><strong>Frontend:</strong> Simple web interface with real-time video streaming</li>
+                                    </ul>
+                                    <h4 class="font-semibold text-white mb-2">Main Features:</h4>
+                                    <ul class="list-disc list-inside space-y-1 mb-3">
+                                        <li>Real-time parking space detection and classification</li>
+                                        <li>Web-based interface for monitoring</li>
+                                        <li>REST API for integration with other systems</li>
+                                        <li>Customizable parking space mapping</li>
+                                    </ul>
+                                    <h4 class="font-semibold text-white mb-2">Setup Requirements:</h4>
+                                    <ul class="list-disc list-inside space-y-1 mb-3">
+                                        <li>Python 3.x</li>
+                                        <li>Key packages: Flask, OpenCV, TensorFlow, NumPy, Pickle</li>
+                                        <li>Pre-trained model and position data</li>
+                                    </ul>
+                                    <h4 class="font-semibold text-white mb-2">Potential Use Cases:</h4>
+                                    <ul class="list-disc list-inside space-y-1 mb-3">
+                                        <li>Smart parking lots</li>
+                                        <li>Shopping malls</li>
+                                        <li>Airport parking</li>
+                                        <li>Street parking monitoring</li>
+                                        <li>Urban planning and traffic management</li>
+                                    </ul>
+                                    <h4 class="font-semibold text-white mb-2">Strengths:</h4>
+                                    <ul class="list-disc list-inside space-y-1 mb-3">
+                                        <li>Real-time processing</li>
+                                        <li>High accuracy in controlled conditions</li>
+                                        <li>Easy to deploy</li>
+                                        <li>Customizable for different parking layouts</li>
+                                    </ul>
+                                    <h4 class="font-semibold text-white mb-2">Limitations:</h4>
+                                    <ul class="list-disc list-inside space-y-1 mb-3">
+                                        <li>Performance depends on camera angle and lighting</li>
+                                        <li>Requires initial setup for parking space mapping</li>
+                                        <li>May need retraining for different environments</li>
+                                    </ul>
+                                    <h4 class="font-semibold text-white mb-2">Future Enhancements:</h4>
+                                    <ul class="list-disc list-inside space-y-1">
+                                        <li>Support for multiple camera feeds</li>
+                                        <li>Integration with payment systems</li>
+                                        <li>Mobile app for real-time space availability</li>
+                                        <li>Occupancy prediction using historical data</li>
+                                        <li>Better handling of occlusions and varying lighting</li>
+                                    </ul>
+                                </div>
+                            </li>
+                             <li>
+                                <h3 class="font-semibold text-white">DSA Projects</h3>
+                                <p class="mb-2">A collection of projects focused on implementing and demonstrating various data structures and algorithms.</p>
+                                <div class="flex items-center space-x-4">
+                                    <a href="https://github.com/RickyVishwakarma/DSA-Projects" target="_blank" class="text-accent hover:text-white transition-colors duration-300 group inline-flex items-center">
+                                        <span>View on GitHub</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 opacity-50 group-hover:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                    </a>
+                                    <button class="project-details-toggle text-accent hover:text-white transition-colors duration-300">Details</button>
+                                </div>
+                                <div class="project-details hidden mt-4 pl-4 border-l-2 border-gray-700">
+                                    <h4 class="font-semibold text-white mb-2">Included Projects:</h4>
+                                    <ul class="list-disc list-inside space-y-1">
+                                        <li>BigInt Calculator</li>
+                                        <li>Flight Scheduling System</li>
+                                        <li>Billing System</li>
+                                        <li>Data Visualization Tool</li>
+                                        <li>Huffman Coding</li>
+                                    </ul>
+                                    <p class="mt-3">All projects are implemented purely in C++.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
 
-View on GitHub
-Details
-coding profiles
-Top 10% @LeetCode | 2★ @CodeChef coder Strong in DSA, passionate about AI and startups. Continuously learning and solving real-world challenges. .
+                    <section id="coding-profiles" class="mb-12">
+                        <h2 class="text-2xl font-semibold text-white mb-4">coding profiles</h2>
+                        <p class="text-light-gray mb-4">Top 10% @LeetCode | 2★ @CodeChef coder
+Strong in DSA, passionate about AI and startups. Continuously learning and solving real-world challenges.
 
-LeetCode
-CodeChef
-Codeforces
-Striver's SDE Sheet
-A curated list of Data Structures and Algorithms questions to prepare for software development engineering roles, created by Raj Vikramaditya (Striver). I am actively working through this list to strengthen my problem-solving skills.
+.</p>
+                        <ul class="space-y-2 text-light-gray">
+                            <li><a href="https://leetcode.com/u/Ricky_22/" target="_blank" class="hover:text-white transition-colors duration-300 group inline-flex items-center"><span>LeetCode</span><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 opacity-50 group-hover:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a></li>
+                            <li><a href="https://www.codechef.com/users/stephen_76" target="_blank" class="hover:text-white transition-colors duration-300 group inline-flex items-center"><span>CodeChef</span><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 opacity-50 group-hover:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a></li>
+                            <li><a href="https://codeforces.com/profile/ricky17" target="_blank" class="hover:text-white transition-colors duration-300 group inline-flex items-center"><span>Codeforces</span><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 opacity-50 group-hover:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a></li>
+                        </ul>
+                    </section>
+                    
+                    <section id="striver-sde-sheet" class="mb-12">
+                        <h2 class="text-2xl font-semibold text-white mb-4">Striver's SDE Sheet</h2>
+                        <p class="text-light-gray mb-4">A curated list of Data Structures and Algorithms questions to prepare for software development engineering roles, created by Raj Vikramaditya (Striver). I am actively working through this list to strengthen my problem-solving skills.</p>
+                        <a href="https://takeuforward.org/interviews/strivers-sde-sheet-top-coding-interview-problems" target="_blank" class="text-accent hover:text-white transition-colors duration-300 group inline-flex items-center">
+                            <span>View My Progress</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 opacity-50 group-hover:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </section>
 
-View My Progress
-follow me
-X (Twitter)
-GitHub
-LinkedIn
-Instagram
-about
-writing
-projects
-follow
-code
-coding profiles
-striver SDE Sheet
+                    <section id="follow">
+                        <h2 class="text-2xl font-semibold text-white mb-4">follow me</h2>
+                        <ul class="space-y-2 text-light-gray">
+                            <li><a href="https://x.com/RICKYVISHW17342" target="_blank" class="hover:text-white transition-colors duration-300 group inline-flex items-center"><span>X (Twitter)</span><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 opacity-50 group-hover:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a></li>
+                            <li><a href="https://github.com/RickyVishwakarma" target="_blank" class="hover:text-white transition-colors duration-300 group inline-flex items-center"><span>GitHub</span><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 opacity-50 group-hover:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a></li>
+                            <li><a href="https://www.linkedin.com/in/ricky-vishwakarma-ab5700287/" target="_blank" class="hover:text-white transition-colors duration-300 group inline-flex items-center"><span>LinkedIn</span><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 opacity-50 group-hover:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a></li>
+                            <li><a href="https://www.instagram.com/__ricky_vish_/" target="_blank" class="hover:text-white transition-colors duration-300 group inline-flex items-center"><span>Instagram</span><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 opacity-50 group-hover:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a></li>
+                        </ul>
+                    </section>
+                </main>
+            </div>
+
+            <!-- Right Column: Navigation -->
+            <aside class="md:col-span-4 lg:col-span-4">
+                <nav class="sticky top-8 transition-all duration-200 ease-in-out">
+                    <ul class="space-y-2 text-light-gray">
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">about</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">writing</a></li>
+                        <li><a href="#projects" class="hover:text-white transition-colors duration-300">projects</a></li>
+                        <li>
+                            <a href="#follow" class="hover:text-white transition-colors duration-300 group inline-flex items-center">
+                                <span>follow</span>
+                            </a>
+                        </li>
+                         <li>
+                            <a href="https://github.com/RickyVishwakarma" target="_blank" class="hover:text-white transition-colors duration-300 group inline-flex items-center">
+                                <span>code</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 opacity-50 group-hover:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#coding-profiles" class="hover:text-white transition-colors duration-300">coding profiles</a>
+                        </li>
+                        <li>
+                            <a href="#striver-sde-sheet" class="hover:text-white transition-colors duration-300 group inline-flex items-center">
+                                <span>striver SDE Sheet</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+
+        </div>
+    </div>
+    
+    <script>
+        // JavaScript for project details toggle
+        document.querySelectorAll('.project-details-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const details = button.parentElement.nextElementSibling;
+                details.classList.toggle('hidden');
+            });
+        });
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .sticky {
+            transition: transform 0.2s ease-in-out;
+        }
+    </style>
+</body>
+</html>
+
