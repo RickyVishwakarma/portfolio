@@ -33,36 +33,101 @@
   </script>
 
   <style>
-    /* Smooth scrollbar */
+    /* --- Base & Scrollbar --- */
     ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-track { background: #111111; }
     ::-webkit-scrollbar-thumb { background: #2d3748; border-radius: 10px; }
     ::-webkit-scrollbar-thumb:hover { background: #4a5568; }
 
-    .nav-link.active .nav-text {
+    body {
+        background-color: var(--color-primary);
+        background-image: radial-gradient(circle at top right, rgba(79, 209, 197, 0.05), transparent 30%);
+    }
+
+    /* --- UI Enhancement: Section Headings --- */
+    h2 {
+        letter-spacing: 0.025em;
+    }
+
+    /* --- UI Enhancement: Navigation --- */
+    .nav-link.active .nav-text, .nav-link:hover .nav-text {
       color: #4fd1c5;
       font-weight: 700;
     }
-    .nav-link.active .w-8 {
+    .nav-link.active .w-8, .nav-link:hover .w-8 {
         background-color: #4fd1c5;
     }
+    .nav-link .w-8 {
+        transition: width 0.3s ease, background-color 0.3s ease;
+    }
+    .nav-link:hover .w-8 {
+        width: 4rem; /* 64px */
+    }
 
-    /* Project details expand */
+    /* --- UI Enhancement: Project Details Expansion --- */
     .project-details {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.5s ease-out, opacity 0.3s ease-out;
+      transition: max-height 0.5s ease-out, opacity 0.3s ease-out, padding 0.5s ease-out;
       opacity: 0;
+      padding-top: 0;
+      padding-bottom: 0;
     }
     .project-details.show {
       max-height: 2000px;
       opacity: 1;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
     }
+    
+    /* --- UI Enhancement: Card Glow & Lift --- */
     .card-glow {
-        transition: box-shadow 0.3s ease-in-out;
+        transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
     }
     .card-glow:hover {
-        box-shadow: 0 0 20px rgba(79, 209, 197, 0.2);
+        transform: translateY(-4px);
+        box-shadow: 0 0 25px rgba(79, 209, 197, 0.2), 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    /* --- UI Enhancement: Animated Underline for Links --- */
+    .animated-underline {
+        position: relative;
+        display: inline-block;
+        padding-bottom: 2px;
+    }
+    .animated-underline::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #4fd1c5;
+        transition: width 0.3s ease-out;
+    }
+    .animated-underline:hover::after {
+        width: 100%;
+    }
+
+    /* --- UI Enhancement: Sidebar Glow --- */
+    .sidebar-glow {
+        position: relative;
+    }
+    .sidebar-glow::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background-image: radial-gradient(circle at center, rgba(79, 209, 197, 0.15), transparent 40%);
+        z-index: -1;
+        animation: rotateGlow 15s linear infinite;
+    }
+
+    @keyframes rotateGlow {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
     }
   </style>
 </head>
@@ -73,22 +138,23 @@
 
       <!-- Sidebar -->
       <aside class="md:col-span-4 lg:col-span-3 md:sticky top-8 self-start">
-        <div class="p-6 bg-secondary rounded-2xl card-glow">
+        <div class="p-6 bg-secondary rounded-2xl card-glow sidebar-glow overflow-hidden">
             <div class="flex flex-col items-center md:items-start">
                 <h1 class="text-3xl font-bold text-center md:text-left text-white mb-2">Ricky Vishwakarma</h1>
                 <p id="typing-text" class="text-light-gray text-center md:text-left h-12"></p>
-                <a href="https://drive.google.com/file/d/1t0BY4FjXcfYded5bZYNjAIIGIGz6vuWr/view?usp=drive_link" target="_blank" class="mt-4 w-full text-center inline-block px-5 py-3 bg-accent text-black font-semibold rounded-lg hover:bg-teal-400 transition transform hover:scale-105">
+                <a href="https://drive.google.com/file/d/1t0BY4FjXcfYded5bZYNjAIIGIGz6vuWr/view?usp=drive_link" target="_blank" class="mt-4 w-full text-center inline-block px-5 py-3 bg-gradient-to-r from-accent to-teal-500 text-black font-bold rounded-lg shadow-lg shadow-accent/20 hover:shadow-accent/40 transition-all transform hover:scale-105">
                     Download Resume
                 </a>
             </div>
             <nav class="mt-8">
               <ul class="space-y-3 text-light-gray">
-                <li><a href="#about" class="nav-link flex items-center gap-3 hover:text-white transition group"><span class="w-8 h-px bg-gray-600 transition"></span><span class="nav-text">About</span></a></li>
-                <li><a href="#skills" class="nav-link flex items-center gap-3 hover:text-white transition group"><span class="w-8 h-px bg-gray-600 transition"></span><span class="nav-text">Skills</span></a></li>
-                <li><a href="#projects" class="nav-link flex items-center gap-3 hover:text-white transition group"><span class="w-8 h-px bg-gray-600 transition"></span><span class="nav-text">Projects</span></a></li>
-                <li><a href="#coding-profiles" class="nav-link flex items-center gap-3 hover:text-white transition group"><span class="w-8 h-px bg-gray-600 transition"></span><span class="nav-text">Coding Profiles</span></a></li>
-                <li><a href="#beliefs" class="nav-link flex items-center gap-3 hover:text-white transition group"><span class="w-8 h-px bg-gray-600 transition"></span><span class="nav-text">Beliefs</span></a></li>
-                <li><a href="#contact" class="nav-link flex items-center gap-3 hover:text-white transition group"><span class="w-8 h-px bg-gray-600 transition"></span><span class="nav-text">Contact</span></a></li>
+                <li><a href="#about" class="nav-link flex items-center gap-3 transition group"><span class="w-8 h-px bg-gray-600"></span><span class="nav-text transition-colors duration-300">About</span></a></li>
+                <li><a href="#skills" class="nav-link flex items-center gap-3 transition group"><span class="w-8 h-px bg-gray-600"></span><span class="nav-text transition-colors duration-300">Skills</span></a></li>
+                <li><a href="#projects" class="nav-link flex items-center gap-3 transition group"><span class="w-8 h-px bg-gray-600"></span><span class="nav-text transition-colors duration-300">Projects</span></a></li>
+                <li><a href="#achievements" class="nav-link flex items-center gap-3 transition group"><span class="w-8 h-px bg-gray-600"></span><span class="nav-text transition-colors duration-300">Achievements</span></a></li>
+                <li><a href="#coding-profiles" class="nav-link flex items-center gap-3 transition group"><span class="w-8 h-px bg-gray-600"></span><span class="nav-text transition-colors duration-300">Coding Profiles</span></a></li>
+                <li><a href="#beliefs" class="nav-link flex items-center gap-3 transition group"><span class="w-8 h-px bg-gray-600"></span><span class="nav-text transition-colors duration-300">Beliefs</span></a></li>
+                <li><a href="#contact" class="nav-link flex items-center gap-3 transition group"><span class="w-8 h-px bg-gray-600"></span><span class="nav-text transition-colors duration-300">Contact</span></a></li>
               </ul>
             </nav>
         </div>
@@ -100,7 +166,7 @@
           <!-- About Me -->
           <section id="about" class="mb-16 scroll-mt-20">
             <h2 class="text-3xl font-bold text-white mb-6">About Me</h2>
-            <div class="space-y-4 text-light-gray max-w-prose">
+            <div class="space-y-4 text-light-gray max-w-prose leading-relaxed">
                 <p>I'm a Computer Engineering graduate with a strong foundation in Data Structures & Algorithms and a passion for building performant web applications. I thrive on solving complex problems, from developing AI-driven features to contributing to open-source projects.</p>
                 <p>My journey in tech is driven by a startup mindset and a deep interest in AI research. I am constantly exploring new technologies and am currently seeking opportunities to apply my skills in a challenging software development role where I can contribute to innovative and impactful projects.</p>
             </div>
@@ -110,14 +176,14 @@
           <section id="skills" class="mb-16 scroll-mt-20">
               <h2 class="text-3xl font-bold text-white mb-6">Skills</h2>
               <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                  <div class="flex items-center gap-3 bg-secondary p-3 rounded-lg card-glow"><i data-lucide="brain-circuit"></i><span>AI/ML</span></div>
-                  <div class="flex items-center gap-3 bg-secondary p-3 rounded-lg card-glow"><i data-lucide="database"></i><span>MERN Stack</span></div>
-                  <div class="flex items-center gap-3 bg-secondary p-3 rounded-lg card-glow"><i data-lucide="code"></i><span>Next.js</span></div>
-                  <div class="flex items-center gap-3 bg-secondary p-3 rounded-lg card-glow"><i data-lucide="braces"></i><span>C++</span></div>
-                  <div class="flex items-center gap-3 bg-secondary p-3 rounded-lg card-glow"><i data-lucide="leaf"></i><span>DSA</span></div>
-                  <div class="flex items-center gap-3 bg-secondary p-3 rounded-lg card-glow"><i data-lucide="github"></i><span>Git & GitHub</span></div>
-                  <div class="flex items-center gap-3 bg-secondary p-3 rounded-lg card-glow"><i data-lucide="wind"></i><span>Tailwind CSS</span></div>
-                  <div class="flex items-center gap-3 bg-secondary p-3 rounded-lg card-glow"><i data-lucide="figma"></i><span>UI/UX Design</span></div>
+                  <div class="flex items-center gap-3 bg-secondary p-3 rounded-lg card-glow border border-transparent hover:border-accent/50"><i data-lucide="brain-circuit" class="text-accent"></i><span>AI/ML</span></div>
+                  <div class="flex items-center gap-3 bg-secondary p-3 rounded-lg card-glow border border-transparent hover:border-accent/50"><i data-lucide="database" class="text-accent"></i><span>MERN Stack</span></div>
+                  <div class="flex items-center gap-3 bg-secondary p-3 rounded-lg card-glow border border-transparent hover:border-accent/50"><i data-lucide="code" class="text-accent"></i><span>Next.js</span></div>
+                  <div class="flex items-center gap-3 bg-secondary p-3 rounded-lg card-glow border border-transparent hover:border-accent/50"><i data-lucide="braces" class="text-accent"></i><span>C++</span></div>
+                  <div class="flex items-center gap-3 bg-secondary p-3 rounded-lg card-glow border border-transparent hover:border-accent/50"><i data-lucide="leaf" class="text-accent"></i><span>DSA</span></div>
+                  <div class="flex items-center gap-3 bg-secondary p-3 rounded-lg card-glow border border-transparent hover:border-accent/50"><i data-lucide="github" class="text-accent"></i><span>Git & GitHub</span></div>
+                  <div class="flex items-center gap-3 bg-secondary p-3 rounded-lg card-glow border border-transparent hover:border-accent/50"><i data-lucide="wind" class="text-accent"></i><span>Tailwind CSS</span></div>
+                  <div class="flex items-center gap-3 bg-secondary p-3 rounded-lg card-glow border border-transparent hover:border-accent/50"><i data-lucide="figma" class="text-accent"></i><span>UI/UX Design</span></div>
               </div>
           </section>
 
@@ -125,41 +191,41 @@
           <section id="projects" class="mb-16 scroll-mt-20">
             <h2 class="text-3xl font-bold text-white mb-6">Projects</h2>
             <div class="space-y-8">
-                 <!-- Clara AI -->
+                <!-- Clara AI -->
                 <div class="bg-secondary p-6 rounded-2xl card-glow">
                     <h3 class="font-bold text-xl text-white">Clara AI</h3>
                     <p class="mb-3 text-light-gray">A modern AI chat application with real-time, AI-powered conversations.</p>
                     <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-gray-700 text-xs font-semibold px-2.5 py-1 rounded-full">Next.js</span>
-                        <span class="bg-gray-700 text-xs font-semibold px-2.5 py-1 rounded-full">TypeScript</span>
-                        <span class="bg-gray-700 text-xs font-semibold px-2.5 py-1 rounded-full">LangChain</span>
-                        <span class="bg-gray-700 text-xs font-semibold px-2.5 py-1 rounded-full">Convex</span>
+                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Next.js</span>
+                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">TypeScript</span>
+                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">LangChain</span>
+                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Convex</span>
                     </div>
                     <div class="flex items-center space-x-4">
-                        <a href="https://github.com/RickyVishwakarma/AI_Agent" target="_blank" class="text-accent hover:text-white transition group inline-flex items-center">View on GitHub <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"></i></a>
-                        <button class="project-details-toggle text-accent hover:text-white transition">Details</button>
+                        <a href="https://github.com/RickyVishwakarma/AI_Agent" target="_blank" class="text-accent hover:text-white transition group animated-underline">View on GitHub <i data-lucide="arrow-up-right" class="inline-block w-4 h-4 ml-1 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"></i></a>
+                        <button class="project-details-toggle text-accent hover:text-white transition animated-underline">Details</button>
                     </div>
-                    <div class="project-details mt-4 pl-4 border-l-2 border-gray-700 text-light-gray text-sm space-y-4">
+                    <div class="project-details pl-4 border-l-2 border-gray-700 text-light-gray text-sm space-y-4">
                         <div><h4 class="font-semibold text-white mb-2">Key Features:</h4><ul class="list-disc list-inside space-y-1"><li>Natural Language Understanding</li><li>24/7 Automated Support</li><li>Seamless escalation to human agents</li></ul></div>
                         <div><h4 class="font-semibold text-white mb-2">Technical Stack:</h4><ul class="list-disc list-inside space-y-1"><li><strong>Frontend:</strong> Next.js 14 with TypeScript</li><li><strong>Authentication:</strong> Clerk</li><li><strong>Database:</strong> Convex</li><li><strong>Styling:</strong> Tailwind CSS with animations</li><li><strong>AI Integration:</strong> LangChain and Anthropic's Claude model</li><li><strong>State Management:</strong> SWR for data fetching</li></ul></div>
                     </div>
                 </div>
-                 <!-- ShopSphere -->
+                <!-- ShopSphere -->
                 <div class="bg-secondary p-6 rounded-2xl card-glow">
                     <h3 class="font-bold text-xl text-white">ShopSphere</h3>
                     <p class="mb-3 text-light-gray">A full-featured e-commerce web app with AI-powered recommendations.</p>
                      <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-gray-700 text-xs font-semibold px-2.5 py-1 rounded-full">Next.js</span>
-                        <span class="bg-gray-700 text-xs font-semibold px-2.5 py-1 rounded-full">React</span>
-                        <span class="bg-gray-700 text-xs font-semibold px-2.5 py-1 rounded-full">Genkit AI</span>
-                        <span class="bg-gray-700 text-xs font-semibold px-2.5 py-1 rounded-full">shadcn/ui</span>
+                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Next.js</span>
+                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">React</span>
+                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Genkit AI</span>
+                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">shadcn/ui</span>
                     </div>
                     <div class="flex items-center space-x-4">
-                        <a href="https://github.com/RickyVishwakarma/shopSphere" target="_blank" class="text-accent hover:text-white transition group inline-flex items-center">View on GitHub <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"></i></a>
-                         <a href="https://shop-sphere-pi.vercel.app/" target="_blank" class="text-accent hover:text-white transition group inline-flex items-center">Live Demo <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"></i></a>
-                        <button class="project-details-toggle text-accent hover:text-white transition">Details</button>
+                        <a href="https://github.com/RickyVishwakarma/shopSphere" target="_blank" class="text-accent hover:text-white transition group animated-underline">View on GitHub <i data-lucide="arrow-up-right" class="inline-block w-4 h-4 ml-1 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"></i></a>
+                         <a href="https://shop-sphere-pi.vercel.app/" target="_blank" class="text-accent hover:text-white transition group animated-underline">Live Demo <i data-lucide="arrow-up-right" class="inline-block w-4 h-4 ml-1 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"></i></a>
+                        <button class="project-details-toggle text-accent hover:text-white transition animated-underline">Details</button>
                     </div>
-                    <div class="project-details mt-4 pl-4 border-l-2 border-gray-700 text-light-gray text-sm space-y-4">
+                    <div class="project-details pl-4 border-l-2 border-gray-700 text-light-gray text-sm space-y-4">
                         <ul class="list-disc list-inside space-y-2"><li><strong>Homepage:</strong> Showcases featured products and lists all available items with search, sort, and filter functionality.</li><li><strong>Shopping Cart:</strong> A complete system to view, update quantities, or remove products.</li><li><strong>AI-Powered Recommendations:</strong> Uses a Genkit AI flow to provide personalized product recommendations.</li><li><strong>Modern Tech Stack:</strong> Built with Next.js App Router, TypeScript, and Tailwind CSS.</li></ul>
                     </div>
                 </div>
@@ -168,16 +234,16 @@
                     <h3 class="font-bold text-xl text-white">Car Parking System</h3>
                     <p class="mb-3 text-light-gray">A Computer Vision system to detect and count available parking spaces in real-time.</p>
                      <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-gray-700 text-xs font-semibold px-2.5 py-1 rounded-full">Python</span>
-                        <span class="bg-gray-700 text-xs font-semibold px-2.5 py-1 rounded-full">OpenCV</span>
-                        <span class="bg-gray-700 text-xs font-semibold px-2.5 py-1 rounded-full">TensorFlow</span>
-                        <span class="bg-gray-700 text-xs font-semibold px-2.5 py-1 rounded-full">Flask</span>
+                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Python</span>
+                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">OpenCV</span>
+                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">TensorFlow</span>
+                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Flask</span>
                     </div>
                     <div class="flex items-center space-x-4">
-                        <a href="https://github.com/RickyVishwakarma/CarParking" target="_blank" class="text-accent hover:text-white transition group inline-flex items-center">View on GitHub <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"></i></a>
-                        <button class="project-details-toggle text-accent hover:text-white transition">Details</button>
+                        <a href="https://github.com/RickyVishwakarma/CarParking" target="_blank" class="text-accent hover:text-white transition group animated-underline">View on GitHub <i data-lucide="arrow-up-right" class="inline-block w-4 h-4 ml-1 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"></i></a>
+                        <button class="project-details-toggle text-accent hover:text-white transition animated-underline">Details</button>
                     </div>
-                    <div class="project-details mt-4 pl-4 border-l-2 border-gray-700 text-light-gray text-sm space-y-4">
+                    <div class="project-details pl-4 border-l-2 border-gray-700 text-light-gray text-sm space-y-4">
                          <div><h4 class="font-semibold text-white mb-2">Core Features:</h4><ul class="list-disc list-inside space-y-1"><li>Real-time parking space detection</li><li>Web-based interface for monitoring</li><li>REST API for easy integration</li></ul></div>
                     </div>
                 </div>
@@ -186,16 +252,59 @@
                     <h3 class="font-bold text-xl text-white">DSA Projects</h3>
                     <p class="mb-3 text-light-gray">A collection of projects focused on implementing and demonstrating various data structures and algorithms.</p>
                      <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-gray-700 text-xs font-semibold px-2.5 py-1 rounded-full">C++</span>
-                        <span class="bg-gray-700 text-xs font-semibold px-2.5 py-1 rounded-full">Data Structures</span>
-                        <span class="bg-gray-700 text-xs font-semibold px-2.5 py-1 rounded-full">Algorithms</span>
+                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">C++</span>
+                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Data Structures</span>
+                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Algorithms</span>
                     </div>
                     <div class="flex items-center space-x-4">
-                        <a href="https://github.com/RickyVishwakarma/DSA-Projects" target="_blank" class="text-accent hover:text-white transition group inline-flex items-center">View on GitHub <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"></i></a>
-                        <button class="project-details-toggle text-accent hover:text-white transition">Details</button>
+                        <a href="https://github.com/RickyVishwakarma/DSA-Projects" target="_blank" class="text-accent hover:text-white transition group animated-underline">View on GitHub <i data-lucide="arrow-up-right" class="inline-block w-4 h-4 ml-1 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"></i></a>
+                        <button class="project-details-toggle text-accent hover:text-white transition animated-underline">Details</button>
                     </div>
-                    <div class="project-details mt-4 pl-4 border-l-2 border-gray-700 text-light-gray text-sm space-y-4">
+                    <div class="project-details pl-4 border-l-2 border-gray-700 text-light-gray text-sm space-y-4">
                          <div><h4 class="font-semibold text-white mb-2">Included Projects:</h4><ul class="list-disc list-inside space-y-1"><li>BigInt Calculator</li><li>Flight Scheduling System</li><li>Billing System</li><li>Data Visualization Tool</li><li>Huffman Coding</li></ul></div>
+                    </div>
+                </div>
+            </div>
+          </section>
+
+          <!-- Achievements -->
+          <section id="achievements" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-white mb-6">Achievements</h2>
+            <div class="space-y-6 text-light-gray">
+                <div class="p-4 rounded-lg bg-secondary/50 border-l-4 border-accent/50 transition-all duration-300 hover:bg-secondary/80 hover:border-accent">
+                    <div class="flex items-start gap-4">
+                        <i data-lucide="trophy" class="text-accent w-6 h-6 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <h4 class="font-bold text-white">Rank 1080 in Codeforces Square Point Challenge</h4>
+                            <p class="text-sm">Achieved a rank of 1080 out of 30,000+ participants, showcasing competitive programming ability.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 rounded-lg bg-secondary/50 border-l-4 border-accent/50 transition-all duration-300 hover:bg-secondary/80 hover:border-accent">
+                    <div class="flex items-start gap-4">
+                        <i data-lucide="award" class="text-accent w-6 h-6 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <h4 class="font-bold text-white">HackerRank Certified Software Developer</h4>
+                            <p class="text-sm">Earned the Software Developer certification by solving three advanced, high-quality DSA challenges.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 rounded-lg bg-secondary/50 border-l-4 border-accent/50 transition-all duration-300 hover:bg-secondary/80 hover:border-accent">
+                    <div class="flex items-start gap-4">
+                        <i data-lucide="trending-up" class="text-accent w-6 h-6 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <h4 class="font-bold text-white">Competitive Programming Ratings</h4>
+                            <p class="text-sm">Achieved a 1600+ rating on CodeChef and earned the "Specialist" tag with a 1500+ rating on Codeforces.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 rounded-lg bg-secondary/50 border-l-4 border-accent/50 transition-all duration-300 hover:bg-secondary/80 hover:border-accent">
+                    <div class="flex items-start gap-4">
+                        <i data-lucide="git-pull-request" class="text-accent w-6 h-6 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <h4 class="font-bold text-white">Open Source Contributor</h4>
+                            <p class="text-sm">Contributed to various open-source projects, focusing on bug fixes and feature enhancements.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -204,23 +313,20 @@
           <!-- Coding Profiles -->
           <section id="coding-profiles" class="mb-16 scroll-mt-20">
             <h2 class="text-3xl font-bold text-white mb-6">Coding Profiles</h2>
-            <p class="text-light-gray mb-6 max-w-prose">
-              Top 10% <span class="text-accent font-semibold">@LeetCode</span> | 
-              2★ <span class="text-accent font-semibold">@CodeChef</span> coder | 
-              Active on <span class="text-accent font-semibold">Codeforces</span>.  
-              Continuously learning and solving real-world challenges.
+            <p class="text-light-gray mb-6 max-w-prose leading-relaxed">
+              I'm a <span class="text-accent font-semibold">Top 10%</span> ranked programmer on LeetCode, a <span class="text-accent font-semibold">2★ Coder</span> on CodeChef, and hold the <span class="text-accent font-semibold">Specialist</span> title on Codeforces. I'm passionate about continuously learning and solving real-world challenges.
             </p>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                <a href="https://leetcode.com/u/stephen_76/" target="_blank" class="bg-secondary p-4 rounded-lg flex items-center gap-4 hover:bg-gray-800 transition card-glow">
-                    <img src="https://assets.leetcode.com/static_assets/public/images/LeetCode_logo_rvs.png" alt="LeetCode" class="w-8 h-8">
+                <a href="https://leetcode.com/u/stephen_76/" target="_blank" class="bg-secondary p-4 rounded-lg flex items-center gap-4 transition card-glow border border-transparent hover:border-accent/50">
+                    <img src="https://assets.leetcode.com/static_assets/public/images/LeetCode_logo_rvs.png" alt="LeetCode" class="w-8 h-8 object-contain">
                     <span class="font-medium text-white">LeetCode</span>
                 </a>
-                 <a href="https://www.codechef.com/users/stephen_76" target="_blank" class="bg-secondary p-4 rounded-lg flex items-center gap-4 hover:bg-gray-800 transition card-glow">
-                     <img src="https://i.pinimg.com/originals/c5/d9/fc/c5d9fc1e18bcf039f464c2ab6cfb3eb6.jpg" alt="CodeChef" class="w-8 h-8 rounded-full">
+                 <a href="https://www.codechef.com/users/stephen_76" target="_blank" class="bg-secondary p-4 rounded-lg flex items-center gap-4 transition card-glow border border-transparent hover:border-accent/50">
+                     <img src="https://placehold.co/32x32/111111/FFFFFF?text=CC" alt="CodeChef" class="w-8 h-8 rounded-full">
                     <span class="font-medium text-white">CodeChef</span>
                 </a>
-                 <a href="https://codeforces.com/profile/ricky17" target="_blank" class="bg-secondary p-4 rounded-lg flex items-center gap-4 hover:bg-gray-800 transition card-glow">
-                     <img src="http://googleusercontent.com/file_content/uploaded:OIP (4).jpg-e4998a99-4a9e-4979-b74a-9a77d1e09b76" alt="Codeforces" class="w-8 h-8 rounded-full">
+                 <a href="https://codeforces.com/profile/ricky17" target="_blank" class="bg-secondary p-4 rounded-lg flex items-center gap-4 transition card-glow border border-transparent hover:border-accent/50">
+                     <img src="https://placehold.co/32x32/111111/FFFFFF?text=CF" alt="Codeforces" class="w-8 h-8 rounded-full">
                     <span class="font-medium text-white">Codeforces</span>
                 </a>
             </div>
@@ -229,10 +335,10 @@
             <!-- Contact Me -->
             <section id="contact" class="mb-16 scroll-mt-20">
                 <h2 class="text-3xl font-bold text-white mb-6">Get In Touch</h2>
-                <p class="text-light-gray mb-6 max-w-prose">
+                <p class="text-light-gray mb-6 max-w-prose leading-relaxed">
                     I'm currently open to new opportunities and collaborations. Whether you have a question or just want to say hi, feel free to reach out. My inbox is always open!
                 </p>
-                <a href="mailto:your-email@example.com" class="inline-block px-6 py-3 bg-accent text-black font-semibold rounded-lg hover:bg-teal-400 transition transform hover:scale-105">
+                <a href="mailto:ricky.vishwakarma.dev@gmail.com" class="inline-block px-8 py-3 bg-gradient-to-r from-accent to-teal-500 text-black font-bold rounded-lg shadow-lg shadow-accent/20 hover:shadow-accent/40 transition-all transform hover:scale-105">
                     Say Hello
                 </a>
             </section>
@@ -242,25 +348,52 @@
           <section id="beliefs" class="mb-16 scroll-mt-20">
             <h2 class="text-3xl font-bold text-white mb-6">Things I Believe</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bg-secondary p-4 rounded-lg card-glow">Grit > Talent</div>
-                <div class="bg-secondary p-4 rounded-lg card-glow">Shipping fast beats the best strategy</div>
-                <div class="bg-secondary p-4 rounded-lg card-glow">Get 1% better every day</div>
-                <div class="bg-secondary p-4 rounded-lg card-glow">Communication is the job</div>
-                <div class="bg-secondary p-4 rounded-lg card-glow">Demos > Memos</div>
-                <div class="bg-secondary p-4 rounded-lg card-glow">Always assume good intent</div>
-                <div class="bg-secondary p-4 rounded-lg card-glow">You have no career ceiling</div>
-                <div class="bg-secondary p-4 rounded-lg card-glow">Be ruthlessly truth-seeking</div>
-                <div class="bg-secondary p-4 rounded-lg card-glow">There's no substitute for putting in the hours</div>
+                <div class="bg-secondary p-4 rounded-lg card-glow relative overflow-hidden border border-transparent hover:border-accent/30">
+                    <i data-lucide="quote" class="absolute -top-2 -right-2 text-white/5 w-16 h-16"></i>
+                    Grit > Talent
+                </div>
+                <div class="bg-secondary p-4 rounded-lg card-glow relative overflow-hidden border border-transparent hover:border-accent/30">
+                    <i data-lucide="quote" class="absolute -top-2 -right-2 text-white/5 w-16 h-16"></i>
+                    Shipping fast beats the best strategy
+                </div>
+                <div class="bg-secondary p-4 rounded-lg card-glow relative overflow-hidden border border-transparent hover:border-accent/30">
+                    <i data-lucide="quote" class="absolute -top-2 -right-2 text-white/5 w-16 h-16"></i>
+                    Get 1% better every day
+                </div>
+                <div class="bg-secondary p-4 rounded-lg card-glow relative overflow-hidden border border-transparent hover:border-accent/30">
+                    <i data-lucide="quote" class="absolute -top-2 -right-2 text-white/5 w-16 h-16"></i>
+                    Communication is the job
+                </div>
+                <div class="bg-secondary p-4 rounded-lg card-glow relative overflow-hidden border border-transparent hover:border-accent/30">
+                    <i data-lucide="quote" class="absolute -top-2 -right-2 text-white/5 w-16 h-16"></i>
+                    Demos > Memos
+                </div>
+                <div class="bg-secondary p-4 rounded-lg card-glow relative overflow-hidden border border-transparent hover:border-accent/30">
+                    <i data-lucide="quote" class="absolute -top-2 -right-2 text-white/5 w-16 h-16"></i>
+                    Always assume good intent
+                </div>
+                <div class="bg-secondary p-4 rounded-lg card-glow relative overflow-hidden border border-transparent hover:border-accent/30">
+                    <i data-lucide="quote" class="absolute -top-2 -right-2 text-white/5 w-16 h-16"></i>
+                    You have no career ceiling
+                </div>
+                <div class="bg-secondary p-4 rounded-lg card-glow relative overflow-hidden border border-transparent hover:border-accent/30">
+                    <i data-lucide="quote" class="absolute -top-2 -right-2 text-white/5 w-16 h-16"></i>
+                    Be ruthlessly truth-seeking
+                </div>
+                <div class="bg-secondary p-4 rounded-lg card-glow relative overflow-hidden border border-transparent hover:border-accent/30">
+                    <i data-lucide="quote" class="absolute -top-2 -right-2 text-white/5 w-16 h-16"></i>
+                    There's no substitute for putting in the hours
+                </div>
             </div>
           </section>
 
-          <footer class="text-center text-sm text-light-gray py-8">
+          <footer class="text-center text-sm text-light-gray py-8 border-t border-white/10">
               <p>Designed & Built by Ricky Vishwakarma</p>
-              <div class="flex items-center justify-center gap-4 mt-4">
-                <a href="https://x.com/RICKYVISHW17342" target="_blank" class="text-light-gray hover:text-accent transition"><i data-lucide="twitter" class="w-5 h-5"></i></a>
-                <a href="https://github.com/RickyVishwakarma" target="_blank" class="text-light-gray hover:text-accent transition"><i data-lucide="github" class="w-5 h-5"></i></a>
-                <a href="https://www.linkedin.com/in/ricky-vishwakarma-ab5700287/" target="_blank" class="text-light-gray hover:text-accent transition"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
-                <a href="https://www.instagram.com/__ricky_vish_/" target="_blank" class="text-light-gray hover:text-accent transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+              <div class="flex items-center justify-center gap-6 mt-4">
+                <a href="https://x.com/RICKYVISHW17342" target="_blank" class="text-light-gray hover:text-accent transition transform hover:scale-125"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                <a href="https://github.com/RickyVishwakarma" target="_blank" class="text-light-gray hover:text-accent transition transform hover:scale-125"><i data-lucide="github" class="w-5 h-5"></i></a>
+                <a href="https://www.linkedin.com/in/ricky-vishwakarma-ab5700287/" target="_blank" class="text-light-gray hover:text-accent transition transform hover:scale-125"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                <a href="https://www.instagram.com/__ricky_vish_/" target="_blank" class="text-light-gray hover:text-accent transition transform hover:scale-125"><i data-lucide="instagram" class="w-5 h-5"></i></a>
               </div>
           </footer>
         </main>
@@ -320,7 +453,4 @@
   </script>
 </body>
 </html>
-
-
-
 
