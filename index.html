@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- Load Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <script>
@@ -79,7 +80,7 @@
       padding-top: 1rem;
       padding-bottom: 1rem;
     }
-    
+     
     /* --- UI Enhancement: Card Glow & Lift --- */
     .card-glow {
         transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
@@ -172,7 +173,7 @@
                 <p>My journey in tech is driven by a startup mindset and a deep interest in AI research. I am constantly exploring new technologies and am currently seeking opportunities to apply my skills in a challenging software development role where I can contribute to innovative and impactful projects.</p>
             </div>
           </section>
-          
+           
           <!-- Experience -->
           <section id="experience" class="mb-16 scroll-mt-20">
               <h2 class="text-3xl font-bold text-white mb-6">Experience</h2>
@@ -212,7 +213,8 @@
 
           <!-- Projects -->
           <section id="projects" class="mb-16 scroll-mt-20">
-            <h2 class="text-3d font-bold text-white mb-6">Projects</h2>
+            <!-- Corrected typo: text-3d -> text-3xl -->
+            <h2 class="text-3xl font-bold text-white mb-6">Projects</h2>
             <div class="space-y-8">
                 <!-- Clara AI -->
                 <div class="bg-secondary p-6 rounded-2xl card-glow">
@@ -256,7 +258,7 @@
                 <div class="bg-secondary p-6 rounded-2xl card-glow">
                     <h3 class="font-bold text-xl text-white">ShopSphere</h3>
                     <p class="mb-3 text-light-gray">A full-featured e-commerce web app with AI-powered recommendations.</p>
-                     <div class="flex flex-wrap gap-2 mb-4">
+                      <div class="flex flex-wrap gap-2 mb-4">
                         <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Next.js</span>
                         <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">React</span>
                         <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Genkit AI</span>
@@ -264,7 +266,7 @@
                     </div>
                     <div class="flex items-center space-x-4">
                         <a href="https://github.com/RickyVishwakarma/shopSphere" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-white transition group animated-underline">View on GitHub <i data-lucide="arrow-up-right" class="inline-block w-4 h-4 ml-1 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"></i></a>
-                         <a href="https://shop-sphere-pi.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-white transition group animated-underline">Live Demo <i data-lucide="arrow-up-right" class="inline-block w-4 h-4 ml-1 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"></i></a>
+                          <a href="https://shop-sphere-pi.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-white transition group animated-underline">Live Demo <i data-lucide="arrow-up-right" class="inline-block w-4 h-4 ml-1 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"></i></a>
                         <button class="project-details-toggle text-accent hover:text-white transition animated-underline">Details</button>
                     </div>
                     <div class="project-details pl-4 border-l-2 border-gray-700 text-light-gray text-sm space-y-4">
@@ -275,7 +277,7 @@
                 <div class="bg-secondary p-6 rounded-2xl card-glow">
                     <h3 class="font-bold text-xl text-white">Car Parking System</h3>
                     <p class="mb-3 text-light-gray">A Computer Vision system to detect and count available parking spaces in real-time.</p>
-                     <div class="flex flex-wrap gap-2 mb-4">
+                      <div class="flex flex-wrap gap-2 mb-4">
                         <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Python</span>
                         <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">OpenCV</span>
                         <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">TensorFlow</span>
@@ -293,7 +295,7 @@
                 <div class="bg-secondary p-6 rounded-2xl card-glow">
                     <h3 class="font-bold text-xl text-white">DSA Projects</h3>
                     <p class="mb-3 text-light-gray">A collection of projects focused on implementing and demonstrating various data structures and algorithms.</p>
-                     <div class="flex flex-wrap gap-2 mb-4">
+                      <div class="flex flex-wrap gap-2 mb-4">
                         <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">C++</span>
                         <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Data Structures</span>
                         <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Algorithms</span>
@@ -313,6 +315,15 @@
           <section id="achievements" class="mb-16 scroll-mt-20">
             <h2 class="text-3xl font-bold text-white mb-6">Achievements</h2>
             <div class="space-y-6 text-light-gray">
+                <div class="p-4 rounded-lg bg-secondary/50 border-l-4 border-accent/50 transition-all duration-300 hover:bg-secondary/80 hover:border-accent">
+                    <div class="flex items-start gap-4">
+                        <i data-lucide="medal" class="text-accent w-6 h-6 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <h4 class="font-bold text-white">AIR 79 in Shaastra Coding Contest</h4>
+                            <p class="text-sm">Secured All India Rank 79 out of 25,000+ participants in the 215 Powered by Arcesium contest on CodeChef, solving 6 out of 8 problems.</p>
+                        </div>
+                    </div>
+                </div>
                 <div class="p-4 rounded-lg bg-secondary/50 border-l-4 border-accent/50 transition-all duration-300 hover:bg-secondary/80 hover:border-accent">
                     <div class="flex items-start gap-4">
                         <i data-lucide="trophy" class="text-accent w-6 h-6 mt-1 flex-shrink-0"></i>
@@ -336,7 +347,7 @@
                         <i data-lucide="trending-up" class="text-accent w-6 h-6 mt-1 flex-shrink-0"></i>
                         <div>
                             <h4 class="font-bold text-white">Competitive Programming Ratings</h4>
-                            <p class="text-sm">Achieved a 1600+ rating on CodeChef and earned the "Specialist" tag with a 1500+ rating on Codeforces.</p>
+                            <p class="text-sm">Achieved a 4★ rating on CodeChef and earned the "Specialist" tag with a 1500+ rating on Codeforces.</p>
                         </div>
                     </div>
                 </div>
@@ -349,6 +360,15 @@
                         </div>
                     </div>
                 </div>
+                <div class="p-4 rounded-lg bg-secondary/50 border-l-4 border-accent/50 transition-all duration-300 hover:bg-secondary/80 hover:border-accent">
+                    <div class="flex items-start gap-4">
+                        <i data-lucide="star" class="text-accent w-6 h-6 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <h4 class="font-bold text-white">Pep Supply Chain Stars Awareness Workshop</h4>
+                            <p class="text-sm">Obtained certification from PepsiCo India for completing the Supply Chain Stars Awareness Workshop.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
           </section>
 
@@ -356,7 +376,7 @@
           <section id="coding-profiles" class="mb-16 scroll-mt-20">
             <h2 class="text-3xl font-bold text-white mb-6">Coding Profiles</h2>
             <p class="text-light-gray mb-6 max-w-prose leading-relaxed">
-              I'm a <span class="text-accent font-semibold">Top 10%</span> ranked programmer on LeetCode, a <span class="text-accent font-semibold">2★ Coder</span> on CodeChef, and hold the <span class="text-accent font-semibold">Specialist</span> title on Codeforces. I'm passionate about continuously learning and solving real-world challenges.
+              I'm a <span class="text-accent font-semibold">Top 10%</span> ranked programmer on LeetCode, a <span class="text-accent font-semibold">4★ Coder</span> on CodeChef, and hold the <span class="text-accent font-semibold">Specialist</span> title on Codeforces. I'm passionate about continuously learning and solving real-world challenges.
             </p>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 <a href="https://leetcode.com/u/stephen_76/" target="_blank" rel="noopener noreferrer" class="bg-secondary p-4 rounded-lg flex items-center gap-4 transition card-glow border border-transparent hover:border-accent/50">
@@ -364,11 +384,11 @@
                     <span class="font-medium text-white">LeetCode</span>
                 </a>
                  <a href="https://www.codechef.com/users/stephen_76" target="_blank" rel="noopener noreferrer" class="bg-secondary p-4 rounded-lg flex items-center gap-4 transition card-glow border border-transparent hover:border-accent/50">
-                     <img src="https://placehold.co/32x32/111111/FFFFFF?text=CC" alt="CodeChef" class="w-8 h-8 rounded-full">
+                      <img src="https://placehold.co/32x32/111111/FFFFFF?text=CC" alt="CodeChef" class="w-8 h-8 rounded-full">
                     <span class="font-medium text-white">CodeChef</span>
                 </a>
                  <a href="https://codeforces.com/profile/ricky17" target="_blank" rel="noopener noreferrer" class="bg-secondary p-4 rounded-lg flex items-center gap-4 transition card-glow border border-transparent hover:border-accent/50">
-                     <img src="https://placehold.co/32x32/111111/FFFFFF?text=CF" alt="Codeforces" class="w-8 h-8 rounded-full">
+                      <img src="https://placehold.co/32x32/111111/FFFFFF?text=CF" alt="Codeforces" class="w-8 h-8 rounded-full">
                     <span class="font-medium text-white">Codeforces</span>
                 </a>
             </div>
@@ -380,7 +400,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="bg-secondary p-4 rounded-lg card-glow relative overflow-hidden border border-transparent hover:border-accent/30">
                     <i data-lucide="quote" class="absolute -top-2 -right-2 text-white/5 w-16 h-16"></i>
-                    Grit > Talent
+                    Grit &gt; Talent
                 </div>
                 <div class="bg-secondary p-4 rounded-lg card-glow relative overflow-hidden border border-transparent hover:border-accent/30">
                     <i data-lucide="quote" class="absolute -top-2 -right-2 text-white/5 w-16 h-16"></i>
@@ -396,7 +416,7 @@
                 </div>
                 <div class="bg-secondary p-4 rounded-lg card-glow relative overflow-hidden border border-transparent hover:border-accent/30">
                     <i data-lucide="quote" class="absolute -top-2 -right-2 text-white/5 w-16 h-16"></i>
-                    Demos > Memos
+                    Demos &gt; Memos
                 </div>
                 <div class="bg-secondary p-4 rounded-lg card-glow relative overflow-hidden border border-transparent hover:border-accent/30">
                     <i data-lucide="quote" class="absolute -top-2 -right-2 text-white/5 w-16 h-16"></i>
@@ -416,7 +436,7 @@
                 </div>
             </div>
           </section>
-          
+           
           <!-- Contact Me -->
           <section id="contact" class="mb-16 scroll-mt-20">
               <h2 class="text-3xl font-bold text-white mb-6">Get In Touch</h2>
@@ -446,7 +466,7 @@
   <!-- Scripts -->
   <script>
     lucide.createIcons();
-    
+     
     // Typing animation
     const text = "I build engaging and performant web experiences.";
     let i = 0;
@@ -494,9 +514,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
