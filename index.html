@@ -130,6 +130,16 @@
         from { transform: rotate(0deg); }
         to { transform: rotate(360deg); }
     }
+
+    /* --- Featured Badge --- */
+    .featured-badge {
+        background: linear-gradient(135deg, #4fd1c5 0%, #38b2ac 100%);
+        animation: pulse-glow 2s ease-in-out infinite;
+    }
+    @keyframes pulse-glow {
+        0%, 100% { box-shadow: 0 0 5px rgba(79, 209, 197, 0.5); }
+        50% { box-shadow: 0 0 15px rgba(79, 209, 197, 0.8); }
+    }
   </style>
 </head>
 <body class="bg-primary text-white-text font-roboto-condensed">
@@ -213,12 +223,79 @@
 
           <!-- Projects -->
           <section id="projects" class="mb-16 scroll-mt-20">
-            <!-- Corrected typo: text-3d -> text-3xl -->
             <h2 class="text-3xl font-bold text-white mb-6">Projects</h2>
             <div class="space-y-8">
+
+                <!-- BugZero - NEW FEATURED PROJECT -->
+                <div class="bg-secondary p-6 rounded-2xl card-glow relative overflow-hidden border border-accent/30">
+                    <!-- Featured Badge -->
+                    <div class="absolute top-4 right-4">
+                        <span class="featured-badge text-black text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
+                            <i data-lucide="sparkles" class="w-3 h-3"></i> Featured
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-2 mb-2">
+                        <i data-lucide="bug" class="text-accent w-6 h-6"></i>
+                        <h3 class="font-bold text-xl text-white">BugZero</h3>
+                    </div>
+                    <p class="mb-3 text-light-gray">An AI-powered autonomous bug fixing SaaS platform that automatically detects, analyzes, and fixes bugs in your codebase with GitHub integration.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Next.js 16</span>
+                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">React 19</span>
+                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">TypeScript</span>
+                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Claude AI</span>
+                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">PostgreSQL</span>
+                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Prisma</span>
+                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">GitHub API</span>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <a href="https://github.com/RickyVishwakarma/bugZero" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-white transition group animated-underline">View on GitHub <i data-lucide="arrow-up-right" class="inline-block w-4 h-4 ml-1 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"></i></a>
+                        <a href="https://bug-zero-seven.vercel.app" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-white transition group animated-underline">Live Demo <i data-lucide="arrow-up-right" class="inline-block w-4 h-4 ml-1 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"></i></a>
+                        <button class="project-details-toggle text-accent hover:text-white transition animated-underline">Details</button>
+                    </div>
+                    <div class="project-details pl-4 border-l-2 border-gray-700 text-light-gray text-sm space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-white mb-2">🤖 Key Features:</h4>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li><strong>AI-Powered Bug Fixing (Ralph AI):</strong> Automatically analyzes bug reports using Claude AI and generates intelligent fixes</li>
+                                <li><strong>Seamless GitHub Integration:</strong> One-click repository connection, real-time webhook monitoring, automatic PR creation</li>
+                                <li><strong>Analytics Dashboard:</strong> Track bugs fixed, success rates, time saved with visual charts</li>
+                                <li><strong>Command Palette (⌘K):</strong> Quick navigation and keyboard-first workflow for power users</li>
+                                <li><strong>Marketing & CRM Tools:</strong> Email subscription system with admin dashboard and lead management</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white mb-2">⚙️ How It Works:</h4>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li>Connect Repository → User links their GitHub repo</li>
+                                <li>Issue Created → GitHub webhook notifies BugZero</li>
+                                <li>AI Analysis → Ralph AI analyzes the bug</li>
+                                <li>Fix Generated → Claude generates code fix</li>
+                                <li>PR Created → Automatic pull request on GitHub</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white mb-2">🎯 Problem It Solves:</h4>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li>Developers spend 30-50% of their time debugging — BugZero automates this</li>
+                                <li>Instant AI-generated fixes reduce slow bug resolution times</li>
+                                <li>Handles bugs in the background, eliminating context switching</li>
+                                <li>Acts as an AI team member that never sleeps for small teams</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white mb-2">📊 Metrics:</h4>
+                            <div class="flex flex-wrap gap-4 mt-2">
+                                <span class="bg-gray-800 px-3 py-1 rounded-lg">🐛 10K+ Bugs Fixed</span>
+                                <span class="bg-gray-800 px-3 py-1 rounded-lg">👥 500+ Teams</span>
+                                <span class="bg-gray-800 px-3 py-1 rounded-lg">✅ 85% Success Rate</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Clara AI -->
                 <div class="bg-secondary p-6 rounded-2xl card-glow">
-                    <!-- Suggestion: Add an <img /> tag here for a project screenshot or GIF -->
                     <h3 class="font-bold text-xl text-white">Clara AI</h3>
                     <p class="mb-3 text-light-gray">A modern AI chat application with real-time, AI-powered conversations.</p>
                     <div class="flex flex-wrap gap-2 mb-4">
