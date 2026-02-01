@@ -3,30 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ricky Vishwakarma - Portfolio</title>
-  <meta name="description" content="Portfolio of Ricky Vishwakarma - AI, Web Development, Startups, and DSA projects.">
-  <link rel="icon" type="image/png" href="https://placehold.co/32x32/4fd1c5/111111?text=RV">
+  <title>Ricky Vishwakarma - Software Engineer</title>
+  <meta name="description" content="Portfolio of Ricky Vishwakarma - AI, Web Development, and Software Engineering.">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
-  <!-- Load Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            'roboto-condensed': ['"Roboto Condensed"', 'sans-serif'],
-          },
-          colors: {
-            primary: '#111111',
-            secondary: '#1a1a1a',
-            accent: '#4fd1c5',
-            'light-gray': '#a0aec0',
-            'white-text': '#e2e8f0',
+            'inter': ['Inter', 'sans-serif'],
           }
         }
       }
@@ -34,560 +24,604 @@
   </script>
 
   <style>
-    /* --- Base & Scrollbar --- */
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #111111; }
-    ::-webkit-scrollbar-thumb { background: #2d3748; border-radius: 10px; }
-    ::-webkit-scrollbar-thumb:hover { background: #4a5568; }
-
     body {
-        background-color: var(--color-primary);
-        background-image: radial-gradient(circle at top right, rgba(79, 209, 197, 0.05), transparent 30%);
+      background: #0a0a0a;
+      font-family: 'Inter', sans-serif;
+      color: #e5e5e5;
     }
 
-    /* --- UI Enhancement: Section Headings --- */
-    h2 {
-        letter-spacing: 0.025em;
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.5;
     }
 
-    /* --- UI Enhancement: Navigation --- */
-    .nav-link.active .nav-text, .nav-link:hover .nav-text {
+    .blob-1 {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(79, 209, 197, 0.25), transparent 70%);
+      top: -200px;
+      right: -100px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #4fd1c5, #81e6d9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .card {
+      background: rgba(20, 20, 20, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      border-color: rgba(79, 209, 197, 0.3);
+      background: rgba(30, 30, 30, 0.8);
+    }
+
+    .btn-primary {
+      background: #e5e5e5;
+      color: #0a0a0a;
+    }
+
+    .btn-primary:hover {
+      background: #ffffff;
+    }
+
+    .tag {
+      background: rgba(79, 209, 197, 0.1);
       color: #4fd1c5;
-      font-weight: 700;
-    }
-    .nav-link.active .w-8, .nav-link:hover .w-8 {
-        background-color: #4fd1c5;
-    }
-    .nav-link .w-8 {
-        transition: width 0.3s ease, background-color 0.3s ease;
-    }
-    .nav-link:hover .w-8 {
-        width: 4rem; /* 64px */
+      border: 1px solid rgba(79, 209, 197, 0.2);
     }
 
-    /* --- UI Enhancement: Project Details Expansion --- */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    }
+
+    .skill-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .skill-item:hover {
+      border-color: rgba(79, 209, 197, 0.3);
+    }
+
+    .achievement {
+      border-left: 2px solid rgba(79, 209, 197, 0.3);
+    }
+
+    .achievement:hover {
+      border-left-color: #4fd1c5;
+      background: rgba(79, 209, 197, 0.03);
+    }
+
     .project-details {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.5s ease-out, opacity 0.3s ease-out, padding 0.5s ease-out;
       opacity: 0;
-      padding-top: 0;
-      padding-bottom: 0;
+      transition: all 0.4s ease;
     }
+
     .project-details.show {
-      max-height: 2000px;
+      max-height: 1000px;
       opacity: 1;
-      padding-top: 1rem;
-      padding-bottom: 1rem;
-    }
-     
-    /* --- UI Enhancement: Card Glow & Lift --- */
-    .card-glow {
-        transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
-    }
-    .card-glow:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 0 25px rgba(79, 209, 197, 0.2), 0 4px 10px rgba(0,0,0,0.2);
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
     }
 
-    /* --- UI Enhancement: Animated Underline for Links --- */
-    .animated-underline {
-        position: relative;
-        display: inline-block;
-        padding-bottom: 2px;
-    }
-    .animated-underline::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background-color: #4fd1c5;
-        transition: width 0.3s ease-out;
-    }
-    .animated-underline:hover::after, .animated-underline:focus::after {
-        width: 100%;
-    }
-
-    /* --- UI Enhancement: Sidebar Glow --- */
-    .sidebar-glow {
-        position: relative;
-    }
-    .sidebar-glow::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background-image: radial-gradient(circle at center, rgba(79, 209, 197, 0.15), transparent 40%);
-        z-index: -1;
-        animation: rotateGlow 15s linear infinite;
-    }
-
-    @keyframes rotateGlow {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-    }
-
-    /* --- Featured Badge --- */
-    .featured-badge {
-        background: linear-gradient(135deg, #4fd1c5 0%, #38b2ac 100%);
-        animation: pulse-glow 2s ease-in-out infinite;
-    }
-    @keyframes pulse-glow {
-        0%, 100% { box-shadow: 0 0 5px rgba(79, 209, 197, 0.5); }
-        50% { box-shadow: 0 0 15px rgba(79, 209, 197, 0.8); }
+    .nav-link:hover {
+      color: #ffffff;
     }
   </style>
 </head>
-<body class="bg-primary text-white-text font-roboto-condensed">
-
-  <div class="max-w-7xl mx-auto p-4 md:p-8">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 lg:gap-16">
-
-      <!-- Sidebar -->
-      <aside class="md:col-span-4 lg:col-span-3 md:sticky top-8 self-start">
-        <div class="p-6 bg-secondary rounded-2xl card-glow sidebar-glow overflow-hidden">
-            <div class="flex flex-col items-center md:items-start">
-                <h1 class="text-3xl font-bold text-center md:text-left text-white mb-2">Ricky Vishwakarma</h1>
-                <p id="typing-text" class="text-light-gray text-center md:text-left h-12"></p>
-                <a href="https://drive.google.com/file/d/1t0BY4FjXcfYded5bZYNjAIIGIGz6vuWr/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="mt-4 w-full text-center inline-block px-5 py-3 bg-gradient-to-r from-accent to-teal-500 text-black font-bold rounded-lg shadow-lg shadow-accent/20 hover:shadow-accent/40 transition-all transform hover:scale-105">
-                    Download Resume
-                </a>
-            </div>
-            <nav class="mt-8">
-              <ul class="space-y-3 text-light-gray">
-                <li><a href="#about" class="nav-link flex items-center gap-3 transition group"><span class="w-8 h-px bg-gray-600"></span><span class="nav-text transition-colors duration-300">About</span></a></li>
-                <li><a href="#experience" class="nav-link flex items-center gap-3 transition group"><span class="w-8 h-px bg-gray-600"></span><span class="nav-text transition-colors duration-300">Experience</span></a></li>
-                <li><a href="#skills" class="nav-link flex items-center gap-3 transition group"><span class="w-8 h-px bg-gray-600"></span><span class="nav-text transition-colors duration-300">Skills</span></a></li>
-                <li><a href="#projects" class="nav-link flex items-center gap-3 transition group"><span class="w-8 h-px bg-gray-600"></span><span class="nav-text transition-colors duration-300">Projects</span></a></li>
-                <li><a href="#achievements" class="nav-link flex items-center gap-3 transition group"><span class="w-8 h-px bg-gray-600"></span><span class="nav-text transition-colors duration-300">Achievements</span></a></li>
-                <li><a href="#coding-profiles" class="nav-link flex items-center gap-3 transition group"><span class="w-8 h-px bg-gray-600"></span><span class="nav-text transition-colors duration-300">Coding Profiles</span></a></li>
-                <li><a href="#beliefs" class="nav-link flex items-center gap-3 transition group"><span class="w-8 h-px bg-gray-600"></span><span class="nav-text transition-colors duration-300">Beliefs</span></a></li>
-                <li><a href="#contact" class="nav-link flex items-center gap-3 transition group"><span class="w-8 h-px bg-gray-600"></span><span class="nav-text transition-colors duration-300">Contact</span></a></li>
-              </ul>
-            </nav>
-        </div>
-      </aside>
-
-      <!-- Main Column -->
-      <div class="md:col-span-8 lg:col-span-9">
-        <main>
-          <!-- About Me -->
-          <section id="about" class="mb-16 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-white mb-6">About Me</h2>
-            <div class="space-y-4 text-light-gray max-w-prose leading-relaxed">
-                <p>I'm a Computer Engineering graduate with a strong foundation in Data Structures & Algorithms and a passion for building performant web applications. I thrive on solving complex problems, from developing AI-driven features to contributing to open-source projects.</p>
-                <p>My journey in tech is driven by a startup mindset and a deep interest in AI research. I am constantly exploring new technologies and am currently seeking opportunities to apply my skills in a challenging software development role where I can contribute to innovative and impactful projects.</p>
-            </div>
-          </section>
-           
-          <!-- Experience -->
-          <section id="experience" class="mb-16 scroll-mt-20">
-              <h2 class="text-3xl font-bold text-white mb-6">Experience</h2>
-              <div class="space-y-8">
-                  <div class="p-6 rounded-lg bg-secondary/50 border-l-4 border-accent/50 transition-all duration-300 hover:bg-secondary/80 hover:border-accent">
-                      <div class="flex justify-between items-start">
-                          <div>
-                              <h3 class="font-bold text-xl text-white">Subject Matter Expert</h3>
-                              <p class="text-accent">Physics Wallah</p>
-                          </div>
-                          <p class="text-light-gray text-sm">June 2023 - Aug 2023</p>
-                      </div>
-                      <ul class="mt-4 list-disc list-inside text-light-gray space-y-2">
-                          <li>Developed high-quality educational content and video lectures for Physics and Computer Science courses.</li>
-                          <li>Mentored and resolved academic doubts for over 1,000 students through online platforms, improving student satisfaction rates.</li>
-                          <li>Collaborated on curriculum design and assessment creation to enhance student engagement and learning outcomes.</li>
-                      </ul>
-                  </div>
-                  <!-- Add more experience items here -->
-              </div>
-          </section>
-
-          <!-- Skills -->
-          <section id="skills" class="mb-16 scroll-mt-20">
-              <h2 class="text-3xl font-bold text-white mb-6">Skills</h2>
-              <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                  <div class="flex items-center gap-3 bg-secondary p-3 rounded-lg card-glow border border-transparent hover:border-accent/50"><i data-lucide="brain-circuit" class="text-accent"></i><span>AI/ML</span></div>
-                  <div class="flex items-center gap-3 bg-secondary p-3 rounded-lg card-glow border border-transparent hover:border-accent/50"><i data-lucide="database" class="text-accent"></i><span>MERN Stack</span></div>
-                  <div class="flex items-center gap-3 bg-secondary p-3 rounded-lg card-glow border border-transparent hover:border-accent/50"><i data-lucide="code" class="text-accent"></i><span>Next.js</span></div>
-                  <div class="flex items-center gap-3 bg-secondary p-3 rounded-lg card-glow border border-transparent hover:border-accent/50"><i data-lucide="braces" class="text-accent"></i><span>C++</span></div>
-                  <div class="flex items-center gap-3 bg-secondary p-3 rounded-lg card-glow border border-transparent hover:border-accent/50"><i data-lucide="leaf" class="text-accent"></i><span>DSA</span></div>
-                  <div class="flex items-center gap-3 bg-secondary p-3 rounded-lg card-glow border border-transparent hover:border-accent/50"><i data-lucide="github" class="text-accent"></i><span>Git & GitHub</span></div>
-                  <div class="flex items-center gap-3 bg-secondary p-3 rounded-lg card-glow border border-transparent hover:border-accent/50"><i data-lucide="wind" class="text-accent"></i><span>Tailwind CSS</span></div>
-                  <div class="flex items-center gap-3 bg-secondary p-3 rounded-lg card-glow border border-transparent hover:border-accent/50"><i data-lucide="figma" class="text-accent"></i><span>UI/UX Design</span></div>
-              </div>
-          </section>
-
-          <!-- Projects -->
-          <section id="projects" class="mb-16 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-white mb-6">Projects</h2>
-            <div class="space-y-8">
-
-                <!-- BugZero - NEW FEATURED PROJECT -->
-                <div class="bg-secondary p-6 rounded-2xl card-glow relative overflow-hidden border border-accent/30">
-                    <!-- Featured Badge -->
-                    <div class="absolute top-4 right-4">
-                        <span class="featured-badge text-black text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
-                            <i data-lucide="sparkles" class="w-3 h-3"></i> Featured
-                        </span>
-                    </div>
-                    <div class="flex items-center gap-2 mb-2">
-                        <i data-lucide="bug" class="text-accent w-6 h-6"></i>
-                        <h3 class="font-bold text-xl text-white">BugZero</h3>
-                    </div>
-                    <p class="mb-3 text-light-gray">An AI-powered autonomous bug fixing SaaS platform that automatically detects, analyzes, and fixes bugs in your codebase with GitHub integration.</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Next.js 16</span>
-                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">React 19</span>
-                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">TypeScript</span>
-                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Claude AI</span>
-                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">PostgreSQL</span>
-                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Prisma</span>
-                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">GitHub API</span>
-                    </div>
-                    <div class="flex items-center space-x-4">
-                        <a href="https://github.com/RickyVishwakarma/bugZero" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-white transition group animated-underline">View on GitHub <i data-lucide="arrow-up-right" class="inline-block w-4 h-4 ml-1 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"></i></a>
-                        <a href="https://bug-zero-seven.vercel.app" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-white transition group animated-underline">Live Demo <i data-lucide="arrow-up-right" class="inline-block w-4 h-4 ml-1 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"></i></a>
-                        <button class="project-details-toggle text-accent hover:text-white transition animated-underline">Details</button>
-                    </div>
-                    <div class="project-details pl-4 border-l-2 border-gray-700 text-light-gray text-sm space-y-4">
-                        <div>
-                            <h4 class="font-semibold text-white mb-2">🤖 Key Features:</h4>
-                            <ul class="list-disc list-inside space-y-1">
-                                <li><strong>AI-Powered Bug Fixing (Ralph AI):</strong> Automatically analyzes bug reports using Claude AI and generates intelligent fixes</li>
-                                <li><strong>Seamless GitHub Integration:</strong> One-click repository connection, real-time webhook monitoring, automatic PR creation</li>
-                                <li><strong>Analytics Dashboard:</strong> Track bugs fixed, success rates, time saved with visual charts</li>
-                                <li><strong>Command Palette (⌘K):</strong> Quick navigation and keyboard-first workflow for power users</li>
-                                <li><strong>Marketing & CRM Tools:</strong> Email subscription system with admin dashboard and lead management</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-white mb-2">⚙️ How It Works:</h4>
-                            <ul class="list-disc list-inside space-y-1">
-                                <li>Connect Repository → User links their GitHub repo</li>
-                                <li>Issue Created → GitHub webhook notifies BugZero</li>
-                                <li>AI Analysis → Ralph AI analyzes the bug</li>
-                                <li>Fix Generated → Claude generates code fix</li>
-                                <li>PR Created → Automatic pull request on GitHub</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-white mb-2">🎯 Problem It Solves:</h4>
-                            <ul class="list-disc list-inside space-y-1">
-                                <li>Developers spend 30-50% of their time debugging — BugZero automates this</li>
-                                <li>Instant AI-generated fixes reduce slow bug resolution times</li>
-                                <li>Handles bugs in the background, eliminating context switching</li>
-                                <li>Acts as an AI team member that never sleeps for small teams</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-white mb-2">📊 Metrics:</h4>
-                            <div class="flex flex-wrap gap-4 mt-2">
-                                <span class="bg-gray-800 px-3 py-1 rounded-lg">🐛 10K+ Bugs Fixed</span>
-                                <span class="bg-gray-800 px-3 py-1 rounded-lg">👥 500+ Teams</span>
-                                <span class="bg-gray-800 px-3 py-1 rounded-lg">✅ 85% Success Rate</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Clara AI -->
-                <div class="bg-secondary p-6 rounded-2xl card-glow">
-                    <h3 class="font-bold text-xl text-white">Clara AI</h3>
-                    <p class="mb-3 text-light-gray">A modern AI chat application with real-time, AI-powered conversations.</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Next.js</span>
-                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">TypeScript</span>
-                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">LangChain</span>
-                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Convex</span>
-                    </div>
-                    <div class="flex items-center space-x-4">
-                        <a href="https://github.com/RickyVishwakarma/AI_Agent" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-white transition group animated-underline">View on GitHub <i data-lucide="arrow-up-right" class="inline-block w-4 h-4 ml-1 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"></i></a>
-                        <button class="project-details-toggle text-accent hover:text-white transition animated-underline">Details</button>
-                    </div>
-                    <div class="project-details pl-4 border-l-2 border-gray-700 text-light-gray text-sm space-y-4">
-                        <div><h4 class="font-semibold text-white mb-2">Key Features:</h4><ul class="list-disc list-inside space-y-1"><li>Natural Language Understanding</li><li>24/7 Automated Support</li><li>Seamless escalation to human agents</li></ul></div>
-                        <div><h4 class="font-semibold text-white mb-2">Technical Stack:</h4><ul class="list-disc list-inside space-y-1"><li><strong>Frontend:</strong> Next.js 14 with TypeScript</li><li><strong>Authentication:</strong> Clerk</li><li><strong>Database:</strong> Convex</li><li><strong>Styling:</strong> Tailwind CSS with animations</li><li><strong>AI Integration:</strong> LangChain and Anthropic's Claude model</li><li><strong>State Management:</strong> SWR for data fetching</li></ul></div>
-                    </div>
-                </div>
-                <!-- Indigram -->
-                <div class="bg-secondary p-6 rounded-2xl card-glow">
-                    <h3 class="font-bold text-xl text-white">Indigram</h3>
-                    <p class="mb-3 text-light-gray">A feature-rich social media application built from scratch.</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">MERN Stack</span>
-                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Socket.io</span>
-                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Cloudinary</span>
-                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">JWT</span>
-                    </div>
-                    <div class="flex items-center space-x-4">
-                        <a href="https://github.com/RickyVishwakarma/Indigram" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-white transition group animated-underline">View on GitHub <i data-lucide="arrow-up-right" class="inline-block w-4 h-4 ml-1 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"></i></a>
-                        <button class="project-details-toggle text-accent hover:text-white transition animated-underline">Details</button>
-                    </div>
-                    <div class="project-details pl-4 border-l-2 border-gray-700 text-light-gray text-sm space-y-4">
-                        <div><h4 class="font-semibold text-white mb-2">Key Features:</h4><ul class="list-disc list-inside space-y-1"><li>User Authentication with JWT</li><li>Create, view, like, and comment on posts</li><li>Real-time chat with Socket.io</li><li>Image uploads managed via Cloudinary</li><li>Follow/unfollow users</li><li>Best-in-class UI/UX for an intuitive experience</li><li>Available 24/7 with high uptime</li><li>Group chat and video call functionality</li></ul></div>
-                    </div>
-                </div>
-                <!-- ShopSphere -->
-                <div class="bg-secondary p-6 rounded-2xl card-glow">
-                    <h3 class="font-bold text-xl text-white">ShopSphere</h3>
-                    <p class="mb-3 text-light-gray">A full-featured e-commerce web app with AI-powered recommendations.</p>
-                      <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Next.js</span>
-                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">React</span>
-                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Genkit AI</span>
-                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">shadcn/ui</span>
-                    </div>
-                    <div class="flex items-center space-x-4">
-                        <a href="https://github.com/RickyVishwakarma/shopSphere" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-white transition group animated-underline">View on GitHub <i data-lucide="arrow-up-right" class="inline-block w-4 h-4 ml-1 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"></i></a>
-                          <a href="https://shop-sphere-pi.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-white transition group animated-underline">Live Demo <i data-lucide="arrow-up-right" class="inline-block w-4 h-4 ml-1 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"></i></a>
-                        <button class="project-details-toggle text-accent hover:text-white transition animated-underline">Details</button>
-                    </div>
-                    <div class="project-details pl-4 border-l-2 border-gray-700 text-light-gray text-sm space-y-4">
-                        <ul class="list-disc list-inside space-y-2"><li><strong>Homepage:</strong> Showcases featured products and lists all available items with search, sort, and filter functionality.</li><li><strong>Shopping Cart:</strong> A complete system to view, update quantities, or remove products.</li><li><strong>AI-Powered Recommendations:</strong> Uses a Genkit AI flow to provide personalized product recommendations.</li><li><strong>Modern Tech Stack:</strong> Built with Next.js App Router, TypeScript, and Tailwind CSS.</li></ul>
-                    </div>
-                </div>
-                <!-- Car Parking System -->
-                <div class="bg-secondary p-6 rounded-2xl card-glow">
-                    <h3 class="font-bold text-xl text-white">Car Parking System</h3>
-                    <p class="mb-3 text-light-gray">A Computer Vision system to detect and count available parking spaces in real-time.</p>
-                      <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Python</span>
-                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">OpenCV</span>
-                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">TensorFlow</span>
-                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Flask</span>
-                    </div>
-                    <div class="flex items-center space-x-4">
-                        <a href="https://github.com/RickyVishwakarma/CarParking" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-white transition group animated-underline">View on GitHub <i data-lucide="arrow-up-right" class="inline-block w-4 h-4 ml-1 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"></i></a>
-                        <button class="project-details-toggle text-accent hover:text-white transition animated-underline">Details</button>
-                    </div>
-                    <div class="project-details pl-4 border-l-2 border-gray-700 text-light-gray text-sm space-y-4">
-                        <div><h4 class="font-semibold text-white mb-2">Core Features:</h4><ul class="list-disc list-inside space-y-1"><li>Real-time parking space detection</li><li>Web-based interface for monitoring</li><li>REST API for easy integration</li></ul></div>
-                    </div>
-                </div>
-                <!-- DSA Projects -->
-                <div class="bg-secondary p-6 rounded-2xl card-glow">
-                    <h3 class="font-bold text-xl text-white">DSA Projects</h3>
-                    <p class="mb-3 text-light-gray">A collection of projects focused on implementing and demonstrating various data structures and algorithms.</p>
-                      <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">C++</span>
-                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Data Structures</span>
-                        <span class="bg-gray-700/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Algorithms</span>
-                    </div>
-                    <div class="flex items-center space-x-4">
-                        <a href="https://github.com/RickyVishwakarma/DSA-Projects" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-white transition group animated-underline">View on GitHub <i data-lucide="arrow-up-right" class="inline-block w-4 h-4 ml-1 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"></i></a>
-                        <button class="project-details-toggle text-accent hover:text-white transition animated-underline">Details</button>
-                    </div>
-                    <div class="project-details pl-4 border-l-2 border-gray-700 text-light-gray text-sm space-y-4">
-                        <div><h4 class="font-semibold text-white mb-2">Included Projects:</h4><ul class="list-disc list-inside space-y-1"><li>BigInt Calculator</li><li>Flight Scheduling System</li><li>Billing System</li><li>Data Visualization Tool</li><li>Huffman Coding</li></ul></div>
-                    </div>
-                </div>
-            </div>
-          </section>
-
-          <!-- Achievements -->
-          <section id="achievements" class="mb-16 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-white mb-6">Achievements</h2>
-            <div class="space-y-6 text-light-gray">
-                <div class="p-4 rounded-lg bg-secondary/50 border-l-4 border-accent/50 transition-all duration-300 hover:bg-secondary/80 hover:border-accent">
-                    <div class="flex items-start gap-4">
-                        <i data-lucide="medal" class="text-accent w-6 h-6 mt-1 flex-shrink-0"></i>
-                        <div>
-                            <h4 class="font-bold text-white">AIR 79 in Shaastra Coding Contest</h4>
-                            <p class="text-sm">Secured All India Rank 79 out of 25,000+ participants in the 215 Powered by Arcesium contest on CodeChef, solving 6 out of 8 problems.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-4 rounded-lg bg-secondary/50 border-l-4 border-accent/50 transition-all duration-300 hover:bg-secondary/80 hover:border-accent">
-                    <div class="flex items-start gap-4">
-                        <i data-lucide="trophy" class="text-accent w-6 h-6 mt-1 flex-shrink-0"></i>
-                        <div>
-                            <h4 class="font-bold text-white">Rank 1080 in Codeforces Square Point Challenge</h4>
-                            <p class="text-sm">Achieved a rank of 1080 out of 30,000+ participants, showcasing competitive programming ability.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-4 rounded-lg bg-secondary/50 border-l-4 border-accent/50 transition-all duration-300 hover:bg-secondary/80 hover:border-accent">
-                    <div class="flex items-start gap-4">
-                        <i data-lucide="award" class="text-accent w-6 h-6 mt-1 flex-shrink-0"></i>
-                        <div>
-                            <h4 class="font-bold text-white">HackerRank Certified Software Developer</h4>
-                            <p class="text-sm">Earned the Software Developer certification by solving three advanced, high-quality DSA challenges.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-4 rounded-lg bg-secondary/50 border-l-4 border-accent/50 transition-all duration-300 hover:bg-secondary/80 hover:border-accent">
-                    <div class="flex items-start gap-4">
-                        <i data-lucide="trending-up" class="text-accent w-6 h-6 mt-1 flex-shrink-0"></i>
-                        <div>
-                            <h4 class="font-bold text-white">Competitive Programming Ratings</h4>
-                            <p class="text-sm">Achieved a 4★ rating on CodeChef and earned the "Specialist" tag with a 1500+ rating on Codeforces.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-4 rounded-lg bg-secondary/50 border-l-4 border-accent/50 transition-all duration-300 hover:bg-secondary/80 hover:border-accent">
-                    <div class="flex items-start gap-4">
-                        <i data-lucide="git-pull-request" class="text-accent w-6 h-6 mt-1 flex-shrink-0"></i>
-                        <div>
-                            <h4 class="font-bold text-white">Open Source Contributor</h4>
-                            <p class="text-sm">Contributed to various open-source projects, focusing on bug fixes and feature enhancements.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-4 rounded-lg bg-secondary/50 border-l-4 border-accent/50 transition-all duration-300 hover:bg-secondary/80 hover:border-accent">
-                    <div class="flex items-start gap-4">
-                        <i data-lucide="star" class="text-accent w-6 h-6 mt-1 flex-shrink-0"></i>
-                        <div>
-                            <h4 class="font-bold text-white">Pep Supply Chain Stars Awareness Workshop</h4>
-                            <p class="text-sm">Obtained certification from PepsiCo India for completing the Supply Chain Stars Awareness Workshop.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-          </section>
-
-          <!-- Coding Profiles -->
-          <section id="coding-profiles" class="mb-16 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-white mb-6">Coding Profiles</h2>
-            <p class="text-light-gray mb-6 max-w-prose leading-relaxed">
-              I'm a <span class="text-accent font-semibold">Top 10%</span> ranked programmer on LeetCode, a <span class="text-accent font-semibold">4★ Coder</span> on CodeChef, and hold the <span class="text-accent font-semibold">Specialist</span> title on Codeforces. I'm passionate about continuously learning and solving real-world challenges.
-            </p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                <a href="https://leetcode.com/u/stephen_76/" target="_blank" rel="noopener noreferrer" class="bg-secondary p-4 rounded-lg flex items-center gap-4 transition card-glow border border-transparent hover:border-accent/50">
-                    <img src="https://assets.leetcode.com/static_assets/public/images/LeetCode_logo_rvs.png" alt="LeetCode" class="w-8 h-8 object-contain">
-                    <span class="font-medium text-white">LeetCode</span>
-                </a>
-                 <a href="https://www.codechef.com/users/stephen_76" target="_blank" rel="noopener noreferrer" class="bg-secondary p-4 rounded-lg flex items-center gap-4 transition card-glow border border-transparent hover:border-accent/50">
-                      <img src="https://placehold.co/32x32/111111/FFFFFF?text=CC" alt="CodeChef" class="w-8 h-8 rounded-full">
-                    <span class="font-medium text-white">CodeChef</span>
-                </a>
-                 <a href="https://codeforces.com/profile/ricky17" target="_blank" rel="noopener noreferrer" class="bg-secondary p-4 rounded-lg flex items-center gap-4 transition card-glow border border-transparent hover:border-accent/50">
-                      <img src="https://placehold.co/32x32/111111/FFFFFF?text=CF" alt="Codeforces" class="w-8 h-8 rounded-full">
-                    <span class="font-medium text-white">Codeforces</span>
-                </a>
-            </div>
-          </section>
-
-           <!-- Beliefs -->
-          <section id="beliefs" class="mb-16 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-white mb-6">Things I Believe</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bg-secondary p-4 rounded-lg card-glow relative overflow-hidden border border-transparent hover:border-accent/30">
-                    <i data-lucide="quote" class="absolute -top-2 -right-2 text-white/5 w-16 h-16"></i>
-                    Grit &gt; Talent
-                </div>
-                <div class="bg-secondary p-4 rounded-lg card-glow relative overflow-hidden border border-transparent hover:border-accent/30">
-                    <i data-lucide="quote" class="absolute -top-2 -right-2 text-white/5 w-16 h-16"></i>
-                    Shipping fast beats the best strategy
-                </div>
-                <div class="bg-secondary p-4 rounded-lg card-glow relative overflow-hidden border border-transparent hover:border-accent/30">
-                    <i data-lucide="quote" class="absolute -top-2 -right-2 text-white/5 w-16 h-16"></i>
-                    Get 1% better every day
-                </div>
-                <div class="bg-secondary p-4 rounded-lg card-glow relative overflow-hidden border border-transparent hover:border-accent/30">
-                    <i data-lucide="quote" class="absolute -top-2 -right-2 text-white/5 w-16 h-16"></i>
-                    Communication is the job
-                </div>
-                <div class="bg-secondary p-4 rounded-lg card-glow relative overflow-hidden border border-transparent hover:border-accent/30">
-                    <i data-lucide="quote" class="absolute -top-2 -right-2 text-white/5 w-16 h-16"></i>
-                    Demos &gt; Memos
-                </div>
-                <div class="bg-secondary p-4 rounded-lg card-glow relative overflow-hidden border border-transparent hover:border-accent/30">
-                    <i data-lucide="quote" class="absolute -top-2 -right-2 text-white/5 w-16 h-16"></i>
-                    Always assume good intent
-                </div>
-                <div class="bg-secondary p-4 rounded-lg card-glow relative overflow-hidden border border-transparent hover:border-accent/30">
-                    <i data-lucide="quote" class="absolute -top-2 -right-2 text-white/5 w-16 h-16"></i>
-                    You have no career ceiling
-                </div>
-                <div class="bg-secondary p-4 rounded-lg card-glow relative overflow-hidden border border-transparent hover:border-accent/30">
-                    <i data-lucide="quote" class="absolute -top-2 -right-2 text-white/5 w-16 h-16"></i>
-                    Be ruthlessly truth-seeking
-                </div>
-                <div class="bg-secondary p-4 rounded-lg card-glow relative overflow-hidden border border-transparent hover:border-accent/30">
-                    <i data-lucide="quote" class="absolute -top-2 -right-2 text-white/5 w-16 h-16"></i>
-                    There's no substitute for putting in the hours
-                </div>
-            </div>
-          </section>
-           
-          <!-- Contact Me -->
-          <section id="contact" class="mb-16 scroll-mt-20">
-              <h2 class="text-3xl font-bold text-white mb-6">Get In Touch</h2>
-              <p class="text-light-gray mb-6 max-w-prose leading-relaxed">
-                  I'm currently open to new opportunities and collaborations. Whether you have a question or just want to say hi, feel free to reach out. My inbox is always open!
-              </p>
-              <a href="mailto:ricky.vishwakarma.dev@gmail.com" class="inline-block px-8 py-3 bg-gradient-to-r from-accent to-teal-500 text-black font-bold rounded-lg shadow-lg shadow-accent/20 hover:shadow-accent/40 transition-all transform hover:scale-105">
-                  Say Hello
-              </a>
-          </section>
-
-          <footer class="text-center text-sm text-light-gray py-8 border-t border-white/10">
-              <p>Designed & Built by Ricky Vishwakarma</p>
-              <div class="flex items-center justify-center gap-6 mt-4">
-                  <a href="https://x.com/RICKYVISHW17342" target="_blank" rel="noopener noreferrer" aria-label="Ricky's Twitter Profile" class="text-light-gray hover:text-accent transition transform hover:scale-125"><i data-lucide="twitter" class="w-5 h-5"></i></a>
-                  <a href="https://github.com/RickyVishwakarma" target="_blank" rel="noopener noreferrer" aria-label="Ricky's GitHub Profile" class="text-light-gray hover:text-accent transition transform hover:scale-125"><i data-lucide="github" class="w-5 h-5"></i></a>
-                  <a href="https://www.linkedin.com/in/ricky-vishwakarma-ab5700287/" target="_blank" rel="noopener noreferrer" aria-label="Ricky's LinkedIn Profile" class="text-light-gray hover:text-accent transition transform hover:scale-125"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
-                  <a href="https://www.instagram.com/__ricky_vish_/" target="_blank" rel="noopener noreferrer" aria-label="Ricky's Instagram Profile" class="text-light-gray hover:text-accent transition transform hover:scale-125"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-              </div>
-          </footer>
-        </main>
-      </div>
-
-    </div>
+<body class="antialiased">
+  
+  <!-- Blob Background -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none">
+    <div class="blob blob-1"></div>
   </div>
 
-  <!-- Scripts -->
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/90 backdrop-blur-md border-b border-white/5">
+    <div class="max-w-6xl mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
+        <a href="#" class="text-xl font-light">ricky<span class="text-teal-400">.</span></a>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#about" class="nav-link text-sm text-gray-400">About</a>
+          <a href="#projects" class="nav-link text-sm text-gray-400">Projects</a>
+          <a href="#experience" class="nav-link text-sm text-gray-400">Experience</a>
+          <a href="#contact" class="nav-link text-sm text-gray-400">Contact</a>
+        </div>
+        <a href="https://drive.google.com/file/d/1t0BY4FjXcfYded5bZYNjAIIGIGz6vuWr/view?usp=drive_link" target="_blank" class="btn-primary px-4 py-2 rounded-full text-sm font-medium">
+          Resume →
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="relative">
+    
+    <!-- Hero Section -->
+    <section id="about" class="min-h-screen flex items-center pt-20">
+      <div class="max-w-6xl mx-auto px-6 py-20">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <p class="text-gray-500 text-sm tracking-widest mb-6">SOFTWARE ENGINEER</p>
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-extralight leading-[1.1] mb-8">
+              <span class="gradient-text">Building</span> products<br>
+              that matter
+            </h1>
+            <p class="text-gray-400 text-lg font-light leading-relaxed max-w-lg mb-10">
+              I'm Ricky Vishwakarma, a software engineer passionate about AI, 
+              web development, and solving complex problems with elegant code.
+            </p>
+            <div class="flex items-center gap-4">
+              <a href="#projects" class="btn-primary px-6 py-3 rounded-full text-sm font-medium">
+                View Projects →
+              </a>
+              <a href="#contact" class="text-gray-300 hover:text-teal-400 px-6 py-3 text-sm font-medium transition-colors">
+                Get in touch →
+              </a>
+            </div>
+          </div>
+          
+          <!-- Stats -->
+          <div class="lg:pl-16">
+            <div class="grid grid-cols-2 gap-8">
+              <div class="p-6">
+                <p class="text-4xl font-extralight text-white mb-2">5+</p>
+                <p class="text-gray-500 text-sm">Projects Shipped</p>
+              </div>
+              <div class="p-6">
+                <p class="text-4xl font-extralight text-white mb-2">10K+</p>
+                <p class="text-gray-500 text-sm">Bugs Fixed by AI</p>
+              </div>
+              <div class="p-6">
+                <p class="text-4xl font-extralight text-white mb-2">4★</p>
+                <p class="text-gray-500 text-sm">CodeChef Rating</p>
+              </div>
+              <div class="p-6">
+                <p class="text-4xl font-extralight text-white mb-2">Top 10%</p>
+                <p class="text-gray-500 text-sm">LeetCode</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="divider max-w-6xl mx-auto"></div>
+
+    <!-- Skills Section -->
+    <section class="py-24">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="mb-16">
+          <p class="text-gray-500 text-sm tracking-widest mb-4">EXPERTISE</p>
+          <h2 class="text-3xl md:text-4xl font-extralight text-white">Technologies I work with</h2>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+          <div class="skill-item px-5 py-4 rounded-xl text-center transition-all">
+            <p class="text-sm font-light">Next.js</p>
+          </div>
+          <div class="skill-item px-5 py-4 rounded-xl text-center transition-all">
+            <p class="text-sm font-light">React</p>
+          </div>
+          <div class="skill-item px-5 py-4 rounded-xl text-center transition-all">
+            <p class="text-sm font-light">TypeScript</p>
+          </div>
+          <div class="skill-item px-5 py-4 rounded-xl text-center transition-all">
+            <p class="text-sm font-light">Node.js</p>
+          </div>
+          <div class="skill-item px-5 py-4 rounded-xl text-center transition-all">
+            <p class="text-sm font-light">Python</p>
+          </div>
+          <div class="skill-item px-5 py-4 rounded-xl text-center transition-all">
+            <p class="text-sm font-light">C++</p>
+          </div>
+          <div class="skill-item px-5 py-4 rounded-xl text-center transition-all">
+            <p class="text-sm font-light">PostgreSQL</p>
+          </div>
+          <div class="skill-item px-5 py-4 rounded-xl text-center transition-all">
+            <p class="text-sm font-light">MongoDB</p>
+          </div>
+          <div class="skill-item px-5 py-4 rounded-xl text-center transition-all">
+            <p class="text-sm font-light">Prisma</p>
+          </div>
+          <div class="skill-item px-5 py-4 rounded-xl text-center transition-all">
+            <p class="text-sm font-light">LangChain</p>
+          </div>
+          <div class="skill-item px-5 py-4 rounded-xl text-center transition-all">
+            <p class="text-sm font-light">Tailwind</p>
+          </div>
+          <div class="skill-item px-5 py-4 rounded-xl text-center transition-all">
+            <p class="text-sm font-light">Git</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="divider max-w-6xl mx-auto"></div>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 scroll-mt-20">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="mb-16">
+          <p class="text-gray-500 text-sm tracking-widest mb-4">WORK</p>
+          <h2 class="text-3xl md:text-4xl font-extralight text-white">Featured Projects</h2>
+        </div>
+
+        <div class="space-y-8">
+          
+          <!-- BugZero - Featured -->
+          <div class="card rounded-2xl p-8">
+            <div class="mb-6">
+              <div class="flex items-center gap-3 mb-3">
+                <h3 class="text-2xl font-light text-white">BugZero</h3>
+                <span class="px-3 py-1 rounded-full text-xs text-teal-400 bg-teal-400/10 border border-teal-400/20">Featured</span>
+              </div>
+              <p class="text-gray-400 font-light max-w-2xl">
+                An AI-powered autonomous bug fixing SaaS that automatically detects, analyzes, 
+                and fixes bugs in your codebase. Integrates with GitHub to create pull requests 
+                without human intervention.
+              </p>
+            </div>
+            
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="tag px-3 py-1 rounded-full text-xs">Next.js 16</span>
+              <span class="tag px-3 py-1 rounded-full text-xs">React 19</span>
+              <span class="tag px-3 py-1 rounded-full text-xs">TypeScript</span>
+              <span class="tag px-3 py-1 rounded-full text-xs">Claude AI</span>
+              <span class="tag px-3 py-1 rounded-full text-xs">PostgreSQL</span>
+              <span class="tag px-3 py-1 rounded-full text-xs">Prisma</span>
+              <span class="tag px-3 py-1 rounded-full text-xs">GitHub API</span>
+            </div>
+
+            <!-- Stats Row -->
+            <div class="flex items-center gap-8 mb-6 py-4 border-y border-white/5">
+              <div>
+                <p class="text-2xl font-extralight text-white">10K+</p>
+                <p class="text-xs text-gray-500">Bugs Fixed</p>
+              </div>
+              <div>
+                <p class="text-2xl font-extralight text-white">500+</p>
+                <p class="text-xs text-gray-500">Teams</p>
+              </div>
+              <div>
+                <p class="text-2xl font-extralight text-white">85%</p>
+                <p class="text-xs text-gray-500">Success Rate</p>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-4">
+              <a href="https://bug-zero-seven.vercel.app" target="_blank" class="btn-primary px-5 py-2.5 rounded-full text-sm font-medium inline-flex items-center gap-2">
+                Live Demo →
+              </a>
+              <a href="https://github.com/RickyVishwakarma/bugZero" target="_blank" class="text-gray-300 hover:text-teal-400 text-sm font-medium transition-colors">
+                Source Code ↗
+              </a>
+              <button onclick="toggleDetails(this)" class="text-gray-400 hover:text-white text-sm font-medium ml-auto transition-colors">
+                Details ↓
+              </button>
+            </div>
+
+            <div class="project-details">
+              <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                  <p class="text-sm text-gray-400 mb-4">Key Features</p>
+                  <ul class="space-y-3 text-sm text-gray-300 font-light">
+                    <li>→ Ralph AI automatically analyzes bugs using Claude</li>
+                    <li>→ One-click GitHub integration with webhooks</li>
+                    <li>→ Analytics dashboard for tracking fixes</li>
+                    <li>→ Command palette (⌘K) for power users</li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-400 mb-4">How It Works</p>
+                  <div class="space-y-3 text-sm text-gray-300 font-light">
+                    <p>1. Connect your GitHub repository</p>
+                    <p>2. Issue triggers webhook notification</p>
+                    <p>3. AI analyzes and generates fix</p>
+                    <p>4. Auto PR created for review</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Clara AI -->
+          <div class="card rounded-2xl p-8">
+            <div class="mb-6">
+              <h3 class="text-xl font-light text-white mb-3">Clara AI</h3>
+              <p class="text-gray-400 font-light text-sm max-w-2xl">
+                A modern AI chat application with real-time conversations powered by LangChain and Claude.
+              </p>
+            </div>
+            
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="tag px-3 py-1 rounded-full text-xs">Next.js</span>
+              <span class="tag px-3 py-1 rounded-full text-xs">TypeScript</span>
+              <span class="tag px-3 py-1 rounded-full text-xs">LangChain</span>
+              <span class="tag px-3 py-1 rounded-full text-xs">Convex</span>
+            </div>
+
+            <a href="https://github.com/RickyVishwakarma/AI_Agent" target="_blank" class="text-gray-300 hover:text-teal-400 text-sm font-medium transition-colors">
+              View Code ↗
+            </a>
+          </div>
+
+          <!-- Indigram -->
+          <div class="card rounded-2xl p-8">
+            <div class="mb-6">
+              <h3 class="text-xl font-light text-white mb-3">Indigram</h3>
+              <p class="text-gray-400 font-light text-sm max-w-2xl">
+                A feature-rich social media platform with real-time chat, posts, stories, and video calls.
+              </p>
+            </div>
+            
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="tag px-3 py-1 rounded-full text-xs">MERN Stack</span>
+              <span class="tag px-3 py-1 rounded-full text-xs">Socket.io</span>
+              <span class="tag px-3 py-1 rounded-full text-xs">Cloudinary</span>
+              <span class="tag px-3 py-1 rounded-full text-xs">JWT</span>
+            </div>
+
+            <a href="https://github.com/RickyVishwakarma/Indigram" target="_blank" class="text-gray-300 hover:text-teal-400 text-sm font-medium transition-colors">
+              View Code ↗
+            </a>
+          </div>
+
+          <!-- ShopSphere -->
+          <div class="card rounded-2xl p-8">
+            <div class="mb-6">
+              <h3 class="text-xl font-light text-white mb-3">ShopSphere</h3>
+              <p class="text-gray-400 font-light text-sm max-w-2xl">
+                E-commerce platform with AI-powered product recommendations using Genkit AI.
+              </p>
+            </div>
+            
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="tag px-3 py-1 rounded-full text-xs">Next.js</span>
+              <span class="tag px-3 py-1 rounded-full text-xs">React</span>
+              <span class="tag px-3 py-1 rounded-full text-xs">Genkit AI</span>
+              <span class="tag px-3 py-1 rounded-full text-xs">shadcn/ui</span>
+            </div>
+
+            <div class="flex items-center gap-4">
+              <a href="https://shop-sphere-pi.vercel.app/" target="_blank" class="btn-primary px-5 py-2.5 rounded-full text-sm font-medium">
+                Live Demo →
+              </a>
+              <a href="https://github.com/RickyVishwakarma/shopSphere" target="_blank" class="text-gray-300 hover:text-teal-400 text-sm font-medium transition-colors">
+                Source Code ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- More Projects Row -->
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="card rounded-2xl p-6">
+              <h3 class="text-lg font-light text-white mb-2">Car Parking System</h3>
+              <p class="text-gray-500 font-light text-sm mb-4">Computer Vision system for real-time parking space detection.</p>
+              <p class="text-xs text-gray-500 mb-4">Python • OpenCV • TensorFlow</p>
+              <a href="https://github.com/RickyVishwakarma/CarParking" target="_blank" class="text-gray-300 hover:text-teal-400 text-sm transition-colors">
+                View Code ↗
+              </a>
+            </div>
+
+            <div class="card rounded-2xl p-6">
+              <h3 class="text-lg font-light text-white mb-2">DSA Projects</h3>
+              <p class="text-gray-500 font-light text-sm mb-4">Collection of data structures and algorithms in C++.</p>
+              <p class="text-xs text-gray-500 mb-4">C++ • DSA • Algorithms</p>
+              <a href="https://github.com/RickyVishwakarma/DSA-Projects" target="_blank" class="text-gray-300 hover:text-teal-400 text-sm transition-colors">
+                View Code ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="divider max-w-6xl mx-auto"></div>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-24 scroll-mt-20">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="mb-16">
+          <p class="text-gray-500 text-sm tracking-widest mb-4">BACKGROUND</p>
+          <h2 class="text-3xl md:text-4xl font-extralight text-white">Experience & Achievements</h2>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-16">
+          <!-- Experience -->
+          <div>
+            <h3 class="text-sm text-gray-500 tracking-widest mb-6">EXPERIENCE</h3>
+            <div class="card rounded-2xl p-6">
+              <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
+                <div>
+                  <p class="text-white font-light text-lg">Subject Matter Expert</p>
+                  <p class="text-teal-400 text-sm">Physics Wallah</p>
+                </div>
+                <p class="text-gray-500 text-sm">Jun - Aug 2023</p>
+              </div>
+              <ul class="space-y-2 text-sm text-gray-400 font-light">
+                <li>• Developed educational content for Physics and CS courses</li>
+                <li>• Mentored 1,000+ students through online platforms</li>
+                <li>• Collaborated on curriculum design and assessments</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Achievements -->
+          <div>
+            <h3 class="text-sm text-gray-500 tracking-widest mb-6">ACHIEVEMENTS</h3>
+            <div class="space-y-4">
+              <div class="achievement pl-4 py-3 transition-all">
+                <p class="text-white font-light">AIR 79 — Shaastra Coding Contest</p>
+                <p class="text-sm text-gray-500">Top 79 out of 25,000+ participants</p>
+              </div>
+              <div class="achievement pl-4 py-3 transition-all">
+                <p class="text-white font-light">Rank 1080 — Codeforces Challenge</p>
+                <p class="text-sm text-gray-500">Out of 30,000+ participants</p>
+              </div>
+              <div class="achievement pl-4 py-3 transition-all">
+                <p class="text-white font-light">HackerRank Certified</p>
+                <p class="text-sm text-gray-500">Software Developer certification</p>
+              </div>
+              <div class="achievement pl-4 py-3 transition-all">
+                <p class="text-white font-light">Competitive Programming</p>
+                <p class="text-sm text-gray-500">4★ CodeChef • Specialist on Codeforces</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Open Source Contributions -->
+        <div class="mt-16">
+          <h3 class="text-sm text-gray-500 tracking-widest mb-6">OPEN SOURCE CONTRIBUTIONS</h3>
+          <div class="grid md:grid-cols-2 gap-6">
+            <a href="https://github.com/RickyVishwakarma/ralph" target="_blank" class="card rounded-2xl p-6 group">
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-lg bg-teal-400/10 flex items-center justify-center flex-shrink-0">
+                  <span class="text-teal-400 text-lg">⎇</span>
+                </div>
+                <div>
+                  <div class="flex items-center gap-2 mb-2">
+                    <p class="text-white font-light group-hover:text-teal-400 transition-colors">Ralph</p>
+                    <span class="px-2 py-0.5 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs">Merged</span>
+                  </div>
+                  <p class="text-sm text-gray-500 leading-relaxed">Autonomous AI agent loop that runs repeatedly until all PRD items are complete.</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="https://github.com/RickyVishwakarma/eigent" target="_blank" class="card rounded-2xl p-6 group">
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-lg bg-teal-400/10 flex items-center justify-center flex-shrink-0">
+                  <span class="text-teal-400 text-lg">⎇</span>
+                </div>
+                <div>
+                  <div class="flex items-center gap-2 mb-2">
+                    <p class="text-white font-light group-hover:text-teal-400 transition-colors">Eigent</p>
+                    <span class="px-2 py-0.5 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs">Merged</span>
+                  </div>
+                  <p class="text-sm text-gray-500 leading-relaxed">The Open Source Cowork Desktop to Unlock Your Exceptional Productivity.</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="divider max-w-6xl mx-auto"></div>
+
+    <!-- Coding Profiles -->
+    <section class="py-24">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="mb-12">
+          <p class="text-gray-500 text-sm tracking-widest mb-4">PROFILES</p>
+          <h2 class="text-3xl md:text-4xl font-extralight text-white">Coding Platforms</h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <a href="https://leetcode.com/u/stephen_76/" target="_blank" class="card rounded-2xl p-6 flex items-center gap-4 group">
+            <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center">
+              <span class="text-orange-400 font-medium">LC</span>
+            </div>
+            <div>
+              <p class="text-white font-light group-hover:text-teal-400 transition-colors">LeetCode</p>
+              <p class="text-sm text-gray-500">Top 10%</p>
+            </div>
+          </a>
+
+          <a href="https://www.codechef.com/users/stephen_76" target="_blank" class="card rounded-2xl p-6 flex items-center gap-4 group">
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center">
+              <span class="text-amber-400 font-medium">CC</span>
+            </div>
+            <div>
+              <p class="text-white font-light group-hover:text-teal-400 transition-colors">CodeChef</p>
+              <p class="text-sm text-gray-500">4★ Rating</p>
+            </div>
+          </a>
+
+          <a href="https://codeforces.com/profile/ricky17" target="_blank" class="card rounded-2xl p-6 flex items-center gap-4 group">
+            <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center">
+              <span class="text-blue-400 font-medium">CF</span>
+            </div>
+            <div>
+              <p class="text-white font-light group-hover:text-teal-400 transition-colors">Codeforces</p>
+              <p class="text-sm text-gray-500">Specialist</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="divider max-w-6xl mx-auto"></div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 scroll-mt-20">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="max-w-2xl">
+          <p class="text-gray-500 text-sm tracking-widest mb-4">GET IN TOUCH</p>
+          <h2 class="text-4xl md:text-5xl font-extralight text-white mb-6">
+            <span class="gradient-text">Let's build</span> something<br>
+            great together
+          </h2>
+          <p class="text-gray-400 font-light text-lg mb-10">
+            I'm currently open to new opportunities. Whether you have a question 
+            or just want to say hi, feel free to reach out.
+          </p>
+          <div class="flex flex-wrap items-center gap-6">
+            <a href="mailto:ricky.vishwakarma.dev@gmail.com" class="btn-primary px-6 py-3 rounded-full text-sm font-medium">
+              Say Hello →
+            </a>
+            <div class="flex items-center gap-4">
+              <a href="https://github.com/RickyVishwakarma" target="_blank" class="text-gray-500 hover:text-white transition-colors text-xl">
+                ⌘
+              </a>
+              <a href="https://www.linkedin.com/in/ricky-vishwakarma-ab5700287/" target="_blank" class="text-gray-500 hover:text-white transition-colors">
+                in
+              </a>
+              <a href="https://x.com/RICKYVISHW17342" target="_blank" class="text-gray-500 hover:text-white transition-colors">
+                𝕏
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-white/5">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+          <p class="text-gray-500 text-sm">© 2024 Ricky Vishwakarma</p>
+          <p class="text-gray-600 text-sm">Built with Next.js & Tailwind</p>
+        </div>
+      </div>
+    </footer>
+  </main>
+
   <script>
-    lucide.createIcons();
-     
-    // Typing animation
-    const text = "I build engaging and performant web experiences.";
-    let i = 0;
-    const typingElement = document.getElementById("typing-text");
-    function typeWriter() {
-      if (typingElement && i < text.length) {
-        typingElement.innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeWriter, 50);
-      }
+    function toggleDetails(btn) {
+      const card = btn.closest('.card');
+      const details = card.querySelector('.project-details');
+      details.classList.toggle('show');
+      btn.textContent = details.classList.contains('show') ? 'Hide ↑' : 'Details ↓';
     }
-    window.addEventListener('load', () => {
-        if(typingElement) typeWriter();
-    });
-
-    // Toggle project details
-    document.querySelectorAll('.project-details-toggle').forEach(button => {
-      button.addEventListener('click', () => {
-        const details = button.closest('.bg-secondary').querySelector('.project-details');
-        details.classList.toggle('show');
-        button.textContent = details.classList.contains('show') ? 'Hide Details' : 'Details';
-      });
-    });
-
-    // Active nav link on scroll
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href').substring(1) === entry.target.id) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-        });
-    }, { rootMargin: '-30% 0px -70% 0px' });
-
-    sections.forEach(section => {
-        observer.observe(section);
-    });
   </script>
 </body>
 </html>
