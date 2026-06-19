@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ricky Vishwakarma — Software Engineer</title>
   <meta name="description" content="Ricky Vishwakarma — Software Engineer building AI products and full-stack web applications with elegant, production-grade code.">
-  <meta name="theme-color" content="#050507">
-
-  <!-- Open Graph -->
+  <meta name="theme-color" content="#ffffff">
   <meta property="og:title" content="Ricky Vishwakarma — Software Engineer">
   <meta property="og:description" content="Building AI products and full-stack web applications with elegant code.">
   <meta property="og:type" content="website">
@@ -15,20 +13,19 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            'sans': ['Inter', 'sans-serif'],
-            'display': ['Space Grotesk', 'sans-serif'],
-            'mono': ['JetBrains Mono', 'monospace'],
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
           },
           colors: {
-            accent: '#2dd4bf',
-            accent2: '#a78bfa',
+            brand: { DEFAULT: '#4f46e5', dark: '#4338ca' },
           }
         }
       }
@@ -37,765 +34,433 @@
 
   <style>
     :root {
-      --bg: #050507;
-      --accent: #2dd4bf;
-      --accent2: #a78bfa;
-      --line: rgba(255, 255, 255, 0.07);
+      --brand: #4f46e5;
+      --brand2: #7c3aed;
+      --ink: #0b0b0f;
     }
-
-    * { cursor: none; }
-    @media (hover: none), (pointer: coarse) { * { cursor: auto; } .cursor, .cursor-ring { display: none !important; } }
-
-    html { scroll-padding-top: 90px; }
-
+    html { scroll-padding-top: 84px; }
     body {
-      background: var(--bg);
       font-family: 'Inter', sans-serif;
-      color: #d4d4d8;
-      overflow-x: hidden;
+      color: #1f2430;
+      background: #ffffff;
+      -webkit-font-smoothing: antialiased;
     }
-
-    ::selection { background: rgba(45, 212, 191, 0.25); color: #fff; }
-
-    /* Scrollbar */
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 99px; }
-    ::-webkit-scrollbar-thumb:hover { background: rgba(45,212,191,0.4); }
-
-    .font-display { font-family: 'Space Grotesk', sans-serif; }
+    .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
     .font-mono { font-family: 'JetBrains Mono', monospace; }
+    ::selection { background: rgba(79,70,229,0.15); }
 
-    /* ============ PRELOADER ============ */
-    #preloader {
-      position: fixed; inset: 0; z-index: 200;
-      background: var(--bg);
-      display: flex; align-items: center; justify-content: center;
-      transition: opacity 0.8s ease, visibility 0.8s ease;
-    }
-    #preloader.done { opacity: 0; visibility: hidden; }
-    .loader-name {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(2rem, 8vw, 4rem);
-      font-weight: 300; letter-spacing: -0.02em;
-      color: #fff; overflow: hidden; white-space: nowrap;
-    }
-    .loader-name span {
-      display: inline-block; opacity: 0; transform: translateY(110%);
-      animation: loadUp 0.6s cubic-bezier(0.22,1,0.36,1) forwards;
-    }
-    @keyframes loadUp { to { opacity: 1; transform: translateY(0); } }
-    .loader-bar {
-      height: 1px; background: rgba(255,255,255,0.1); margin-top: 1.5rem;
-      position: relative; overflow: hidden;
-    }
-    .loader-bar::after {
-      content: ''; position: absolute; inset: 0; transform: translateX(-100%);
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      animation: loadSlide 1.4s ease-in-out infinite;
-    }
-    @keyframes loadSlide { to { transform: translateX(100%); } }
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-thumb { background: #d8d8e0; border-radius: 99px; border: 3px solid #fff; }
+    ::-webkit-scrollbar-thumb:hover { background: #bcbcc8; }
 
-    /* ============ CUSTOM CURSOR ============ */
-    .cursor {
-      position: fixed; top: 0; left: 0; width: 6px; height: 6px;
-      background: var(--accent); border-radius: 50%;
-      pointer-events: none; z-index: 9999; transform: translate(-50%, -50%);
-      transition: width 0.2s, height 0.2s, background 0.2s;
-    }
-    .cursor-ring {
-      position: fixed; top: 0; left: 0; width: 34px; height: 34px;
-      border: 1px solid rgba(45, 212, 191, 0.5); border-radius: 50%;
-      pointer-events: none; z-index: 9998; transform: translate(-50%, -50%);
-      transition: width 0.25s, height 0.25s, border-color 0.25s, background 0.25s;
-    }
-    .cursor-ring.hover { width: 56px; height: 56px; background: rgba(45,212,191,0.06); border-color: rgba(45,212,191,0.8); }
-    .cursor.hover { width: 0; height: 0; }
-
-    /* ============ BACKGROUND LAYERS ============ */
-    #constellation { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
-    .grid-overlay {
-      position: fixed; inset: 0; z-index: 0; pointer-events: none;
-      background-image:
-        linear-gradient(var(--line) 1px, transparent 1px),
-        linear-gradient(90deg, var(--line) 1px, transparent 1px);
-      background-size: 64px 64px;
-      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 80%);
-      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 80%);
-      opacity: 0.5;
-    }
-    .aurora {
-      position: fixed; border-radius: 50%; filter: blur(110px);
-      pointer-events: none; z-index: 0; opacity: 0.45;
-    }
-    .aurora-1 { width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(45,212,191,0.3), transparent 70%); top: -15vw; right: -10vw; animation: float1 18s ease-in-out infinite; }
-    .aurora-2 { width: 40vw; height: 40vw; background: radial-gradient(circle, rgba(167,139,250,0.22), transparent 70%); bottom: -10vw; left: -8vw; animation: float2 22s ease-in-out infinite; }
-    @keyframes float1 { 50% { transform: translate(-4vw, 4vw) scale(1.1); } }
-    @keyframes float2 { 50% { transform: translate(5vw, -3vw) scale(1.15); } }
-    .noise {
-      position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: 0.025;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    }
-
-    /* ============ SCROLL PROGRESS ============ */
-    #progress {
-      position: fixed; top: 0; left: 0; height: 2px; width: 0%;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      z-index: 60; box-shadow: 0 0 12px rgba(45,212,191,0.6);
-    }
-
-    /* ============ TYPOGRAPHY HELPERS ============ */
     .gradient-text {
-      background: linear-gradient(120deg, #2dd4bf 0%, #5eead4 40%, #a78bfa 100%);
-      -webkit-background-clip: text; background-clip: text;
-      -webkit-text-fill-color: transparent;
+      background: linear-gradient(100deg, #4f46e5, #7c3aed 60%, #db2777);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
     }
     .eyebrow {
-      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
-      letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent);
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.8rem; font-weight: 600; color: var(--brand);
+      background: #eef2ff; border: 1px solid #e0e7ff;
+      padding: 0.35rem 0.8rem; border-radius: 99px;
     }
-    .eyebrow::before { content: '// '; opacity: 0.5; }
 
-    /* ============ CARDS ============ */
-    .card {
-      position: relative; background: rgba(18, 18, 22, 0.5);
-      border: 1px solid var(--line); border-radius: 20px;
-      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-      transition: border-color 0.4s, transform 0.4s, background 0.4s;
-      overflow: hidden;
-    }
-    .card::before {
-      content: ''; position: absolute; inset: 0; border-radius: inherit;
-      opacity: 0; transition: opacity 0.4s; pointer-events: none;
-      background: radial-gradient(400px circle at var(--mx, 50%) var(--my, 50%), rgba(45,212,191,0.12), transparent 45%);
-    }
-    .card:hover::before { opacity: 1; }
-    .card:hover { border-color: rgba(45,212,191,0.35); background: rgba(24,24,30,0.7); }
-    .card-tilt { transform-style: preserve-3d; transition: transform 0.15s ease-out; }
+    /* Buttons */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; font-weight: 600; border-radius: 99px; transition: transform 0.15s, box-shadow 0.25s, background 0.2s, border-color 0.2s; }
+    .btn:active { transform: translateY(1px); }
+    .btn-dark { background: var(--ink); color: #fff; box-shadow: 0 8px 24px rgba(11,11,15,0.18); }
+    .btn-dark:hover { box-shadow: 0 12px 32px rgba(11,11,15,0.28); }
+    .btn-brand { background: linear-gradient(100deg, #4f46e5, #7c3aed); color: #fff; box-shadow: 0 10px 30px rgba(79,70,229,0.3); }
+    .btn-brand:hover { box-shadow: 0 14px 38px rgba(79,70,229,0.42); }
+    .btn-light { background: #fff; color: #1f2430; border: 1px solid #e5e7eb; }
+    .btn-light:hover { background: #f9fafb; border-color: #d1d5db; }
 
-    /* ============ TAGS / SKILLS ============ */
-    .tag {
-      font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;
-      background: rgba(45,212,191,0.08); color: #5eead4;
-      border: 1px solid rgba(45,212,191,0.18); border-radius: 99px;
-      padding: 0.25rem 0.7rem;
-    }
-    .skill-chip {
-      position: relative; background: rgba(255,255,255,0.02);
-      border: 1px solid var(--line); border-radius: 14px;
-      transition: all 0.3s; overflow: hidden;
-    }
-    .skill-chip:hover { border-color: rgba(45,212,191,0.4); transform: translateY(-3px); background: rgba(45,212,191,0.05); }
+    /* Cards */
+    .card { background: #fff; border: 1px solid #ececf1; border-radius: 24px; transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(17,17,30,0.10); border-color: #e0e0ea; }
 
-    /* ============ BUTTONS ============ */
-    .btn-primary {
-      background: #fafafa; color: #050507; font-weight: 500;
-      transition: transform 0.2s, box-shadow 0.3s;
-      will-change: transform;
-    }
-    .btn-primary:hover { box-shadow: 0 0 30px rgba(255,255,255,0.25); }
-    .btn-ghost {
-      border: 1px solid var(--line); color: #d4d4d8;
-      transition: border-color 0.3s, color 0.3s, background 0.3s;
-    }
-    .btn-ghost:hover { border-color: rgba(45,212,191,0.5); color: #fff; background: rgba(45,212,191,0.05); }
-    .magnetic { will-change: transform; transition: transform 0.25s cubic-bezier(0.22,1,0.36,1); }
+    .chip { font-size: 0.75rem; font-weight: 500; color: #4b5563; background: #f3f4f6; border: 1px solid #ebedf0; border-radius: 99px; padding: 0.25rem 0.7rem; }
+    .chip-brand { color: var(--brand); background: #eef2ff; border-color: #e0e7ff; }
 
-    /* ============ NAV ============ */
-    .nav-link { position: relative; transition: color 0.3s; }
-    .nav-link::after {
-      content: ''; position: absolute; left: 0; bottom: -4px; height: 1px; width: 0;
-      background: var(--accent); transition: width 0.3s;
-    }
-    .nav-link:hover, .nav-link.active { color: #fff; }
-    .nav-link.active::after { width: 100%; }
+    /* Browser mockup */
+    .mockup { border-radius: 20px; overflow: hidden; border: 1px solid #e7e7ee; box-shadow: 0 30px 70px rgba(17,17,30,0.14); background: #fff; }
+    .mockup-bar { display: flex; align-items: center; gap: 0.6rem; padding: 0.7rem 1rem; background: #f7f7fb; border-bottom: 1px solid #ececf1; }
+    .mockup-dots { display: flex; gap: 0.4rem; }
+    .mockup-dots span { width: 11px; height: 11px; border-radius: 50%; }
+    .mockup-url { flex: 1; text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: #8a8a99; background: #fff; border: 1px solid #ececf1; border-radius: 8px; padding: 0.25rem 0.75rem; max-width: 320px; margin: 0 auto; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .mockup-screen { aspect-ratio: 16 / 10; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; position: relative; overflow: hidden; color: #fff; text-align: center; padding: 2rem; }
+    .mockup-screen::after { content: ''; position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 0%, rgba(255,255,255,0.25), transparent 60%); }
+    .mockup-glyph { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: clamp(1.8rem, 4vw, 2.8rem); letter-spacing: -0.02em; position: relative; z-index: 1; }
+    .mockup-tag { font-size: 0.85rem; opacity: 0.85; position: relative; z-index: 1; font-weight: 500; }
 
-    .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); }
-
-    .achievement { border-left: 1px solid rgba(255,255,255,0.1); transition: all 0.3s; }
-    .achievement:hover { border-left-color: var(--accent); background: rgba(45,212,191,0.04); padding-left: 1.25rem !important; }
-
-    /* ============ PROJECT DETAILS TOGGLE ============ */
-    .project-details { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows 0.5s ease, opacity 0.5s ease, margin 0.5s; }
-    .project-details > div { overflow: hidden; }
-    .project-details.show { grid-template-rows: 1fr; opacity: 1; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
-
-    /* ============ REVEAL ON SCROLL ============ */
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
     .reveal.in { opacity: 1; transform: translateY(0); }
-    .reveal[data-delay="1"] { transition-delay: 0.08s; }
-    .reveal[data-delay="2"] { transition-delay: 0.16s; }
-    .reveal[data-delay="3"] { transition-delay: 0.24s; }
-    @media (prefers-reduced-motion: reduce) {
-      .reveal { opacity: 1 !important; transform: none !important; }
-      * { animation: none !important; }
-    }
+    .reveal[data-d="1"] { transition-delay: 0.08s; }
+    .reveal[data-d="2"] { transition-delay: 0.16s; }
+    .reveal[data-d="3"] { transition-delay: 0.24s; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1 !important; transform: none !important; } * { animation: none !important; } }
 
-    /* ============ MARQUEE ============ */
-    .marquee { display: flex; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
-    .marquee-track { display: flex; gap: 3rem; padding-right: 3rem; animation: marquee 28s linear infinite; white-space: nowrap; }
-    .marquee:hover .marquee-track { animation-play-state: paused; }
+    /* Project details */
+    .details { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows 0.45s ease, opacity 0.45s ease, margin 0.45s; }
+    .details > div { overflow: hidden; }
+    .details.show { grid-template-rows: 1fr; opacity: 1; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid #ececf1; }
+
+    /* Marquee */
+    .marquee { display: flex; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+    .marquee-track { display: flex; gap: 3.5rem; padding-right: 3.5rem; animation: marquee 32s linear infinite; white-space: nowrap; }
     @keyframes marquee { to { transform: translateX(-50%); } }
 
-    /* ============ COMMAND PALETTE ============ */
-    #cmdk-backdrop {
-      position: fixed; inset: 0; z-index: 150; background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
-      display: none; align-items: flex-start; justify-content: center; padding-top: 14vh;
-    }
-    #cmdk-backdrop.open { display: flex; animation: fadeIn 0.2s ease; }
-    @keyframes fadeIn { from { opacity: 0; } }
-    #cmdk {
-      width: min(92vw, 560px);
-      background: rgba(16,16,20,0.92); border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 16px; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,0.6);
-      animation: popIn 0.22s cubic-bezier(0.22,1,0.36,1);
-    }
-    @keyframes popIn { from { opacity: 0; transform: translateY(-12px) scale(0.98); } }
-    #cmdk input {
-      width: 100%; background: transparent; border: none; outline: none;
-      color: #fff; font-size: 1rem; padding: 1.1rem 1.25rem;
-      border-bottom: 1px solid var(--line);
-    }
-    #cmdk input::placeholder { color: #52525b; }
-    .cmdk-item {
-      display: flex; align-items: center; gap: 0.85rem; padding: 0.8rem 1.25rem;
-      cursor: none; color: #a1a1aa; transition: background 0.15s, color 0.15s;
-    }
-    .cmdk-item .ic { width: 22px; text-align: center; color: var(--accent); font-family: 'JetBrains Mono', monospace; }
-    .cmdk-item .meta { margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: #52525b; }
-    .cmdk-item.active, .cmdk-item:hover { background: rgba(45,212,191,0.08); color: #fff; }
-    .cmdk-empty { padding: 1.5rem 1.25rem; color: #52525b; font-size: 0.9rem; }
+    nav.scrolled { box-shadow: 0 1px 0 rgba(17,17,30,0.06); background: rgba(255,255,255,0.85); }
 
-    kbd {
-      font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;
-      background: rgba(255,255,255,0.06); border: 1px solid var(--line);
-      border-radius: 6px; padding: 0.1rem 0.4rem; color: #a1a1aa;
+    .grid-bg {
+      background-image: radial-gradient(circle at 1px 1px, rgba(17,17,30,0.06) 1px, transparent 0);
+      background-size: 28px 28px;
     }
-
-    .status-dot { width: 7px; height: 7px; border-radius: 50%; background: #34d399; box-shadow: 0 0 0 0 rgba(52,211,153,0.6); animation: pulse 2s infinite; }
-    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(52,211,153,0.5); } 70% { box-shadow: 0 0 0 8px rgba(52,211,153,0); } 100% { box-shadow: 0 0 0 0 rgba(52,211,153,0); } }
   </style>
 </head>
-<body class="antialiased">
+<body>
 
-  <!-- Preloader -->
-  <div id="preloader">
-    <div>
-      <div class="loader-name" id="loader-name"></div>
-      <div class="loader-bar"></div>
-    </div>
-  </div>
-
-  <!-- Custom cursor -->
-  <div class="cursor"></div>
-  <div class="cursor-ring"></div>
-
-  <!-- Scroll progress -->
-  <div id="progress"></div>
-
-  <!-- Background -->
-  <canvas id="constellation"></canvas>
-  <div class="grid-overlay"></div>
-  <div class="aurora aurora-1"></div>
-  <div class="aurora aurora-2"></div>
-  <div class="noise"></div>
-
-  <!-- Navigation -->
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-[#050507]/70 backdrop-blur-xl border-b border-white/5">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="#top" class="font-display text-xl font-medium tracking-tight" data-hover>ricky<span class="text-accent">.</span></a>
-      <div class="hidden md:flex items-center gap-8 font-mono text-[0.8rem]">
-        <a href="#about" class="nav-link text-gray-400" data-hover>about</a>
-        <a href="#work" class="nav-link text-gray-400" data-hover>work</a>
-        <a href="#achievements" class="nav-link text-gray-400" data-hover>achievements</a>
-        <a href="#contact" class="nav-link text-gray-400" data-hover>contact</a>
+  <!-- Nav -->
+  <nav id="nav" class="fixed top-0 inset-x-0 z-50 backdrop-blur-md transition-all">
+    <div class="max-w-6xl mx-auto px-5 h-[68px] flex items-center justify-between">
+      <a href="#top" class="font-display font-extrabold text-lg tracking-tight">ricky<span class="text-brand">.</span></a>
+      <div class="hidden md:flex items-center gap-1 text-sm font-medium text-gray-600">
+        <a href="#work" class="px-3 py-2 rounded-lg hover:bg-gray-100 hover:text-gray-900 transition">Work</a>
+        <a href="#achievements" class="px-3 py-2 rounded-lg hover:bg-gray-100 hover:text-gray-900 transition">Achievements</a>
+        <a href="#profiles" class="px-3 py-2 rounded-lg hover:bg-gray-100 hover:text-gray-900 transition">Profiles</a>
+        <a href="#contact" class="px-3 py-2 rounded-lg hover:bg-gray-100 hover:text-gray-900 transition">Contact</a>
       </div>
       <div class="flex items-center gap-3">
-        <button id="cmdk-trigger" class="hidden sm:flex items-center gap-2 text-xs text-gray-400 btn-ghost px-3 py-2 rounded-full" data-hover>
-          <span class="font-mono">Search</span>
-          <kbd>⌘K</kbd>
-        </button>
-        <a href="https://drive.google.com/file/d/1t0BY4FjXcfYded5bZYNjAIIGIGz6vuWr/view?usp=drive_link" target="_blank" rel="noopener" class="btn-primary px-4 py-2 rounded-full text-sm magnetic" data-hover>
-          Resume →
-        </a>
+        <a href="https://drive.google.com/file/d/1t0BY4FjXcfYded5bZYNjAIIGIGz6vuWr/view?usp=drive_link" target="_blank" rel="noopener" class="hidden sm:inline-flex text-sm font-semibold text-gray-700 hover:text-gray-900 px-3 py-2 transition">Résumé</a>
+        <a href="#contact" class="btn btn-dark text-sm px-4 py-2">Get in touch</a>
       </div>
     </div>
   </nav>
 
-  <main class="relative z-10" id="top">
+  <main id="top">
 
     <!-- Hero -->
-    <section id="about" class="min-h-screen flex items-center pt-24">
-      <div class="max-w-6xl mx-auto px-6 py-20 w-full">
-        <div class="grid lg:grid-cols-12 gap-12 items-center">
-          <div class="lg:col-span-7">
-            <div class="reveal flex items-center gap-3 mb-7">
-              <span class="status-dot"></span>
-              <span class="font-mono text-xs text-gray-400">Available for new opportunities</span>
-            </div>
-            <p class="eyebrow reveal mb-5" data-delay="1">Software Engineer</p>
-            <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-light leading-[1.05] tracking-tight mb-8 reveal" data-delay="1">
-              I build <span class="gradient-text">intelligent</span><br>products that matter
-            </h1>
-            <p class="text-gray-400 text-lg font-light leading-relaxed max-w-xl mb-10 reveal" data-delay="2">
-              I'm <span class="text-gray-200">Ricky Vishwakarma</span> — a software engineer crafting AI-driven
-              systems and full-stack web apps, where thoughtful design meets clean, production-grade engineering.
-            </p>
-            <div class="flex flex-wrap items-center gap-4 reveal" data-delay="3">
-              <a href="#work" class="btn-primary px-6 py-3 rounded-full text-sm magnetic" data-hover>View Work →</a>
-              <a href="#contact" class="btn-ghost px-6 py-3 rounded-full text-sm" data-hover>Get in touch</a>
-            </div>
-          </div>
+    <section class="relative pt-32 pb-20 grid-bg overflow-hidden">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-gradient-to-b from-indigo-100/70 via-violet-50/40 to-transparent blur-3xl -z-10"></div>
+      <div class="max-w-4xl mx-auto px-5 text-center">
+        <div class="reveal mb-6 flex justify-center">
+          <span class="eyebrow"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Available for new opportunities</span>
+        </div>
+        <h1 class="reveal font-display font-extrabold text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight text-gray-900" data-d="1">
+          I build <span class="gradient-text">AI products</span><br>that actually ship.
+        </h1>
+        <p class="reveal mx-auto mt-7 max-w-xl text-lg text-gray-500 leading-relaxed" data-d="2">
+          I'm Ricky Vishwakarma — a software engineer crafting AI-driven systems and full-stack web apps,
+          where thoughtful design meets clean, production-grade engineering.
+        </p>
+        <div class="reveal mt-9 flex flex-wrap items-center justify-center gap-3" data-d="3">
+          <a href="#work" class="btn btn-brand px-7 py-3.5 text-[0.95rem]">View my work</a>
+          <a href="#contact" class="btn btn-light px-7 py-3.5 text-[0.95rem]">Let's talk →</a>
+        </div>
+        <p class="reveal mt-5 text-sm text-gray-400" data-d="3">9 shipped projects · LeetCode Knight · 800+ DSA solved</p>
+      </div>
 
-          <!-- Stats panel -->
-          <div class="lg:col-span-5 reveal" data-delay="2">
-            <div class="card p-6 card-tilt">
-              <div class="flex items-center justify-between mb-6">
-                <span class="font-mono text-xs text-gray-500">~/impact.json</span>
-                <div class="flex gap-1.5">
-                  <span class="w-2.5 h-2.5 rounded-full bg-white/10"></span>
-                  <span class="w-2.5 h-2.5 rounded-full bg-white/10"></span>
-                  <span class="w-2.5 h-2.5 rounded-full bg-accent/40"></span>
-                </div>
-              </div>
-              <div class="grid grid-cols-2 gap-x-6 gap-y-7">
-                <div>
-                  <p class="font-display text-4xl font-light text-white" data-count="5" data-suffix="+">0</p>
-                  <p class="text-gray-500 text-sm mt-1">Projects shipped</p>
-                </div>
-                <div>
-                  <p class="font-display text-4xl font-light text-white" data-count="10" data-suffix="K+">0</p>
-                  <p class="text-gray-500 text-sm mt-1">Bugs fixed by AI</p>
-                </div>
-                <div>
-                  <p class="font-display text-4xl font-light text-white" data-count="4" data-suffix="★">0</p>
-                  <p class="text-gray-500 text-sm mt-1">CodeChef rating</p>
-                </div>
-                <div>
-                  <p class="font-display text-4xl font-light text-white">Knight</p>
-                  <p class="text-gray-500 text-sm mt-1">LeetCode · Top 3.3%</p>
-                </div>
-              </div>
+      <!-- Hero product mockup -->
+      <div class="reveal max-w-5xl mx-auto px-5 mt-16" data-d="3">
+        <div class="mockup">
+          <div class="mockup-bar">
+            <div class="mockup-dots"><span class="bg-[#ff5f57]"></span><span class="bg-[#febc2e]"></span><span class="bg-[#28c840]"></span></div>
+            <div class="mockup-url">bug-zero-seven.vercel.app</div>
+          </div>
+          <div class="mockup-screen" style="background:linear-gradient(135deg,#4f46e5,#7c3aed 55%,#db2777)">
+            <div class="mockup-glyph">BugZero</div>
+            <div class="mockup-tag">Autonomous AI bug-fixing SaaS — detect, analyze, and ship the fix as a PR</div>
+            <div class="relative z-10 mt-3 flex flex-wrap justify-center gap-2 text-xs">
+              <span class="px-3 py-1 rounded-full bg-white/15 backdrop-blur">10K+ bugs fixed</span>
+              <span class="px-3 py-1 rounded-full bg-white/15 backdrop-blur">500+ teams</span>
+              <span class="px-3 py-1 rounded-full bg-white/15 backdrop-blur">85% success rate</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Skills marquee -->
-    <section class="py-10 border-y border-white/5 bg-white/[0.01]">
+    <!-- Tech marquee -->
+    <section class="py-10 border-y border-gray-100 bg-gray-50/60">
+      <p class="text-center text-xs font-semibold tracking-widest text-gray-400 uppercase mb-6">The tools I build with</p>
       <div class="marquee">
-        <div class="marquee-track font-display text-2xl md:text-3xl font-light text-gray-600">
-          <span>Next.js</span><span class="text-accent/40">/</span><span>React</span><span class="text-accent/40">/</span><span>TypeScript</span><span class="text-accent/40">/</span><span>Node.js</span><span class="text-accent/40">/</span><span>Python</span><span class="text-accent/40">/</span><span>C++</span><span class="text-accent/40">/</span><span>PostgreSQL</span><span class="text-accent/40">/</span><span>Prisma</span><span class="text-accent/40">/</span><span>LangChain</span><span class="text-accent/40">/</span><span>Tailwind</span><span class="text-accent/40">/</span>
-          <span>Next.js</span><span class="text-accent/40">/</span><span>React</span><span class="text-accent/40">/</span><span>TypeScript</span><span class="text-accent/40">/</span><span>Node.js</span><span class="text-accent/40">/</span><span>Python</span><span class="text-accent/40">/</span><span>C++</span><span class="text-accent/40">/</span><span>PostgreSQL</span><span class="text-accent/40">/</span><span>Prisma</span><span class="text-accent/40">/</span><span>LangChain</span><span class="text-accent/40">/</span><span>Tailwind</span><span class="text-accent/40">/</span>
+        <div class="marquee-track font-display font-bold text-xl text-gray-300">
+          <span>Next.js</span><span>React</span><span>TypeScript</span><span>Node.js</span><span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>Supabase</span><span>Prisma</span><span>Redis</span><span>LangChain</span><span>Claude</span><span>Tailwind</span><span>Docker</span>
+          <span>Next.js</span><span>React</span><span>TypeScript</span><span>Node.js</span><span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>Supabase</span><span>Prisma</span><span>Redis</span><span>LangChain</span><span>Claude</span><span>Tailwind</span><span>Docker</span>
         </div>
       </div>
     </section>
 
-    <!-- Expertise -->
-    <section class="py-28">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="mb-14 reveal">
-          <p class="eyebrow mb-4">Expertise</p>
-          <h2 class="font-display text-3xl md:text-5xl font-light text-white tracking-tight">The stack I build with</h2>
-        </div>
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          <!-- chips injected by JS for clean staggering, fallback below -->
-          <div id="skills-grid" class="contents"></div>
-        </div>
+    <!-- Stats band -->
+    <section class="py-16">
+      <div class="max-w-6xl mx-auto px-5 grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="reveal text-center md:text-left"><p class="font-display font-extrabold text-4xl text-gray-900">9</p><p class="text-gray-500 text-sm mt-1">Projects shipped</p></div>
+        <div class="reveal text-center md:text-left" data-d="1"><p class="font-display font-extrabold text-4xl text-gray-900">10K+</p><p class="text-gray-500 text-sm mt-1">Bugs fixed by AI</p></div>
+        <div class="reveal text-center md:text-left" data-d="2"><p class="font-display font-extrabold text-4xl text-gray-900">Knight</p><p class="text-gray-500 text-sm mt-1">LeetCode · Top 3.3%</p></div>
+        <div class="reveal text-center md:text-left" data-d="3"><p class="font-display font-extrabold text-4xl text-gray-900">800+</p><p class="text-gray-500 text-sm mt-1">DSA problems solved</p></div>
       </div>
     </section>
 
-    <div class="divider max-w-6xl mx-auto"></div>
+    <!-- Selected work -->
+    <section id="work" class="py-20 scroll-mt-20">
+      <div class="max-w-6xl mx-auto px-5">
+        <div class="reveal max-w-2xl mb-16">
+          <span class="eyebrow mb-4">Selected work</span>
+          <h2 class="font-display font-extrabold text-4xl md:text-5xl tracking-tight text-gray-900 mt-4">Products I've designed, built, and shipped</h2>
+        </div>
 
-    <!-- Work -->
-    <section id="work" class="py-28">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="mb-14 reveal flex items-end justify-between flex-wrap gap-4">
-          <div>
-            <p class="eyebrow mb-4">Selected Work</p>
-            <h2 class="font-display text-3xl md:text-5xl font-light text-white tracking-tight">Featured projects</h2>
+        <div class="space-y-24">
+
+          <!-- BugZero -->
+          <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+            <div class="reveal">
+              <div class="mockup">
+                <div class="mockup-bar"><div class="mockup-dots"><span class="bg-[#ff5f57]"></span><span class="bg-[#febc2e]"></span><span class="bg-[#28c840]"></span></div><div class="mockup-url">bug-zero-seven.vercel.app</div></div>
+                <div class="mockup-screen" style="background:linear-gradient(135deg,#4f46e5,#7c3aed)"><div class="mockup-glyph">BugZero</div><div class="mockup-tag">Ralph AI → analyze → auto-PR</div></div>
+              </div>
+            </div>
+            <div class="reveal" data-d="1">
+              <div class="flex items-center gap-3 mb-3"><span class="chip chip-brand">Featured</span><span class="chip">AI SaaS</span></div>
+              <h3 class="font-display font-extrabold text-3xl text-gray-900 mb-4">BugZero</h3>
+              <p class="text-gray-500 leading-relaxed mb-6">An AI-powered autonomous bug-fixing SaaS that detects, analyzes, and fixes bugs in your codebase — integrating with GitHub to open pull requests without human intervention.</p>
+              <div class="flex flex-wrap gap-2 mb-7">
+                <span class="chip">Next.js</span><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Claude API</span><span class="chip">Prisma</span><span class="chip">PostgreSQL</span><span class="chip">NextAuth</span><span class="chip">BullMQ</span><span class="chip">Redis</span><span class="chip">GitHub API</span>
+              </div>
+              <div class="flex flex-wrap items-center gap-3">
+                <a href="https://bug-zero-seven.vercel.app" target="_blank" rel="noopener" class="btn btn-dark px-5 py-2.5 text-sm">Live demo →</a>
+                <a href="https://github.com/RickyVishwakarma/bugZero" target="_blank" rel="noopener" class="btn btn-light px-5 py-2.5 text-sm">Source ↗</a>
+                <button onclick="toggleDetails(this)" class="text-sm font-semibold text-gray-500 hover:text-gray-900 ml-auto transition">Details ↓</button>
+              </div>
+              <div class="details"><div><div class="grid sm:grid-cols-2 gap-6 text-sm">
+                <div><p class="font-semibold text-gray-900 mb-3">Key features</p><ul class="space-y-2 text-gray-500"><li>Ralph AI analyzes bugs using Claude</li><li>One-click GitHub integration with webhooks</li><li>Analytics dashboard for tracking fixes</li><li>Command palette (⌘K) for power users</li></ul></div>
+                <div><p class="font-semibold text-gray-900 mb-3">How it works</p><ol class="space-y-2 text-gray-500 list-decimal list-inside"><li>Connect your GitHub repository</li><li>An issue triggers a webhook</li><li>AI analyzes and generates a fix</li><li>A pull request is opened for review</li></ol></div>
+              </div></div></div>
+            </div>
           </div>
-          <p class="font-mono text-xs text-gray-500" id="work-count">[ ] shipped &amp; live</p>
-        </div>
 
-        <div class="space-y-6">
-
-          <!-- BugZero (hero project) -->
-          <article class="card p-8 md:p-10 reveal">
-            <div class="grid lg:grid-cols-12 gap-8">
-              <div class="lg:col-span-7">
-                <div class="flex items-center gap-3 mb-4">
-                  <span class="font-mono text-xs text-accent">01</span>
-                  <h3 class="font-display text-2xl md:text-3xl font-light text-white">BugZero</h3>
-                  <span class="tag">Featured</span>
-                </div>
-                <p class="text-gray-400 font-light leading-relaxed max-w-xl mb-6">
-                  An AI-powered autonomous bug-fixing SaaS that detects, analyzes, and fixes bugs in your
-                  codebase — integrating with GitHub to open pull requests without human intervention.
-                </p>
-                <div class="flex flex-wrap gap-2 mb-7">
-                  <span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span>
-                  <span class="tag">Claude API</span><span class="tag">Prisma</span><span class="tag">PostgreSQL</span><span class="tag">NextAuth</span>
-                  <span class="tag">BullMQ</span><span class="tag">Redis</span><span class="tag">Recharts</span><span class="tag">GitHub API</span><span class="tag">Tailwind</span>
-                </div>
-                <div class="flex flex-wrap items-center gap-4">
-                  <a href="https://bug-zero-seven.vercel.app" target="_blank" rel="noopener" class="btn-primary px-5 py-2.5 rounded-full text-sm magnetic" data-hover>Live Demo →</a>
-                  <a href="https://github.com/RickyVishwakarma/bugZero" target="_blank" rel="noopener" class="btn-ghost px-5 py-2.5 rounded-full text-sm" data-hover>Source ↗</a>
-                  <button onclick="toggleDetails(this)" class="text-gray-400 hover:text-white text-sm ml-auto transition-colors" data-hover>Details ↓</button>
-                </div>
-              </div>
-              <div class="lg:col-span-5 lg:border-l lg:border-white/5 lg:pl-8 flex flex-col justify-center">
-                <div class="grid grid-cols-3 gap-4 text-center lg:text-left">
-                  <div><p class="font-display text-2xl font-light text-white">10K+</p><p class="text-xs text-gray-500 mt-1">Bugs fixed</p></div>
-                  <div><p class="font-display text-2xl font-light text-white">500+</p><p class="text-xs text-gray-500 mt-1">Teams</p></div>
-                  <div><p class="font-display text-2xl font-light text-white">85%</p><p class="text-xs text-gray-500 mt-1">Success rate</p></div>
-                </div>
+          <!-- Nomichi -->
+          <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+            <div class="reveal lg:order-2">
+              <div class="mockup">
+                <div class="mockup-bar"><div class="mockup-dots"><span class="bg-[#ff5f57]"></span><span class="bg-[#febc2e]"></span><span class="bg-[#28c840]"></span></div><div class="mockup-url">nomichi-trip.vercel.app</div></div>
+                <div class="mockup-screen" style="background:linear-gradient(135deg,#0ea5e9,#14b8a6)"><div class="mockup-glyph">Nomichi</div><div class="mockup-tag">Enquiry → live board → confirmed seat</div></div>
               </div>
             </div>
-            <div class="project-details"><div>
-              <div class="grid md:grid-cols-2 gap-8">
-                <div>
-                  <p class="font-mono text-xs text-gray-500 mb-4">// key features</p>
-                  <ul class="space-y-3 text-sm text-gray-300 font-light">
-                    <li><span class="text-accent">→</span> Ralph AI autonomously analyzes bugs using Claude</li>
-                    <li><span class="text-accent">→</span> One-click GitHub integration with webhooks</li>
-                    <li><span class="text-accent">→</span> Analytics dashboard for tracking fixes</li>
-                    <li><span class="text-accent">→</span> Command palette (⌘K) for power users</li>
-                  </ul>
-                </div>
-                <div>
-                  <p class="font-mono text-xs text-gray-500 mb-4">// how it works</p>
-                  <ol class="space-y-3 text-sm text-gray-300 font-light">
-                    <li><span class="text-accent2">1.</span> Connect your GitHub repository</li>
-                    <li><span class="text-accent2">2.</span> An issue triggers a webhook notification</li>
-                    <li><span class="text-accent2">3.</span> AI analyzes the code and generates a fix</li>
-                    <li><span class="text-accent2">4.</span> A pull request is opened for review</li>
-                  </ol>
-                </div>
+            <div class="reveal lg:order-1" data-d="1">
+              <div class="flex items-center gap-3 mb-3"><span class="chip chip-brand">Featured</span><span class="chip">Full-stack CRM</span></div>
+              <h3 class="font-display font-extrabold text-3xl text-gray-900 mb-4">Nomichi Trip Desk</h3>
+              <p class="text-gray-500 leading-relaxed mb-6">A real-time CRM for a travel team. A public enquiry lands live on the team's board a second later and is walked from first hello to a confirmed seat — public site, admin pipeline, a trips CMS, and a dashboard, all sharing one source of truth.</p>
+              <div class="flex flex-wrap gap-2 mb-7">
+                <span class="chip">Next.js 15</span><span class="chip">TypeScript</span><span class="chip">Supabase</span><span class="chip">PostgreSQL</span><span class="chip">Server Actions</span><span class="chip">Zod</span><span class="chip">Claude + Gemini</span><span class="chip">Tailwind</span>
               </div>
-            </div></div>
-          </article>
-
-          <!-- AI-Authenticity -->
-          <article class="card p-8 md:p-10 reveal">
-            <div class="flex items-center gap-3 mb-4">
-              <span class="font-mono text-xs text-accent">02</span>
-              <h3 class="font-display text-2xl font-light text-white">AI-Authenticity</h3>
-              <span class="tag">Featured</span>
+              <div class="flex flex-wrap items-center gap-3">
+                <a href="https://nomichi-trip.vercel.app" target="_blank" rel="noopener" class="btn btn-dark px-5 py-2.5 text-sm">Live demo →</a>
+                <a href="https://github.com/RickyVishwakarma/Nomichi_Trip" target="_blank" rel="noopener" class="btn btn-light px-5 py-2.5 text-sm">Source ↗</a>
+                <button onclick="toggleDetails(this)" class="text-sm font-semibold text-gray-500 hover:text-gray-900 ml-auto transition">Details ↓</button>
+              </div>
+              <div class="details"><div><div class="grid sm:grid-cols-2 gap-6 text-sm">
+                <div><p class="font-semibold text-gray-900 mb-3">Key features</p><ul class="space-y-2 text-gray-500"><li>Public enquiry → live admin board, no refresh</li><li>Pipeline, call log, owners & timeline</li><li>Trips CMS drives what the public sees</li><li>AI: draft WhatsApp, read the vibe, summarise</li></ul></div>
+                <div><p class="font-semibold text-gray-900 mb-3">Engineering</p><ul class="space-y-2 text-gray-500"><li>Reads as Server Components, writes as Actions</li><li>Postgres enums + checks guard bad data</li><li>Row-level security; keys stay server-side</li><li>Provider fallback: Claude → Gemini → template</li></ul></div>
+              </div></div></div>
             </div>
-            <p class="text-gray-400 font-light leading-relaxed max-w-2xl mb-6">
-              An AI-powered authenticity detector with a React front end and a Python computer-vision backend
-              that analyzes uploaded images for manipulation and surfaces trust signals through a clean, fast workflow.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-7">
-              <span class="tag">React</span><span class="tag">Vite</span><span class="tag">Python</span><span class="tag">FastAPI</span>
-              <span class="tag">OpenCV</span><span class="tag">NumPy</span><span class="tag">Pydantic</span>
-            </div>
-            <div class="flex flex-wrap items-center gap-4">
-              <a href="https://ai-authenticity-detector.vercel.app/" target="_blank" rel="noopener" class="btn-primary px-5 py-2.5 rounded-full text-sm magnetic" data-hover>Live Demo →</a>
-              <button onclick="toggleDetails(this)" class="text-gray-400 hover:text-white text-sm ml-auto transition-colors" data-hover>Details ↓</button>
-            </div>
-            <div class="project-details"><div>
-              <div class="grid md:grid-cols-2 gap-8">
-                <div>
-                  <p class="font-mono text-xs text-gray-500 mb-4">// key features</p>
-                  <ul class="space-y-3 text-sm text-gray-300 font-light">
-                    <li><span class="text-accent">→</span> Evaluates content for authenticity indicators</li>
-                    <li><span class="text-accent">→</span> Surfaces trust-related signals in a simple UI</li>
-                    <li><span class="text-accent">→</span> Fast workflow for quick credibility checks</li>
-                    <li><span class="text-accent">→</span> Built as an accessible AI-powered detector</li>
-                  </ul>
-                </div>
-                <div>
-                  <p class="font-mono text-xs text-gray-500 mb-4">// how it works</p>
-                  <ol class="space-y-3 text-sm text-gray-300 font-light">
-                    <li><span class="text-accent2">1.</span> Upload an image for analysis</li>
-                    <li><span class="text-accent2">2.</span> The CV backend examines authenticity-related patterns</li>
-                    <li><span class="text-accent2">3.</span> The app evaluates credibility signals</li>
-                    <li><span class="text-accent2">4.</span> Results support trust-focused review</li>
-                  </ol>
-                </div>
-              </div>
-            </div></div>
-          </article>
-
-          <!-- Nomichi Trip Desk -->
-          <article class="card p-8 md:p-10 reveal">
-            <div class="grid lg:grid-cols-12 gap-8">
-              <div class="lg:col-span-7">
-                <div class="flex items-center gap-3 mb-4">
-                  <span class="font-mono text-xs text-accent">03</span>
-                  <h3 class="font-display text-2xl md:text-3xl font-light text-white">Nomichi Trip Desk</h3>
-                  <span class="tag">Full-stack</span>
-                </div>
-                <p class="text-gray-400 font-light leading-relaxed max-w-xl mb-6">
-                  A real-time CRM for a travel team. A public enquiry lands live on the team's board a
-                  second later and is walked from first hello to a confirmed seat — public site, an admin
-                  pipeline, a trips CMS, and a dashboard, all sharing one source of truth.
-                </p>
-                <div class="flex flex-wrap gap-2 mb-7">
-                  <span class="tag">Next.js 15</span><span class="tag">TypeScript</span><span class="tag">Supabase</span>
-                  <span class="tag">PostgreSQL</span><span class="tag">Server Actions</span><span class="tag">Zod</span><span class="tag">Claude + Gemini</span><span class="tag">Tailwind</span>
-                </div>
-                <div class="flex flex-wrap items-center gap-4">
-                  <a href="https://nomichi-trip.vercel.app" target="_blank" rel="noopener" class="btn-primary px-5 py-2.5 rounded-full text-sm magnetic" data-hover>Live Demo →</a>
-                  <a href="https://github.com/RickyVishwakarma/Nomichi_Trip" target="_blank" rel="noopener" class="btn-ghost px-5 py-2.5 rounded-full text-sm" data-hover>Source ↗</a>
-                  <button onclick="toggleDetails(this)" class="text-gray-400 hover:text-white text-sm ml-auto transition-colors" data-hover>Details ↓</button>
-                </div>
-              </div>
-              <div class="lg:col-span-5 lg:border-l lg:border-white/5 lg:pl-8 flex flex-col justify-center">
-                <div class="grid grid-cols-3 gap-4 text-center lg:text-left">
-                  <div><p class="font-display text-2xl font-light text-white">RLS</p><p class="text-xs text-gray-500 mt-1">DB-enforced</p></div>
-                  <div><p class="font-display text-2xl font-light text-white">3</p><p class="text-xs text-gray-500 mt-1">AI tools</p></div>
-                  <div><p class="font-display text-2xl font-light text-white">SSR</p><p class="text-xs text-gray-500 mt-1">by default</p></div>
-                </div>
-              </div>
-            </div>
-            <div class="project-details"><div>
-              <div class="grid md:grid-cols-2 gap-8">
-                <div>
-                  <p class="font-mono text-xs text-gray-500 mb-4">// key features</p>
-                  <ul class="space-y-3 text-sm text-gray-300 font-light">
-                    <li><span class="text-accent">→</span> Public enquiry form → live admin board, no refresh</li>
-                    <li><span class="text-accent">→</span> Pipeline, call log, owners &amp; activity timeline</li>
-                    <li><span class="text-accent">→</span> Trips CMS that drives what the public sees</li>
-                    <li><span class="text-accent">→</span> AI assist: draft WhatsApp, read the vibe, summarise calls</li>
-                  </ul>
-                </div>
-                <div>
-                  <p class="font-mono text-xs text-gray-500 mb-4">// engineering</p>
-                  <ul class="space-y-3 text-sm text-gray-300 font-light">
-                    <li><span class="text-accent2">·</span> Reads as Server Components, writes as Server Actions</li>
-                    <li><span class="text-accent2">·</span> Postgres enums + check constraints guard bad data</li>
-                    <li><span class="text-accent2">·</span> Row-level security; API keys never reach the browser</li>
-                    <li><span class="text-accent2">·</span> Provider fallback: Claude → Gemini → template</li>
-                  </ul>
-                </div>
-              </div>
-            </div></div>
-          </article>
+          </div>
 
           <!-- RealTime Collaborator -->
-          <article class="card p-8 md:p-10 reveal">
-            <div class="grid lg:grid-cols-12 gap-8">
-              <div class="lg:col-span-7">
-                <div class="flex items-center gap-3 mb-4">
-                  <span class="font-mono text-xs text-accent">04</span>
-                  <h3 class="font-display text-2xl md:text-3xl font-light text-white">RealTime Collaborator</h3>
-                  <span class="tag">Systems</span>
-                </div>
-                <p class="text-gray-400 font-light leading-relaxed max-w-xl mb-6">
-                  A production-grade collaborative document editor — many people editing the same doc at once
-                  with instant conflict resolution, live cursors and presence, offline sync, and full version
-                  history. Architected to scale horizontally to thousands of concurrent connections.
-                </p>
-                <div class="flex flex-wrap gap-2 mb-7">
-                  <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Yjs / CRDT</span>
-                  <span class="tag">Socket.io</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">Redis</span><span class="tag">Docker</span>
-                </div>
-                <div class="flex flex-wrap items-center gap-4">
-                  <a href="https://rtc-client.onrender.com/login" target="_blank" rel="noopener" class="btn-primary px-5 py-2.5 rounded-full text-sm magnetic" data-hover>Live Demo →</a>
-                  <a href="https://github.com/RickyVishwakarma/RealTimeColaborator" target="_blank" rel="noopener" class="btn-ghost px-5 py-2.5 rounded-full text-sm" data-hover>Source ↗</a>
-                  <button onclick="toggleDetails(this)" class="text-gray-400 hover:text-white text-sm ml-auto transition-colors" data-hover>Details ↓</button>
-                </div>
-              </div>
-              <div class="lg:col-span-5 lg:border-l lg:border-white/5 lg:pl-8 flex flex-col justify-center">
-                <div class="grid grid-cols-3 gap-4 text-center lg:text-left">
-                  <div><p class="font-display text-2xl font-light text-white">&lt;100ms</p><p class="text-xs text-gray-500 mt-1">Sync p99</p></div>
-                  <div><p class="font-display text-2xl font-light text-white">10k+</p><p class="text-xs text-gray-500 mt-1">WS conns</p></div>
-                  <div><p class="font-display text-2xl font-light text-white">CRDT</p><p class="text-xs text-gray-500 mt-1">Conflict-free</p></div>
-                </div>
+          <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+            <div class="reveal">
+              <div class="mockup">
+                <div class="mockup-bar"><div class="mockup-dots"><span class="bg-[#ff5f57]"></span><span class="bg-[#febc2e]"></span><span class="bg-[#28c840]"></span></div><div class="mockup-url">rtc-client.onrender.com</div></div>
+                <div class="mockup-screen" style="background:linear-gradient(135deg,#2563eb,#0ea5e9)"><div class="mockup-glyph">RealTime</div><div class="mockup-tag">CRDT editing · live cursors · presence</div></div>
               </div>
             </div>
-            <div class="project-details"><div>
-              <div class="grid md:grid-cols-2 gap-8">
-                <div>
-                  <p class="font-mono text-xs text-gray-500 mb-4">// key features</p>
-                  <ul class="space-y-3 text-sm text-gray-300 font-light">
-                    <li><span class="text-accent">→</span> Multi-user editing with CRDT conflict resolution</li>
-                    <li><span class="text-accent">→</span> Live cursors, selections &amp; presence</li>
-                    <li><span class="text-accent">→</span> Offline support with automatic sync on reconnect</li>
-                    <li><span class="text-accent">→</span> Version history &amp; collaborative undo/redo</li>
-                  </ul>
-                </div>
-                <div>
-                  <p class="font-mono text-xs text-gray-500 mb-4">// architecture</p>
-                  <ul class="space-y-3 text-sm text-gray-300 font-light">
-                    <li><span class="text-accent2">·</span> Yjs CRDT over Socket.io with reconnect/backoff</li>
-                    <li><span class="text-accent2">·</span> Stateless services behind a load balancer</li>
-                    <li><span class="text-accent2">·</span> Redis for pub/sub fan-out across nodes</li>
-                    <li><span class="text-accent2">·</span> TypeScript monorepo: client · server · shared</li>
-                  </ul>
-                </div>
+            <div class="reveal" data-d="1">
+              <div class="flex items-center gap-3 mb-3"><span class="chip chip-brand">Featured</span><span class="chip">Systems</span></div>
+              <h3 class="font-display font-extrabold text-3xl text-gray-900 mb-4">RealTime Collaborator</h3>
+              <p class="text-gray-500 leading-relaxed mb-6">A production-grade collaborative document editor — many people editing the same doc at once with instant conflict resolution, live cursors and presence, offline sync, and full version history. Architected to scale horizontally to thousands of concurrent connections.</p>
+              <div class="flex flex-wrap gap-2 mb-7">
+                <span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Yjs / CRDT</span><span class="chip">Socket.io</span><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">Redis</span><span class="chip">Docker</span>
               </div>
-            </div></div>
+              <div class="flex flex-wrap items-center gap-3">
+                <a href="https://rtc-client.onrender.com/login" target="_blank" rel="noopener" class="btn btn-dark px-5 py-2.5 text-sm">Live demo →</a>
+                <a href="https://github.com/RickyVishwakarma/RealTimeColaborator" target="_blank" rel="noopener" class="btn btn-light px-5 py-2.5 text-sm">Source ↗</a>
+                <button onclick="toggleDetails(this)" class="text-sm font-semibold text-gray-500 hover:text-gray-900 ml-auto transition">Details ↓</button>
+              </div>
+              <div class="details"><div><div class="grid sm:grid-cols-2 gap-6 text-sm">
+                <div><p class="font-semibold text-gray-900 mb-3">Key features</p><ul class="space-y-2 text-gray-500"><li>Multi-user editing with CRDT resolution</li><li>Live cursors, selections & presence</li><li>Offline support with auto-sync on reconnect</li><li>Version history & collaborative undo/redo</li></ul></div>
+                <div><p class="font-semibold text-gray-900 mb-3">Architecture</p><ul class="space-y-2 text-gray-500"><li>Yjs CRDT over Socket.io with backoff</li><li>Stateless services behind a load balancer</li><li>Redis pub/sub fan-out across nodes</li><li>TypeScript monorepo: client · server · shared</li></ul></div>
+              </div></div></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- More projects -->
+    <section class="py-20 bg-gray-50/70 border-y border-gray-100">
+      <div class="max-w-6xl mx-auto px-5">
+        <div class="reveal mb-12">
+          <span class="eyebrow mb-4">More projects</span>
+          <h2 class="font-display font-extrabold text-3xl md:text-4xl tracking-tight text-gray-900 mt-4">Six more things I've built</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- AI-Authenticity -->
+          <article class="card reveal p-2 flex flex-col">
+            <div class="mockup-screen rounded-2xl" style="aspect-ratio:16/9;background:linear-gradient(135deg,#f59e0b,#ef4444)"><div class="mockup-glyph" style="font-size:1.6rem">Authentic</div></div>
+            <div class="p-5 flex flex-col flex-1">
+              <h3 class="font-display font-bold text-xl text-gray-900 mb-2">AI-Authenticity</h3>
+              <p class="text-gray-500 text-sm leading-relaxed mb-4 flex-1">A React + Python computer-vision app that analyzes uploaded images for manipulation and surfaces trust signals.</p>
+              <div class="flex flex-wrap gap-1.5 mb-4"><span class="chip">React</span><span class="chip">Vite</span><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">OpenCV</span></div>
+              <div class="flex gap-3 text-sm font-semibold">
+                <a href="https://ai-authenticity-detector.vercel.app/" target="_blank" rel="noopener" class="text-brand hover:underline">Live demo →</a>
+                <a href="https://github.com/RickyVishwakarma/ai-authenticity-detector" target="_blank" rel="noopener" class="text-gray-500 hover:text-gray-900">Source ↗</a>
+              </div>
+            </div>
           </article>
 
-          <!-- Grid of smaller projects -->
-          <div class="grid md:grid-cols-2 gap-6">
-            <article class="card p-7 reveal">
-              <div class="flex items-center gap-3 mb-3">
-                <span class="font-mono text-xs text-accent">05</span>
-                <h3 class="font-display text-xl font-light text-white">Clara AI</h3>
+          <!-- ShopSphere -->
+          <article class="card reveal p-2 flex flex-col" data-d="1">
+            <div class="mockup-screen rounded-2xl" style="aspect-ratio:16/9;background:linear-gradient(135deg,#10b981,#059669)"><div class="mockup-glyph" style="font-size:1.6rem">ShopSphere</div></div>
+            <div class="p-5 flex flex-col flex-1">
+              <h3 class="font-display font-bold text-xl text-gray-900 mb-2">ShopSphere</h3>
+              <p class="text-gray-500 text-sm leading-relaxed mb-4 flex-1">E-commerce platform with AI-powered product recommendations built on Genkit AI and Firebase.</p>
+              <div class="flex flex-wrap gap-1.5 mb-4"><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">Genkit AI</span><span class="chip">Firebase</span><span class="chip">shadcn/ui</span></div>
+              <div class="flex gap-3 text-sm font-semibold">
+                <a href="https://shop-sphere-pi.vercel.app/" target="_blank" rel="noopener" class="text-brand hover:underline">Live demo →</a>
+                <a href="https://github.com/RickyVishwakarma/shopSphere" target="_blank" rel="noopener" class="text-gray-500 hover:text-gray-900">Source ↗</a>
               </div>
-              <p class="text-gray-400 font-light text-sm leading-relaxed mb-5">A modern AI chat application with real-time conversations powered by LangChain and Claude.</p>
-              <div class="flex flex-wrap gap-2 mb-6"><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">LangChain</span><span class="tag">LangGraph</span><span class="tag">Claude</span><span class="tag">Convex</span><span class="tag">Clerk</span></div>
-              <a href="https://github.com/RickyVishwakarma/AI_Agent" target="_blank" rel="noopener" class="btn-ghost inline-block px-4 py-2 rounded-full text-sm" data-hover>View Code ↗</a>
-            </article>
-
-            <article class="card p-7 reveal" data-delay="1">
-              <div class="flex items-center gap-3 mb-3">
-                <span class="font-mono text-xs text-accent">06</span>
-                <h3 class="font-display text-xl font-light text-white">Indigram</h3>
-              </div>
-              <p class="text-gray-400 font-light text-sm leading-relaxed mb-5">A feature-rich social platform with real-time chat, posts, stories, and video calls.</p>
-              <div class="flex flex-wrap gap-2 mb-6"><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Convex</span><span class="tag">Clerk</span><span class="tag">Stream</span><span class="tag">Framer Motion</span><span class="tag">Tailwind</span></div>
-              <a href="https://github.com/RickyVishwakarma/Indigram" target="_blank" rel="noopener" class="btn-ghost inline-block px-4 py-2 rounded-full text-sm" data-hover>View Code ↗</a>
-            </article>
-
-            <article class="card p-7 reveal">
-              <div class="flex items-center gap-3 mb-3">
-                <span class="font-mono text-xs text-accent">07</span>
-                <h3 class="font-display text-xl font-light text-white">ShopSphere</h3>
-              </div>
-              <p class="text-gray-400 font-light text-sm leading-relaxed mb-5">E-commerce platform with AI-powered product recommendations using Genkit AI.</p>
-              <div class="flex flex-wrap gap-2 mb-6"><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Genkit AI</span><span class="tag">Firebase</span><span class="tag">shadcn/ui</span><span class="tag">Zod</span><span class="tag">Tailwind</span></div>
-              <div class="flex gap-3">
-                <a href="https://shop-sphere-pi.vercel.app/" target="_blank" rel="noopener" class="btn-primary px-4 py-2 rounded-full text-sm magnetic" data-hover>Live →</a>
-                <a href="https://github.com/RickyVishwakarma/shopSphere" target="_blank" rel="noopener" class="btn-ghost px-4 py-2 rounded-full text-sm" data-hover>Source ↗</a>
-              </div>
-            </article>
-
-            <div class="grid grid-rows-2 gap-6">
-              <article class="card p-6 reveal" data-delay="1">
-                <h3 class="font-display text-lg font-light text-white mb-2">Car Parking System</h3>
-                <p class="text-gray-500 font-light text-sm mb-3">Computer vision for real-time parking-space detection.</p>
-                <p class="font-mono text-xs text-gray-600 mb-4">Python · OpenCV · TensorFlow · Keras · NumPy</p>
-                <a href="https://github.com/RickyVishwakarma/CarParking" target="_blank" rel="noopener" class="text-gray-400 hover:text-accent text-sm transition-colors" data-hover>View Code ↗</a>
-              </article>
-              <article class="card p-6 reveal" data-delay="2">
-                <h3 class="font-display text-lg font-light text-white mb-2">DSA Projects</h3>
-                <p class="text-gray-500 font-light text-sm mb-3">Data structures &amp; algorithms in modern C++.</p>
-                <p class="font-mono text-xs text-gray-600 mb-4">C++ · Python · Matplotlib · Algorithms</p>
-                <a href="https://github.com/RickyVishwakarma/DSA-Projects" target="_blank" rel="noopener" class="text-gray-400 hover:text-accent text-sm transition-colors" data-hover>View Code ↗</a>
-              </article>
             </div>
-          </div>
+          </article>
+
+          <!-- Clara AI -->
+          <article class="card reveal p-2 flex flex-col" data-d="2">
+            <div class="mockup-screen rounded-2xl" style="aspect-ratio:16/9;background:linear-gradient(135deg,#6366f1,#8b5cf6)"><div class="mockup-glyph" style="font-size:1.6rem">Clara AI</div></div>
+            <div class="p-5 flex flex-col flex-1">
+              <h3 class="font-display font-bold text-xl text-gray-900 mb-2">Clara AI</h3>
+              <p class="text-gray-500 text-sm leading-relaxed mb-4 flex-1">A modern AI chat application with real-time conversations powered by LangChain, LangGraph and Claude.</p>
+              <div class="flex flex-wrap gap-1.5 mb-4"><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">LangChain</span><span class="chip">LangGraph</span><span class="chip">Convex</span></div>
+              <div class="flex gap-3 text-sm font-semibold">
+                <a href="https://github.com/RickyVishwakarma/AI_Agent" target="_blank" rel="noopener" class="text-gray-500 hover:text-gray-900">Source ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Indigram -->
+          <article class="card reveal p-2 flex flex-col">
+            <div class="mockup-screen rounded-2xl" style="aspect-ratio:16/9;background:linear-gradient(135deg,#ec4899,#8b5cf6)"><div class="mockup-glyph" style="font-size:1.6rem">Indigram</div></div>
+            <div class="p-5 flex flex-col flex-1">
+              <h3 class="font-display font-bold text-xl text-gray-900 mb-2">Indigram</h3>
+              <p class="text-gray-500 text-sm leading-relaxed mb-4 flex-1">A feature-rich social platform with real-time chat, posts, stories, and video calls powered by Stream.</p>
+              <div class="flex flex-wrap gap-1.5 mb-4"><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">Convex</span><span class="chip">Clerk</span><span class="chip">Stream</span></div>
+              <div class="flex gap-3 text-sm font-semibold">
+                <a href="https://github.com/RickyVishwakarma/Indigram" target="_blank" rel="noopener" class="text-gray-500 hover:text-gray-900">Source ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Car Parking -->
+          <article class="card reveal p-2 flex flex-col" data-d="1">
+            <div class="mockup-screen rounded-2xl" style="aspect-ratio:16/9;background:linear-gradient(135deg,#0f172a,#334155)"><div class="mockup-glyph" style="font-size:1.4rem">Car Parking</div></div>
+            <div class="p-5 flex flex-col flex-1">
+              <h3 class="font-display font-bold text-xl text-gray-900 mb-2">Car Parking System</h3>
+              <p class="text-gray-500 text-sm leading-relaxed mb-4 flex-1">Computer-vision system for real-time parking-space detection using deep learning.</p>
+              <div class="flex flex-wrap gap-1.5 mb-4"><span class="chip">Python</span><span class="chip">OpenCV</span><span class="chip">TensorFlow</span><span class="chip">Keras</span><span class="chip">NumPy</span></div>
+              <div class="flex gap-3 text-sm font-semibold">
+                <a href="https://github.com/RickyVishwakarma/CarParking" target="_blank" rel="noopener" class="text-gray-500 hover:text-gray-900">Source ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- DSA -->
+          <article class="card reveal p-2 flex flex-col" data-d="2">
+            <div class="mockup-screen rounded-2xl" style="aspect-ratio:16/9;background:linear-gradient(135deg,#475569,#1e293b)"><div class="mockup-glyph" style="font-size:1.6rem">DSA</div></div>
+            <div class="p-5 flex flex-col flex-1">
+              <h3 class="font-display font-bold text-xl text-gray-900 mb-2">DSA Projects</h3>
+              <p class="text-gray-500 text-sm leading-relaxed mb-4 flex-1">A collection of data-structure & algorithm projects in modern C++, with Python visualizations.</p>
+              <div class="flex flex-wrap gap-1.5 mb-4"><span class="chip">C++</span><span class="chip">Python</span><span class="chip">Matplotlib</span><span class="chip">Algorithms</span></div>
+              <div class="flex gap-3 text-sm font-semibold">
+                <a href="https://github.com/RickyVishwakarma/DSA-Projects" target="_blank" rel="noopener" class="text-gray-500 hover:text-gray-900">Source ↗</a>
+              </div>
+            </div>
+          </article>
 
         </div>
       </div>
     </section>
-
-    <div class="divider max-w-6xl mx-auto"></div>
 
     <!-- Achievements -->
-    <section id="achievements" class="py-28">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="mb-14 reveal">
-          <p class="eyebrow mb-4">Recognition</p>
-          <h2 class="font-display text-3xl md:text-5xl font-light text-white tracking-tight">Achievements</h2>
+    <section id="achievements" class="py-20 scroll-mt-20">
+      <div class="max-w-6xl mx-auto px-5">
+        <div class="reveal max-w-2xl mb-12">
+          <span class="eyebrow mb-4">Recognition</span>
+          <h2 class="font-display font-extrabold text-3xl md:text-5xl tracking-tight text-gray-900 mt-4">Achievements</h2>
         </div>
-
-        <div class="grid md:grid-cols-2 gap-x-10 gap-y-1">
-          <div class="achievement pl-4 py-4 reveal">
-            <p class="text-white font-light">800+ DSA problems solved</p>
-            <p class="text-sm text-gray-500">Across LeetCode, Codeforces &amp; CodeChef</p>
-          </div>
-          <div class="achievement pl-4 py-4 reveal" data-delay="1">
-            <p class="text-white font-light">Rank 1180 — Squarepoint Challenge 2025</p>
-            <p class="text-sm text-gray-500">Codeforces</p>
-          </div>
-          <div class="achievement pl-4 py-4 reveal">
-            <p class="text-white font-light">Top triple-digit rank</p>
-            <p class="text-sm text-gray-500">IIT Madras Reverse Coding Contest 2025</p>
-          </div>
-          <div class="achievement pl-4 py-4 reveal" data-delay="1">
-            <p class="text-white font-light">Rank 60 — CodeChef Starters 196</p>
-            <p class="text-sm text-gray-500">Global contest ranking</p>
-          </div>
-          <div class="achievement pl-4 py-4 reveal">
-            <p class="text-white font-light">Rank 744 — LeetCode Weekly Contest 504</p>
-            <p class="text-sm text-gray-500">Global contest ranking</p>
-          </div>
-        </div>
-
-        <!-- Open source -->
-        <div class="mt-16 reveal">
-          <h3 class="font-mono text-xs text-gray-500 mb-6">// open source contributions</h3>
-          <div class="grid md:grid-cols-3 gap-5">
-            <a href="https://github.com/RickyVishwakarma/ralph" target="_blank" rel="noopener" class="card p-6 group" data-hover>
-              <div class="flex items-center gap-2 mb-3">
-                <span class="text-accent text-lg">⎇</span>
-                <p class="text-white font-light group-hover:text-accent transition-colors">Ralph</p>
-                <span class="ml-auto text-[0.65rem] font-mono px-2 py-0.5 rounded-full bg-green-500/10 border border-green-500/20 text-green-400">merged</span>
-              </div>
-              <p class="text-sm text-gray-500 leading-relaxed">Autonomous AI agent loop that runs until every PRD item is complete.</p>
-            </a>
-            <a href="https://github.com/RickyVishwakarma/eigent" target="_blank" rel="noopener" class="card p-6 group" data-hover>
-              <div class="flex items-center gap-2 mb-3">
-                <span class="text-accent text-lg">⎇</span>
-                <p class="text-white font-light group-hover:text-accent transition-colors">Eigent</p>
-                <span class="ml-auto text-[0.65rem] font-mono px-2 py-0.5 rounded-full bg-green-500/10 border border-green-500/20 text-green-400">merged</span>
-              </div>
-              <p class="text-sm text-gray-500 leading-relaxed">Open-source cowork desktop to unlock exceptional productivity.</p>
-            </a>
-            <a href="https://github.com/RickyVishwakarma/CloudBot.git" target="_blank" rel="noopener" class="card p-6 group" data-hover>
-              <div class="flex items-center gap-2 mb-3">
-                <span class="text-accent text-lg">⎇</span>
-                <p class="text-white font-light group-hover:text-accent transition-colors">CloudBot</p>
-                <span class="ml-auto text-[0.65rem] font-mono px-2 py-0.5 rounded-full bg-green-500/10 border border-green-500/20 text-green-400">merged</span>
-              </div>
-              <p class="text-sm text-gray-500 leading-relaxed">A simple, fast, expandable open-source Python IRC bot.</p>
-            </a>
-          </div>
-        </div>
-
-        <!-- Coding profiles -->
-        <div class="mt-16 reveal">
-          <h3 class="font-mono text-xs text-gray-500 mb-6">// competitive profiles</h3>
-          <div class="grid md:grid-cols-3 gap-5">
-            <a href="https://leetcode.com/u/stephen_76/" target="_blank" rel="noopener" class="card p-5 flex items-center gap-4 group" data-hover>
-              <div class="w-11 h-11 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center font-mono text-orange-400 text-sm">LC</div>
-              <div><p class="text-white font-light group-hover:text-accent transition-colors">LeetCode</p><p class="text-sm text-gray-500">Knight · Top 3.3%</p></div>
-            </a>
-            <a href="https://www.codechef.com/users/stephen_76" target="_blank" rel="noopener" class="card p-5 flex items-center gap-4 group" data-hover>
-              <div class="w-11 h-11 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center font-mono text-amber-400 text-sm">CC</div>
-              <div><p class="text-white font-light group-hover:text-accent transition-colors">CodeChef</p><p class="text-sm text-gray-500">4★ Rating</p></div>
-            </a>
-            <a href="https://codeforces.com/profile/stephen76" target="_blank" rel="noopener" class="card p-5 flex items-center gap-4 group" data-hover>
-              <div class="w-11 h-11 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center font-mono text-blue-400 text-sm">CF</div>
-              <div><p class="text-white font-light group-hover:text-accent transition-colors">Codeforces</p><p class="text-sm text-gray-500">Specialist</p></div>
-            </a>
-          </div>
+        <div class="grid md:grid-cols-2 gap-5">
+          <div class="card reveal p-6"><p class="font-display font-bold text-lg text-gray-900">800+ DSA problems solved</p><p class="text-gray-500 text-sm mt-1">Across LeetCode, Codeforces & CodeChef</p></div>
+          <div class="card reveal p-6" data-d="1"><p class="font-display font-bold text-lg text-gray-900">Rank 1180 — Squarepoint Challenge 2025</p><p class="text-gray-500 text-sm mt-1">Codeforces</p></div>
+          <div class="card reveal p-6"><p class="font-display font-bold text-lg text-gray-900">Top triple-digit rank</p><p class="text-gray-500 text-sm mt-1">IIT Madras Reverse Coding Contest 2025</p></div>
+          <div class="card reveal p-6" data-d="1"><p class="font-display font-bold text-lg text-gray-900">Rank 60 — CodeChef Starters 196</p><p class="text-gray-500 text-sm mt-1">Global contest ranking</p></div>
+          <div class="card reveal p-6 md:col-span-2"><p class="font-display font-bold text-lg text-gray-900">Rank 744 — LeetCode Weekly Contest 504</p><p class="text-gray-500 text-sm mt-1">Global contest ranking</p></div>
         </div>
       </div>
     </section>
 
-    <div class="divider max-w-6xl mx-auto"></div>
+    <!-- Profiles + open source -->
+    <section id="profiles" class="py-20 bg-gray-50/70 border-y border-gray-100 scroll-mt-20">
+      <div class="max-w-6xl mx-auto px-5">
+        <div class="reveal mb-10"><span class="eyebrow mb-4">Profiles</span><h2 class="font-display font-extrabold text-3xl md:text-4xl tracking-tight text-gray-900 mt-4">Competitive programming & open source</h2></div>
 
-    <!-- Contact -->
-    <section id="contact" class="py-32">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="card p-10 md:p-16 reveal text-center md:text-left overflow-hidden relative">
-          <div class="aurora" style="position:absolute; width:30rem; height:30rem; top:-10rem; right:-6rem; opacity:0.25; filter:blur(90px); background:radial-gradient(circle, rgba(167,139,250,0.35), transparent 70%);"></div>
+        <div class="grid md:grid-cols-3 gap-5 mb-10">
+          <a href="https://leetcode.com/u/stephen_76/" target="_blank" rel="noopener" class="card reveal p-6 flex items-center gap-4 group">
+            <div class="w-12 h-12 rounded-xl bg-orange-100 text-orange-600 font-bold flex items-center justify-center font-mono">LC</div>
+            <div><p class="font-display font-bold text-gray-900 group-hover:text-brand transition">LeetCode</p><p class="text-sm text-gray-500">Knight · Top 3.3%</p></div>
+          </a>
+          <a href="https://www.codechef.com/users/stephen_76" target="_blank" rel="noopener" class="card reveal p-6 flex items-center gap-4 group" data-d="1">
+            <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 font-bold flex items-center justify-center font-mono">CC</div>
+            <div><p class="font-display font-bold text-gray-900 group-hover:text-brand transition">CodeChef</p><p class="text-sm text-gray-500">4★ Rating</p></div>
+          </a>
+          <a href="https://codeforces.com/profile/stephen76" target="_blank" rel="noopener" class="card reveal p-6 flex items-center gap-4 group" data-d="2">
+            <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 font-bold flex items-center justify-center font-mono">CF</div>
+            <div><p class="font-display font-bold text-gray-900 group-hover:text-brand transition">Codeforces</p><p class="text-sm text-gray-500">Specialist</p></div>
+          </a>
+        </div>
+
+        <p class="reveal text-xs font-semibold tracking-widest text-gray-400 uppercase mb-5">Open-source contributions</p>
+        <div class="grid md:grid-cols-3 gap-5">
+          <a href="https://github.com/RickyVishwakarma/ralph" target="_blank" rel="noopener" class="card reveal p-6 group">
+            <div class="flex items-center gap-2 mb-2"><p class="font-display font-bold text-gray-900 group-hover:text-brand transition">Ralph</p><span class="ml-auto text-xs font-semibold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100">merged</span></div>
+            <p class="text-sm text-gray-500">Autonomous AI agent loop that runs until every PRD item is complete.</p>
+          </a>
+          <a href="https://github.com/RickyVishwakarma/eigent" target="_blank" rel="noopener" class="card reveal p-6 group" data-d="1">
+            <div class="flex items-center gap-2 mb-2"><p class="font-display font-bold text-gray-900 group-hover:text-brand transition">Eigent</p><span class="ml-auto text-xs font-semibold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100">merged</span></div>
+            <p class="text-sm text-gray-500">Open-source cowork desktop to unlock exceptional productivity.</p>
+          </a>
+          <a href="https://github.com/RickyVishwakarma/CloudBot.git" target="_blank" rel="noopener" class="card reveal p-6 group" data-d="2">
+            <div class="flex items-center gap-2 mb-2"><p class="font-display font-bold text-gray-900 group-hover:text-brand transition">CloudBot</p><span class="ml-auto text-xs font-semibold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100">merged</span></div>
+            <p class="text-sm text-gray-500">A simple, fast, expandable open-source Python IRC bot.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA / Contact -->
+    <section id="contact" class="py-24 scroll-mt-20">
+      <div class="max-w-5xl mx-auto px-5">
+        <div class="reveal rounded-[32px] p-10 md:p-16 text-center relative overflow-hidden" style="background:linear-gradient(135deg,#4f46e5,#7c3aed 55%,#db2777)">
+          <div class="absolute inset-0 opacity-20" style="background-image:radial-gradient(circle at 1px 1px, rgba(255,255,255,0.4) 1px, transparent 0);background-size:24px 24px"></div>
           <div class="relative">
-            <p class="eyebrow mb-4">Get in touch</p>
-            <h2 class="font-display text-4xl md:text-6xl font-light text-white tracking-tight mb-6">
-              Let's build something<br><span class="gradient-text">great together</span>
-            </h2>
-            <p class="text-gray-400 font-light text-lg max-w-xl mb-10 mx-auto md:mx-0">
-              I'm currently open to new opportunities. Whether you have a question or just want to say hi,
-              my inbox is always open.
-            </p>
-            <div class="flex flex-wrap items-center justify-center md:justify-start gap-5">
-              <a href="mailto:ricky.vishwakarma.dev@gmail.com" class="btn-primary px-6 py-3 rounded-full text-sm magnetic" data-hover>Say hello →</a>
-              <div class="flex items-center gap-3 font-mono text-sm">
-                <a href="https://github.com/RickyVishwakarma" target="_blank" rel="noopener" class="btn-ghost px-4 py-2.5 rounded-full" data-hover>GitHub</a>
-                <a href="https://www.linkedin.com/in/ricky-vishwakarma-ab5700287/" target="_blank" rel="noopener" class="btn-ghost px-4 py-2.5 rounded-full" data-hover>LinkedIn</a>
-                <a href="https://x.com/RICKYVISHW17342" target="_blank" rel="noopener" class="btn-ghost px-4 py-2.5 rounded-full" data-hover>X</a>
-              </div>
+            <h2 class="font-display font-extrabold text-4xl md:text-5xl text-white tracking-tight mb-5">Let's build something great together</h2>
+            <p class="text-white/80 text-lg max-w-xl mx-auto mb-9">I'm currently open to new opportunities. Whether you have a question or just want to say hi, my inbox is always open.</p>
+            <div class="flex flex-wrap items-center justify-center gap-3">
+              <a href="mailto:ricky.vishwakarma.dev@gmail.com" class="btn bg-white text-gray-900 px-7 py-3.5 hover:bg-gray-100">Say hello →</a>
+              <a href="https://drive.google.com/file/d/1t0BY4FjXcfYded5bZYNjAIIGIGz6vuWr/view?usp=drive_link" target="_blank" rel="noopener" class="btn border border-white/40 text-white px-7 py-3.5 hover:bg-white/10">Download résumé</a>
+            </div>
+            <div class="flex items-center justify-center gap-6 mt-9 text-white/80 text-sm font-semibold">
+              <a href="https://github.com/RickyVishwakarma" target="_blank" rel="noopener" class="hover:text-white transition">GitHub</a>
+              <a href="https://www.linkedin.com/in/ricky-vishwakarma-ab5700287/" target="_blank" rel="noopener" class="hover:text-white transition">LinkedIn</a>
+              <a href="https://x.com/RICKYVISHW17342" target="_blank" rel="noopener" class="hover:text-white transition">X</a>
             </div>
           </div>
         </div>
@@ -803,271 +468,37 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-10 border-t border-white/5">
-      <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-        <p class="font-mono text-xs text-gray-600">© 2026 Ricky Vishwakarma</p>
-        <p class="font-mono text-xs text-gray-600">Hand-coded with HTML, Tailwind &amp; vanilla JS · Press <kbd>⌘K</kbd></p>
+    <footer class="py-10 border-t border-gray-100">
+      <div class="max-w-6xl mx-auto px-5 flex flex-col md:flex-row items-center justify-between gap-3 text-sm text-gray-400">
+        <p>© 2026 Ricky Vishwakarma</p>
+        <p>Designed & hand-coded with HTML, Tailwind & vanilla JS</p>
       </div>
     </footer>
   </main>
 
-  <!-- Command palette -->
-  <div id="cmdk-backdrop">
-    <div id="cmdk" role="dialog" aria-label="Command palette">
-      <input id="cmdk-input" type="text" placeholder="Type a command or search…" autocomplete="off" spellcheck="false">
-      <div id="cmdk-list"></div>
-    </div>
-  </div>
-
   <script>
-    /* ============ PRELOADER + NAME REVEAL ============ */
+    // Reveal on scroll
     (function () {
-      const name = 'Ricky Vishwakarma';
-      const el = document.getElementById('loader-name');
-      el.innerHTML = name.split('').map((c, i) =>
-        `<span style="animation-delay:${i * 0.04}s">${c === ' ' ? '&nbsp;' : c}</span>`).join('');
-      window.addEventListener('load', () => {
-        setTimeout(() => document.getElementById('preloader').classList.add('done'), 1400);
-      });
-    })();
-
-    /* ============ CUSTOM CURSOR ============ */
-    (function () {
-      if (window.matchMedia('(pointer: coarse)').matches) return;
-      const dot = document.querySelector('.cursor');
-      const ring = document.querySelector('.cursor-ring');
-      let mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my;
-      addEventListener('mousemove', e => {
-        mx = e.clientX; my = e.clientY;
-        dot.style.left = mx + 'px'; dot.style.top = my + 'px';
-      });
-      (function loop() {
-        rx += (mx - rx) * 0.18; ry += (my - ry) * 0.18;
-        ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-        requestAnimationFrame(loop);
-      })();
-      const hoverables = '[data-hover], a, button';
-      document.addEventListener('mouseover', e => {
-        if (e.target.closest(hoverables)) { ring.classList.add('hover'); dot.classList.add('hover'); }
-      });
-      document.addEventListener('mouseout', e => {
-        if (e.target.closest(hoverables)) { ring.classList.remove('hover'); dot.classList.remove('hover'); }
-      });
-    })();
-
-    /* ============ CONSTELLATION CANVAS ============ */
-    (function () {
-      const canvas = document.getElementById('constellation');
-      const ctx = canvas.getContext('2d');
-      let w, h, particles, mouse = { x: -999, y: -999 };
-      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      function resize() {
-        w = canvas.width = innerWidth; h = canvas.height = innerHeight;
-        const count = Math.min(90, Math.floor(w * h / 16000));
-        particles = Array.from({ length: count }, () => ({
-          x: Math.random() * w, y: Math.random() * h,
-          vx: (Math.random() - 0.5) * 0.35, vy: (Math.random() - 0.5) * 0.35,
-          r: Math.random() * 1.6 + 0.4
-        }));
-      }
-      addEventListener('resize', resize); resize();
-      addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
-      addEventListener('mouseleave', () => { mouse.x = -999; mouse.y = -999; });
-
-      function draw() {
-        ctx.clearRect(0, 0, w, h);
-        for (const p of particles) {
-          p.x += p.vx; p.y += p.vy;
-          if (p.x < 0 || p.x > w) p.vx *= -1;
-          if (p.y < 0 || p.y > h) p.vy *= -1;
-          // mouse repel
-          const dxm = p.x - mouse.x, dym = p.y - mouse.y;
-          const dm = Math.hypot(dxm, dym);
-          if (dm < 130) { p.x += dxm / dm * 1.4; p.y += dym / dm * 1.4; }
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(45,212,191,0.5)';
-          ctx.fill();
-        }
-        for (let i = 0; i < particles.length; i++) {
-          for (let j = i + 1; j < particles.length; j++) {
-            const a = particles[i], b = particles[j];
-            const d = Math.hypot(a.x - b.x, a.y - b.y);
-            if (d < 120) {
-              ctx.beginPath();
-              ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
-              ctx.strokeStyle = `rgba(45,212,191,${0.12 * (1 - d / 120)})`;
-              ctx.lineWidth = 0.6; ctx.stroke();
-            }
-          }
-        }
-        requestAnimationFrame(draw);
-      }
-      if (!reduce) draw();
-    })();
-
-    /* ============ SKILLS GRID ============ */
-    (function () {
-      const skills = [
-        ['Next.js', 'framework'], ['React', 'library'], ['TypeScript', 'language'], ['Node.js', 'runtime'],
-        ['Python', 'language'], ['C++', 'language'], ['PostgreSQL', 'database'], ['MongoDB', 'database'],
-        ['Prisma', 'ORM'], ['LangChain', 'AI'], ['Tailwind', 'styling'], ['Git', 'tooling']
-      ];
-      const grid = document.getElementById('skills-grid');
-      grid.innerHTML = skills.map(([name, kind], i) => `
-        <div class="skill-chip p-4 reveal" data-delay="${i % 3}" data-hover>
-          <p class="font-display text-base text-white">${name}</p>
-          <p class="font-mono text-[0.65rem] text-gray-500 mt-1">${kind}</p>
-        </div>`).join('');
-    })();
-
-    /* ============ REVEAL ON SCROLL ============ */
-    (function () {
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
       }, { threshold: 0.12 });
-      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+      document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
     })();
 
-    /* ============ COUNTERS ============ */
+    // Nav shadow on scroll
     (function () {
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          if (!e.isIntersecting) return;
-          const el = e.target, target = +el.dataset.count;
-          const pre = el.dataset.prefix || '', suf = el.dataset.suffix || '';
-          let cur = 0; const step = Math.max(1, target / 40);
-          const t = setInterval(() => {
-            cur += step;
-            if (cur >= target) { cur = target; clearInterval(t); }
-            el.textContent = pre + Math.floor(cur) + suf;
-          }, 28);
-          io.unobserve(el);
-        });
-      }, { threshold: 0.5 });
-      document.querySelectorAll('[data-count]').forEach(el => io.observe(el));
-    })();
-
-    /* ============ CARD GLOW + TILT ============ */
-    (function () {
-      document.querySelectorAll('.card').forEach(card => {
-        card.addEventListener('mousemove', e => {
-          const r = card.getBoundingClientRect();
-          card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-          card.style.setProperty('--my', (e.clientY - r.top) + 'px');
-        });
-      });
-      document.querySelectorAll('.card-tilt').forEach(card => {
-        card.addEventListener('mousemove', e => {
-          const r = card.getBoundingClientRect();
-          const px = (e.clientX - r.left) / r.width - 0.5;
-          const py = (e.clientY - r.top) / r.height - 0.5;
-          card.style.transform = `perspective(900px) rotateY(${px * 7}deg) rotateX(${-py * 7}deg)`;
-        });
-        card.addEventListener('mouseleave', () => { card.style.transform = ''; });
-      });
-    })();
-
-    /* ============ MAGNETIC BUTTONS ============ */
-    (function () {
-      if (window.matchMedia('(pointer: coarse)').matches) return;
-      document.querySelectorAll('.magnetic').forEach(el => {
-        el.addEventListener('mousemove', e => {
-          const r = el.getBoundingClientRect();
-          el.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * 0.3}px, ${(e.clientY - r.top - r.height / 2) * 0.4}px)`;
-        });
-        el.addEventListener('mouseleave', () => { el.style.transform = ''; });
-      });
-    })();
-
-    /* ============ SCROLL PROGRESS + SPY ============ */
-    (function () {
-      const bar = document.getElementById('progress');
-      const links = [...document.querySelectorAll('.nav-link')];
-      const sections = links.map(l => document.querySelector(l.getAttribute('href')));
-      function onScroll() {
-        const st = scrollY, dh = document.body.scrollHeight - innerHeight;
-        bar.style.width = (dh > 0 ? st / dh * 100 : 0) + '%';
-        let idx = 0;
-        sections.forEach((s, i) => { if (s && s.offsetTop - 120 <= st) idx = i; });
-        links.forEach((l, i) => l.classList.toggle('active', i === idx));
-      }
+      var nav = document.getElementById('nav');
+      function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 8); }
       addEventListener('scroll', onScroll, { passive: true }); onScroll();
     })();
 
-    /* ============ WORK COUNT ============ */
-    (function () {
-      const n = document.querySelectorAll('#work article').length;
-      const el = document.getElementById('work-count');
-      if (el) el.textContent = `[ ${n} ] shipped & live`;
-    })();
-
-    /* ============ PROJECT DETAILS ============ */
+    // Project details toggle
     function toggleDetails(btn) {
-      const card = btn.closest('.card');
-      const d = card.querySelector('.project-details');
+      var wrap = btn.closest('.reveal');
+      var d = wrap.querySelector('.details');
       d.classList.toggle('show');
       btn.textContent = d.classList.contains('show') ? 'Hide ↑' : 'Details ↓';
     }
-
-    /* ============ COMMAND PALETTE (⌘K) ============ */
-    (function () {
-      const backdrop = document.getElementById('cmdk-backdrop');
-      const input = document.getElementById('cmdk-input');
-      const list = document.getElementById('cmdk-list');
-      const trigger = document.getElementById('cmdk-trigger');
-      let active = 0, filtered = [];
-
-      const commands = [
-        { ic: '◇', label: 'Go to About', meta: 'section', run: () => go('#about') },
-        { ic: '◇', label: 'Go to Work', meta: 'section', run: () => go('#work') },
-        { ic: '◇', label: 'Go to Achievements', meta: 'section', run: () => go('#achievements') },
-        { ic: '◇', label: 'Go to Contact', meta: 'section', run: () => go('#contact') },
-        { ic: '↗', label: 'BugZero — Live Demo', meta: 'link', run: () => open('https://bug-zero-seven.vercel.app') },
-        { ic: '↗', label: 'AI-Authenticity — Live Demo', meta: 'link', run: () => open('https://ai-authenticity-detector.vercel.app/') },
-        { ic: '↗', label: 'Nomichi Trip Desk — Live Demo', meta: 'link', run: () => open('https://nomichi-trip.vercel.app') },
-        { ic: '↗', label: 'RealTime Collaborator — Live Demo', meta: 'link', run: () => open('https://rtc-client.onrender.com/login') },
-        { ic: '↗', label: 'GitHub', meta: 'link', run: () => open('https://github.com/RickyVishwakarma') },
-        { ic: '↗', label: 'LinkedIn', meta: 'link', run: () => open('https://www.linkedin.com/in/ricky-vishwakarma-ab5700287/') },
-        { ic: '↗', label: 'Download Résumé', meta: 'link', run: () => open('https://drive.google.com/file/d/1t0BY4FjXcfYded5bZYNjAIIGIGz6vuWr/view?usp=drive_link') },
-        { ic: '✉', label: 'Email Ricky', meta: 'action', run: () => open('mailto:ricky.vishwakarma.dev@gmail.com') },
-      ];
-      function go(sel) { close(); document.querySelector(sel).scrollIntoView({ behavior: 'smooth' }); }
-      function open(url) { close(); window.open(url, '_blank', 'noopener'); }
-
-      function render() {
-        const q = input.value.toLowerCase().trim();
-        filtered = commands.filter(c => c.label.toLowerCase().includes(q));
-        active = 0;
-        list.innerHTML = filtered.length
-          ? filtered.map((c, i) => `<div class="cmdk-item ${i === 0 ? 'active' : ''}" data-i="${i}"><span class="ic">${c.ic}</span><span>${c.label}</span><span class="meta">${c.meta}</span></div>`).join('')
-          : `<div class="cmdk-empty">No results.</div>`;
-        list.querySelectorAll('.cmdk-item').forEach(it => {
-          it.addEventListener('click', () => filtered[+it.dataset.i].run());
-          it.addEventListener('mousemove', () => setActive(+it.dataset.i));
-        });
-      }
-      function setActive(i) {
-        active = i;
-        list.querySelectorAll('.cmdk-item').forEach((it, idx) => it.classList.toggle('active', idx === i));
-      }
-      function openPalette() { backdrop.classList.add('open'); input.value = ''; render(); setTimeout(() => input.focus(), 30); }
-      function close() { backdrop.classList.remove('open'); }
-
-      trigger.addEventListener('click', openPalette);
-      input.addEventListener('input', render);
-      backdrop.addEventListener('click', e => { if (e.target === backdrop) close(); });
-
-      addEventListener('keydown', e => {
-        if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); backdrop.classList.contains('open') ? close() : openPalette(); return; }
-        if (!backdrop.classList.contains('open')) return;
-        if (e.key === 'Escape') close();
-        else if (e.key === 'ArrowDown') { e.preventDefault(); setActive(Math.min(active + 1, filtered.length - 1)); }
-        else if (e.key === 'ArrowUp') { e.preventDefault(); setActive(Math.max(active - 1, 0)); }
-        else if (e.key === 'Enter') { e.preventDefault(); filtered[active] && filtered[active].run(); }
-      });
-    })();
   </script>
 </body>
 </html>
