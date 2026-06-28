@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ricky Vishwakarma — Software Engineer</title>
   <meta name="description" content="Ricky Vishwakarma — Software Engineer building AI products and full-stack web applications with elegant, production-grade code.">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#08080a">
   <meta property="og:title" content="Ricky Vishwakarma — Software Engineer">
   <meta property="og:description" content="Building AI products and full-stack web applications with elegant code.">
   <meta property="og:type" content="website">
@@ -24,9 +24,7 @@
             display: ['Plus Jakarta Sans', 'sans-serif'],
             mono: ['JetBrains Mono', 'monospace'],
           },
-          colors: {
-            brand: { DEFAULT: '#4f46e5', dark: '#4338ca' },
-          }
+          colors: { gold: '#d8b974', cream: '#f3f0e9' }
         }
       }
     }
@@ -34,130 +32,148 @@
 
   <style>
     :root {
-      --brand: #4f46e5;
-      --brand2: #7c3aed;
-      --ink: #0b0b0f;
+      --bg: #08080a;
+      --bg2: #0c0c10;
+      --cream: #f3f0e9;
+      --muted: #8a8a92;
+      --gold1: #f2e0b0;
+      --gold2: #c89b4d;
+      --line: rgba(255,255,255,0.08);
     }
     html { scroll-padding-top: 84px; }
     body {
       font-family: 'Inter', sans-serif;
-      color: #1f2430;
-      background: #ffffff;
+      color: #c9c9d0;
+      background: var(--bg);
       -webkit-font-smoothing: antialiased;
     }
     .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
     .font-mono { font-family: 'JetBrains Mono', monospace; }
-    ::selection { background: rgba(79,70,229,0.15); }
+    ::selection { background: rgba(216,185,116,0.25); color: #fff; }
 
-    ::-webkit-scrollbar { width: 10px; }
-    ::-webkit-scrollbar-thumb { background: #d8d8e0; border-radius: 99px; border: 3px solid #fff; }
-    ::-webkit-scrollbar-thumb:hover { background: #bcbcc8; }
+    ::-webkit-scrollbar { width: 9px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: #26262c; border-radius: 99px; }
+    ::-webkit-scrollbar-thumb:hover { background: #3a3a42; }
+
+    /* Grain + glow */
+    .grain { position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
 
     .gradient-text {
-      background: linear-gradient(100deg, #4f46e5, #7c3aed 60%, #db2777);
+      background: linear-gradient(100deg, var(--gold1), var(--gold2) 55%, #b07f2f);
       -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
     }
     .eyebrow {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      font-size: 0.8rem; font-weight: 600; color: var(--brand);
-      background: #eef2ff; border: 1px solid #e0e7ff;
-      padding: 0.35rem 0.8rem; border-radius: 99px;
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--gold2);
+      background: rgba(216,185,116,0.06); border: 1px solid rgba(216,185,116,0.2);
+      padding: 0.4rem 0.85rem; border-radius: 99px;
     }
 
     /* Buttons */
-    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; font-weight: 600; border-radius: 99px; transition: transform 0.15s, box-shadow 0.25s, background 0.2s, border-color 0.2s; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; font-weight: 600; border-radius: 99px; transition: transform 0.18s, box-shadow 0.3s, background 0.25s, border-color 0.25s, color 0.25s; }
     .btn:active { transform: translateY(1px); }
-    .btn-dark { background: var(--ink); color: #fff; box-shadow: 0 8px 24px rgba(11,11,15,0.18); }
-    .btn-dark:hover { box-shadow: 0 12px 32px rgba(11,11,15,0.28); }
-    .btn-brand { background: linear-gradient(100deg, #4f46e5, #7c3aed); color: #fff; box-shadow: 0 10px 30px rgba(79,70,229,0.3); }
-    .btn-brand:hover { box-shadow: 0 14px 38px rgba(79,70,229,0.42); }
-    .btn-light { background: #fff; color: #1f2430; border: 1px solid #e5e7eb; }
-    .btn-light:hover { background: #f9fafb; border-color: #d1d5db; }
+    .btn-cream { background: var(--cream); color: #08080a; box-shadow: 0 10px 30px rgba(243,240,233,0.12); }
+    .btn-cream:hover { box-shadow: 0 14px 40px rgba(243,240,233,0.22); transform: translateY(-1px); }
+    .btn-ghost { border: 1px solid var(--line); color: var(--cream); background: rgba(255,255,255,0.02); }
+    .btn-ghost:hover { border-color: rgba(216,185,116,0.45); background: rgba(216,185,116,0.06); }
+    .btn-gold { background: linear-gradient(100deg, var(--gold1), var(--gold2)); color: #1a1206; box-shadow: 0 12px 36px rgba(200,155,77,0.28); }
+    .btn-gold:hover { box-shadow: 0 16px 46px rgba(200,155,77,0.42); transform: translateY(-1px); }
 
     /* Cards */
-    .card { background: #fff; border: 1px solid #ececf1; border-radius: 24px; transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(17,17,30,0.10); border-color: #e0e0ea; }
+    .card {
+      position: relative;
+      background: linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.012));
+      border: 1px solid var(--line); border-radius: 26px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 24px 50px rgba(0,0,0,0.45);
+      transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s, border-color 0.35s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(216,185,116,0.3);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 36px 70px rgba(0,0,0,0.6), 0 0 40px rgba(216,185,116,0.06);
+    }
 
-    .chip { font-size: 0.75rem; font-weight: 500; color: #4b5563; background: #f3f4f6; border: 1px solid #ebedf0; border-radius: 99px; padding: 0.25rem 0.7rem; }
-    .chip-brand { color: var(--brand); background: #eef2ff; border-color: #e0e7ff; }
+    .chip { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #b9b9c2; background: rgba(255,255,255,0.04); border: 1px solid var(--line); border-radius: 99px; padding: 0.28rem 0.7rem; }
+    .chip-gold { color: var(--gold1); background: rgba(216,185,116,0.08); border-color: rgba(216,185,116,0.28); }
 
     /* Browser mockup */
-    .mockup { border-radius: 20px; overflow: hidden; border: 1px solid #e7e7ee; box-shadow: 0 30px 70px rgba(17,17,30,0.14); background: #fff; }
-    .mockup-bar { display: flex; align-items: center; gap: 0.6rem; padding: 0.7rem 1rem; background: #f7f7fb; border-bottom: 1px solid #ececf1; }
+    .mockup { border-radius: 22px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 40px 90px rgba(0,0,0,0.65), inset 0 1px 0 rgba(255,255,255,0.08); background: #111116; }
+    .mockup-bar { display: flex; align-items: center; gap: 0.6rem; padding: 0.7rem 1rem; background: #15151b; border-bottom: 1px solid rgba(255,255,255,0.06); }
     .mockup-dots { display: flex; gap: 0.4rem; }
     .mockup-dots span { width: 11px; height: 11px; border-radius: 50%; }
-    .mockup-url { flex: 1; text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: #8a8a99; background: #fff; border: 1px solid #ececf1; border-radius: 8px; padding: 0.25rem 0.75rem; max-width: 320px; margin: 0 auto; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .mockup-url { flex: 1; text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: #6f6f7a; background: #0e0e12; border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 0.28rem 0.75rem; max-width: 320px; margin: 0 auto; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .mockup-screen { aspect-ratio: 16 / 10; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; position: relative; overflow: hidden; color: #fff; text-align: center; padding: 2rem; }
-    .mockup-screen::after { content: ''; position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 0%, rgba(255,255,255,0.25), transparent 60%); }
+    .mockup-screen::after { content: ''; position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 0%, rgba(255,255,255,0.22), transparent 60%); }
     .mockup-glyph { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: clamp(1.8rem, 4vw, 2.8rem); letter-spacing: -0.02em; position: relative; z-index: 1; }
-    .mockup-tag { font-size: 0.85rem; opacity: 0.85; position: relative; z-index: 1; font-weight: 500; }
+    .mockup-tag { font-size: 0.85rem; opacity: 0.9; position: relative; z-index: 1; font-weight: 500; }
 
     /* Reveal */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1); }
     .reveal.in { opacity: 1; transform: translateY(0); }
-    .reveal[data-d="1"] { transition-delay: 0.08s; }
-    .reveal[data-d="2"] { transition-delay: 0.16s; }
-    .reveal[data-d="3"] { transition-delay: 0.24s; }
+    .reveal[data-d="1"] { transition-delay: 0.09s; }
+    .reveal[data-d="2"] { transition-delay: 0.18s; }
+    .reveal[data-d="3"] { transition-delay: 0.27s; }
     @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1 !important; transform: none !important; } * { animation: none !important; } }
 
     /* Project details */
     .details { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows 0.45s ease, opacity 0.45s ease, margin 0.45s; }
     .details > div { overflow: hidden; }
-    .details.show { grid-template-rows: 1fr; opacity: 1; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid #ececf1; }
+    .details.show { grid-template-rows: 1fr; opacity: 1; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--line); }
 
     /* Marquee */
     .marquee { display: flex; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
-    .marquee-track { display: flex; gap: 3.5rem; padding-right: 3.5rem; animation: marquee 32s linear infinite; white-space: nowrap; }
+    .marquee-track { display: flex; gap: 3.5rem; padding-right: 3.5rem; animation: marquee 34s linear infinite; white-space: nowrap; }
     @keyframes marquee { to { transform: translateX(-50%); } }
 
-    nav.scrolled { box-shadow: 0 1px 0 rgba(17,17,30,0.06); background: rgba(255,255,255,0.85); }
+    nav.scrolled { background: rgba(8,8,10,0.8); backdrop-filter: blur(16px); border-bottom: 1px solid var(--line); }
 
-    .grid-bg {
-      background-image: radial-gradient(circle at 1px 1px, rgba(17,17,30,0.06) 1px, transparent 0);
-      background-size: 28px 28px;
-    }
+    .hairline { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); }
   </style>
 </head>
 <body>
+  <div class="grain"></div>
 
   <!-- Nav -->
-  <nav id="nav" class="fixed top-0 inset-x-0 z-50 backdrop-blur-md transition-all">
+  <nav id="nav" class="fixed top-0 inset-x-0 z-50 transition-all border-b border-transparent">
     <div class="max-w-6xl mx-auto px-5 h-[68px] flex items-center justify-between">
-      <a href="#top" class="font-display font-extrabold text-lg tracking-tight">ricky<span class="text-brand">.</span></a>
-      <div class="hidden md:flex items-center gap-1 text-sm font-medium text-gray-600">
-        <a href="#work" class="px-3 py-2 rounded-lg hover:bg-gray-100 hover:text-gray-900 transition">Work</a>
-        <a href="#achievements" class="px-3 py-2 rounded-lg hover:bg-gray-100 hover:text-gray-900 transition">Achievements</a>
-        <a href="#profiles" class="px-3 py-2 rounded-lg hover:bg-gray-100 hover:text-gray-900 transition">Profiles</a>
-        <a href="#contact" class="px-3 py-2 rounded-lg hover:bg-gray-100 hover:text-gray-900 transition">Contact</a>
+      <a href="#top" class="font-display font-extrabold text-lg tracking-tight text-cream">ricky<span class="gradient-text">.</span></a>
+      <div class="hidden md:flex items-center gap-1 text-sm font-medium text-[#9a9aa2]">
+        <a href="#work" class="px-3 py-2 rounded-lg hover:text-cream transition">Work</a>
+        <a href="#achievements" class="px-3 py-2 rounded-lg hover:text-cream transition">Achievements</a>
+        <a href="#profiles" class="px-3 py-2 rounded-lg hover:text-cream transition">Profiles</a>
+        <a href="#contact" class="px-3 py-2 rounded-lg hover:text-cream transition">Contact</a>
       </div>
       <div class="flex items-center gap-3">
-        <a href="Ricky_Vishwakarma_Resume.pdf" target="_blank" rel="noopener" class="hidden sm:inline-flex text-sm font-semibold text-gray-700 hover:text-gray-900 px-3 py-2 transition">Résumé</a>
-        <a href="#contact" class="btn btn-dark text-sm px-4 py-2">Get in touch</a>
+        <a href="Ricky_Vishwakarma_Resume.pdf" target="_blank" rel="noopener" class="hidden sm:inline-flex text-sm font-semibold text-[#b9b9c2] hover:text-cream px-3 py-2 transition">Résumé</a>
+        <a href="#contact" class="btn btn-cream text-sm px-4 py-2">Get in touch</a>
       </div>
     </div>
   </nav>
 
-  <main id="top">
+  <main id="top" class="relative z-10">
 
     <!-- Hero -->
-    <section class="relative pt-32 pb-20 grid-bg overflow-hidden">
-      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-gradient-to-b from-indigo-100/70 via-violet-50/40 to-transparent blur-3xl -z-10"></div>
+    <section class="relative pt-32 pb-20 overflow-hidden">
+      <div class="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[1000px] h-[600px] -z-10" style="background:radial-gradient(circle at 50% 30%, rgba(216,185,116,0.16), transparent 60%)"></div>
       <div class="max-w-4xl mx-auto px-5 text-center">
         <div class="reveal mb-6 flex justify-center">
-          <span class="eyebrow"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Available for new opportunities</span>
+          <span class="eyebrow"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Available for new opportunities</span>
         </div>
-        <h1 class="reveal font-display font-extrabold text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight text-gray-900" data-d="1">
+        <h1 class="reveal font-display font-extrabold text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight text-cream" data-d="1">
           I build <span class="gradient-text">AI products</span><br>that actually ship.
         </h1>
-        <p class="reveal mx-auto mt-7 max-w-xl text-lg text-gray-500 leading-relaxed" data-d="2">
+        <p class="reveal mx-auto mt-7 max-w-xl text-lg text-[#9a9aa2] leading-relaxed" data-d="2">
           I'm Ricky Vishwakarma — a software engineer crafting AI-driven systems and full-stack web apps,
           where thoughtful design meets clean, production-grade engineering.
         </p>
         <div class="reveal mt-9 flex flex-wrap items-center justify-center gap-3" data-d="3">
-          <a href="#work" class="btn btn-brand px-7 py-3.5 text-[0.95rem]">View my work</a>
-          <a href="#contact" class="btn btn-light px-7 py-3.5 text-[0.95rem]">Let's talk →</a>
+          <a href="#work" class="btn btn-cream px-7 py-3.5 text-[0.95rem]">View my work</a>
+          <a href="#contact" class="btn btn-ghost px-7 py-3.5 text-[0.95rem]">Let's talk →</a>
         </div>
-        <p class="reveal mt-5 text-sm text-gray-400" data-d="3">10 shipped projects · LeetCode Knight · 800+ DSA solved</p>
+        <p class="reveal mt-5 font-mono text-xs text-[#6f6f7a]" data-d="3">10 shipped projects · LeetCode Knight · 800+ DSA solved</p>
       </div>
 
       <!-- Hero product mockup -->
@@ -181,10 +197,10 @@
     </section>
 
     <!-- Tech marquee -->
-    <section class="py-10 border-y border-gray-100 bg-gray-50/60">
-      <p class="text-center text-xs font-semibold tracking-widest text-gray-400 uppercase mb-6">The tools I build with</p>
+    <section class="py-10 border-y border-white/5 bg-[#0b0b0e]">
+      <p class="text-center font-mono text-xs tracking-[0.22em] text-[#5e5e68] uppercase mb-6">The tools I build with</p>
       <div class="marquee">
-        <div class="marquee-track font-display font-bold text-xl text-gray-300">
+        <div class="marquee-track font-display font-bold text-xl text-[#2c2c34]">
           <span>Next.js</span><span>React</span><span>TypeScript</span><span>Node.js</span><span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>Supabase</span><span>Prisma</span><span>Redis</span><span>LangChain</span><span>Claude</span><span>Tailwind</span><span>Docker</span>
           <span>Next.js</span><span>React</span><span>TypeScript</span><span>Node.js</span><span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>Supabase</span><span>Prisma</span><span>Redis</span><span>LangChain</span><span>Claude</span><span>Tailwind</span><span>Docker</span>
         </div>
@@ -194,10 +210,10 @@
     <!-- Stats band -->
     <section class="py-16">
       <div class="max-w-6xl mx-auto px-5 grid grid-cols-2 md:grid-cols-4 gap-6">
-        <div class="reveal text-center md:text-left"><p class="font-display font-extrabold text-4xl text-gray-900">10</p><p class="text-gray-500 text-sm mt-1">Projects shipped</p></div>
-        <div class="reveal text-center md:text-left" data-d="1"><p class="font-display font-extrabold text-4xl text-gray-900">10K+</p><p class="text-gray-500 text-sm mt-1">Bugs fixed by AI</p></div>
-        <div class="reveal text-center md:text-left" data-d="2"><p class="font-display font-extrabold text-4xl text-gray-900">Knight</p><p class="text-gray-500 text-sm mt-1">LeetCode · Top 3.3%</p></div>
-        <div class="reveal text-center md:text-left" data-d="3"><p class="font-display font-extrabold text-4xl text-gray-900">800+</p><p class="text-gray-500 text-sm mt-1">DSA problems solved</p></div>
+        <div class="reveal text-center md:text-left"><p class="font-display font-extrabold text-4xl text-cream">10</p><p class="text-[#7c7c86] text-sm mt-1">Projects shipped</p></div>
+        <div class="reveal text-center md:text-left" data-d="1"><p class="font-display font-extrabold text-4xl text-cream">10K+</p><p class="text-[#7c7c86] text-sm mt-1">Bugs fixed by AI</p></div>
+        <div class="reveal text-center md:text-left" data-d="2"><p class="font-display font-extrabold text-4xl gradient-text">Knight</p><p class="text-[#7c7c86] text-sm mt-1">LeetCode · Top 3.3%</p></div>
+        <div class="reveal text-center md:text-left" data-d="3"><p class="font-display font-extrabold text-4xl text-cream">800+</p><p class="text-[#7c7c86] text-sm mt-1">DSA problems solved</p></div>
       </div>
     </section>
 
@@ -206,7 +222,7 @@
       <div class="max-w-6xl mx-auto px-5">
         <div class="reveal max-w-2xl mb-16">
           <span class="eyebrow mb-4">Selected work</span>
-          <h2 class="font-display font-extrabold text-4xl md:text-5xl tracking-tight text-gray-900 mt-4">Products I've designed, built, and shipped</h2>
+          <h2 class="font-display font-extrabold text-4xl md:text-5xl tracking-tight text-cream mt-5">Products I've designed, built, and shipped</h2>
         </div>
 
         <div class="space-y-24">
@@ -220,20 +236,20 @@
               </div>
             </div>
             <div class="reveal lg:order-1" data-d="1">
-              <div class="flex items-center gap-3 mb-3"><span class="chip chip-brand">Featured</span><span class="chip">Healthcare AI</span></div>
-              <h3 class="font-display font-extrabold text-3xl text-gray-900 mb-4">FlowCare AI</h3>
-              <p class="text-gray-500 leading-relaxed mb-6">A production-grade healthcare referral-automation platform with a visual workflow builder. It turns any referral — PDF, fax, scanned image, or web form — into a verified, scheduled patient automatically, using OCR, LLMs, and a queue-based pipeline with a full audit trail.</p>
+              <div class="flex items-center gap-3 mb-3"><span class="chip chip-gold">Featured</span><span class="chip">Healthcare AI</span></div>
+              <h3 class="font-display font-extrabold text-3xl text-cream mb-4">FlowCare AI</h3>
+              <p class="text-[#9a9aa2] leading-relaxed mb-6">A production-grade healthcare referral-automation platform with a visual workflow builder. It turns any referral — PDF, fax, scanned image, or web form — into a verified, scheduled patient automatically, using OCR, LLMs, and a queue-based pipeline with a full audit trail.</p>
               <div class="flex flex-wrap gap-2 mb-7">
                 <span class="chip">FastAPI</span><span class="chip">Python</span><span class="chip">PostgreSQL</span><span class="chip">Redis</span><span class="chip">Celery</span><span class="chip">Claude</span><span class="chip">Tesseract</span><span class="chip">Twilio</span><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">Docker</span>
               </div>
               <div class="flex flex-wrap items-center gap-3">
-                <a href="https://flowcare-ai-3tra.vercel.app/" target="_blank" rel="noopener" class="btn btn-dark px-5 py-2.5 text-sm">Live demo →</a>
-                <a href="https://github.com/RickyVishwakarma/flowcareAI" target="_blank" rel="noopener" class="btn btn-light px-5 py-2.5 text-sm">Source ↗</a>
-                <button onclick="toggleDetails(this)" class="text-sm font-semibold text-gray-500 hover:text-gray-900 ml-auto transition">Details ↓</button>
+                <a href="https://flowcare-ai-3tra.vercel.app/" target="_blank" rel="noopener" class="btn btn-cream px-5 py-2.5 text-sm">Live demo →</a>
+                <a href="https://github.com/RickyVishwakarma/flowcareAI" target="_blank" rel="noopener" class="btn btn-ghost px-5 py-2.5 text-sm">Source ↗</a>
+                <button onclick="toggleDetails(this)" class="text-sm font-semibold text-[#9a9aa2] hover:text-cream ml-auto transition">Details ↓</button>
               </div>
               <div class="details"><div><div class="grid sm:grid-cols-2 gap-6 text-sm">
-                <div><p class="font-semibold text-gray-900 mb-3">Key features</p><ul class="space-y-2 text-gray-500"><li>Omni-channel intake: PDF, image, fax, web form</li><li>OCR + Claude extraction with per-field confidence</li><li>Drag-and-drop visual workflow engine</li><li>Human-in-the-loop review & immutable audit trail</li></ul></div>
-                <div><p class="font-semibold text-gray-900 mb-3">Architecture</p><ul class="space-y-2 text-gray-500"><li>FastAPI API; heavy work runs in Celery workers</li><li>Redis broker: retry → backoff → dead-letter queue</li><li>PostgreSQL (14-table schema) + audit log</li><li>JWT rotating-refresh auth, RBAC, multi-tenant</li></ul></div>
+                <div><p class="font-semibold text-cream mb-3">Key features</p><ul class="space-y-2 text-[#9a9aa2]"><li>Omni-channel intake: PDF, image, fax, web form</li><li>OCR + Claude extraction with per-field confidence</li><li>Drag-and-drop visual workflow engine</li><li>Human-in-the-loop review & immutable audit trail</li></ul></div>
+                <div><p class="font-semibold text-cream mb-3">Architecture</p><ul class="space-y-2 text-[#9a9aa2]"><li>FastAPI API; heavy work runs in Celery workers</li><li>Redis broker: retry → backoff → dead-letter queue</li><li>PostgreSQL (14-table schema) + audit log</li><li>JWT rotating-refresh auth, RBAC, multi-tenant</li></ul></div>
               </div></div></div>
             </div>
           </div>
@@ -247,20 +263,20 @@
               </div>
             </div>
             <div class="reveal" data-d="1">
-              <div class="flex items-center gap-3 mb-3"><span class="chip chip-brand">Featured</span><span class="chip">AI SaaS</span></div>
-              <h3 class="font-display font-extrabold text-3xl text-gray-900 mb-4">BugZero</h3>
-              <p class="text-gray-500 leading-relaxed mb-6">An AI-powered autonomous bug-fixing SaaS that detects, analyzes, and fixes bugs in your codebase — integrating with GitHub to open pull requests without human intervention.</p>
+              <div class="flex items-center gap-3 mb-3"><span class="chip chip-gold">Featured</span><span class="chip">AI SaaS</span></div>
+              <h3 class="font-display font-extrabold text-3xl text-cream mb-4">BugZero</h3>
+              <p class="text-[#9a9aa2] leading-relaxed mb-6">An AI-powered autonomous bug-fixing SaaS that detects, analyzes, and fixes bugs in your codebase — integrating with GitHub to open pull requests without human intervention.</p>
               <div class="flex flex-wrap gap-2 mb-7">
                 <span class="chip">Next.js</span><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Claude API</span><span class="chip">Prisma</span><span class="chip">PostgreSQL</span><span class="chip">NextAuth</span><span class="chip">BullMQ</span><span class="chip">Redis</span><span class="chip">GitHub API</span>
               </div>
               <div class="flex flex-wrap items-center gap-3">
-                <a href="https://bug-zero-seven.vercel.app" target="_blank" rel="noopener" class="btn btn-dark px-5 py-2.5 text-sm">Live demo →</a>
-                <a href="https://github.com/RickyVishwakarma/bugZero" target="_blank" rel="noopener" class="btn btn-light px-5 py-2.5 text-sm">Source ↗</a>
-                <button onclick="toggleDetails(this)" class="text-sm font-semibold text-gray-500 hover:text-gray-900 ml-auto transition">Details ↓</button>
+                <a href="https://bug-zero-seven.vercel.app" target="_blank" rel="noopener" class="btn btn-cream px-5 py-2.5 text-sm">Live demo →</a>
+                <a href="https://github.com/RickyVishwakarma/bugZero" target="_blank" rel="noopener" class="btn btn-ghost px-5 py-2.5 text-sm">Source ↗</a>
+                <button onclick="toggleDetails(this)" class="text-sm font-semibold text-[#9a9aa2] hover:text-cream ml-auto transition">Details ↓</button>
               </div>
               <div class="details"><div><div class="grid sm:grid-cols-2 gap-6 text-sm">
-                <div><p class="font-semibold text-gray-900 mb-3">Key features</p><ul class="space-y-2 text-gray-500"><li>Ralph AI analyzes bugs using Claude</li><li>One-click GitHub integration with webhooks</li><li>Analytics dashboard for tracking fixes</li><li>Command palette (⌘K) for power users</li></ul></div>
-                <div><p class="font-semibold text-gray-900 mb-3">How it works</p><ol class="space-y-2 text-gray-500 list-decimal list-inside"><li>Connect your GitHub repository</li><li>An issue triggers a webhook</li><li>AI analyzes and generates a fix</li><li>A pull request is opened for review</li></ol></div>
+                <div><p class="font-semibold text-cream mb-3">Key features</p><ul class="space-y-2 text-[#9a9aa2]"><li>Ralph AI analyzes bugs using Claude</li><li>One-click GitHub integration with webhooks</li><li>Analytics dashboard for tracking fixes</li><li>Command palette (⌘K) for power users</li></ul></div>
+                <div><p class="font-semibold text-cream mb-3">How it works</p><ol class="space-y-2 text-[#9a9aa2] list-decimal list-inside"><li>Connect your GitHub repository</li><li>An issue triggers a webhook</li><li>AI analyzes and generates a fix</li><li>A pull request is opened for review</li></ol></div>
               </div></div></div>
             </div>
           </div>
@@ -274,20 +290,20 @@
               </div>
             </div>
             <div class="reveal lg:order-1" data-d="1">
-              <div class="flex items-center gap-3 mb-3"><span class="chip chip-brand">Featured</span><span class="chip">Full-stack CRM</span></div>
-              <h3 class="font-display font-extrabold text-3xl text-gray-900 mb-4">Nomichi Trip Desk</h3>
-              <p class="text-gray-500 leading-relaxed mb-6">A real-time CRM for a travel team. A public enquiry lands live on the team's board a second later and is walked from first hello to a confirmed seat — public site, admin pipeline, a trips CMS, and a dashboard, all sharing one source of truth.</p>
+              <div class="flex items-center gap-3 mb-3"><span class="chip chip-gold">Featured</span><span class="chip">Full-stack CRM</span></div>
+              <h3 class="font-display font-extrabold text-3xl text-cream mb-4">Nomichi Trip Desk</h3>
+              <p class="text-[#9a9aa2] leading-relaxed mb-6">A real-time CRM for a travel team. A public enquiry lands live on the team's board a second later and is walked from first hello to a confirmed seat — public site, admin pipeline, a trips CMS, and a dashboard, all sharing one source of truth.</p>
               <div class="flex flex-wrap gap-2 mb-7">
                 <span class="chip">Next.js 15</span><span class="chip">TypeScript</span><span class="chip">Supabase</span><span class="chip">PostgreSQL</span><span class="chip">Server Actions</span><span class="chip">Zod</span><span class="chip">Claude + Gemini</span><span class="chip">Tailwind</span>
               </div>
               <div class="flex flex-wrap items-center gap-3">
-                <a href="https://nomichi-trip.vercel.app" target="_blank" rel="noopener" class="btn btn-dark px-5 py-2.5 text-sm">Live demo →</a>
-                <a href="https://github.com/RickyVishwakarma/Nomichi_Trip" target="_blank" rel="noopener" class="btn btn-light px-5 py-2.5 text-sm">Source ↗</a>
-                <button onclick="toggleDetails(this)" class="text-sm font-semibold text-gray-500 hover:text-gray-900 ml-auto transition">Details ↓</button>
+                <a href="https://nomichi-trip.vercel.app" target="_blank" rel="noopener" class="btn btn-cream px-5 py-2.5 text-sm">Live demo →</a>
+                <a href="https://github.com/RickyVishwakarma/Nomichi_Trip" target="_blank" rel="noopener" class="btn btn-ghost px-5 py-2.5 text-sm">Source ↗</a>
+                <button onclick="toggleDetails(this)" class="text-sm font-semibold text-[#9a9aa2] hover:text-cream ml-auto transition">Details ↓</button>
               </div>
               <div class="details"><div><div class="grid sm:grid-cols-2 gap-6 text-sm">
-                <div><p class="font-semibold text-gray-900 mb-3">Key features</p><ul class="space-y-2 text-gray-500"><li>Public enquiry → live admin board, no refresh</li><li>Pipeline, call log, owners & timeline</li><li>Trips CMS drives what the public sees</li><li>AI: draft WhatsApp, read the vibe, summarise</li></ul></div>
-                <div><p class="font-semibold text-gray-900 mb-3">Engineering</p><ul class="space-y-2 text-gray-500"><li>Reads as Server Components, writes as Actions</li><li>Postgres enums + checks guard bad data</li><li>Row-level security; keys stay server-side</li><li>Provider fallback: Claude → Gemini → template</li></ul></div>
+                <div><p class="font-semibold text-cream mb-3">Key features</p><ul class="space-y-2 text-[#9a9aa2]"><li>Public enquiry → live admin board, no refresh</li><li>Pipeline, call log, owners & timeline</li><li>Trips CMS drives what the public sees</li><li>AI: draft WhatsApp, read the vibe, summarise</li></ul></div>
+                <div><p class="font-semibold text-cream mb-3">Engineering</p><ul class="space-y-2 text-[#9a9aa2]"><li>Reads as Server Components, writes as Actions</li><li>Postgres enums + checks guard bad data</li><li>Row-level security; keys stay server-side</li><li>Provider fallback: Claude → Gemini → template</li></ul></div>
               </div></div></div>
             </div>
           </div>
@@ -301,20 +317,20 @@
               </div>
             </div>
             <div class="reveal" data-d="1">
-              <div class="flex items-center gap-3 mb-3"><span class="chip chip-brand">Featured</span><span class="chip">Systems</span></div>
-              <h3 class="font-display font-extrabold text-3xl text-gray-900 mb-4">RealTime Collaborator</h3>
-              <p class="text-gray-500 leading-relaxed mb-6">A production-grade collaborative document editor — many people editing the same doc at once with instant conflict resolution, live cursors and presence, offline sync, and full version history. Architected to scale horizontally to thousands of concurrent connections.</p>
+              <div class="flex items-center gap-3 mb-3"><span class="chip chip-gold">Featured</span><span class="chip">Systems</span></div>
+              <h3 class="font-display font-extrabold text-3xl text-cream mb-4">RealTime Collaborator</h3>
+              <p class="text-[#9a9aa2] leading-relaxed mb-6">A production-grade collaborative document editor — many people editing the same doc at once with instant conflict resolution, live cursors and presence, offline sync, and full version history. Architected to scale horizontally to thousands of concurrent connections.</p>
               <div class="flex flex-wrap gap-2 mb-7">
                 <span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Yjs / CRDT</span><span class="chip">Socket.io</span><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">Redis</span><span class="chip">Docker</span>
               </div>
               <div class="flex flex-wrap items-center gap-3">
-                <a href="https://rtc-client.onrender.com/login" target="_blank" rel="noopener" class="btn btn-dark px-5 py-2.5 text-sm">Live demo →</a>
-                <a href="https://github.com/RickyVishwakarma/RealTimeColaborator" target="_blank" rel="noopener" class="btn btn-light px-5 py-2.5 text-sm">Source ↗</a>
-                <button onclick="toggleDetails(this)" class="text-sm font-semibold text-gray-500 hover:text-gray-900 ml-auto transition">Details ↓</button>
+                <a href="https://rtc-client.onrender.com/login" target="_blank" rel="noopener" class="btn btn-cream px-5 py-2.5 text-sm">Live demo →</a>
+                <a href="https://github.com/RickyVishwakarma/RealTimeColaborator" target="_blank" rel="noopener" class="btn btn-ghost px-5 py-2.5 text-sm">Source ↗</a>
+                <button onclick="toggleDetails(this)" class="text-sm font-semibold text-[#9a9aa2] hover:text-cream ml-auto transition">Details ↓</button>
               </div>
               <div class="details"><div><div class="grid sm:grid-cols-2 gap-6 text-sm">
-                <div><p class="font-semibold text-gray-900 mb-3">Key features</p><ul class="space-y-2 text-gray-500"><li>Multi-user editing with CRDT resolution</li><li>Live cursors, selections & presence</li><li>Offline support with auto-sync on reconnect</li><li>Version history & collaborative undo/redo</li></ul></div>
-                <div><p class="font-semibold text-gray-900 mb-3">Architecture</p><ul class="space-y-2 text-gray-500"><li>Yjs CRDT over Socket.io with backoff</li><li>Stateless services behind a load balancer</li><li>Redis pub/sub fan-out across nodes</li><li>TypeScript monorepo: client · server · shared</li></ul></div>
+                <div><p class="font-semibold text-cream mb-3">Key features</p><ul class="space-y-2 text-[#9a9aa2]"><li>Multi-user editing with CRDT resolution</li><li>Live cursors, selections & presence</li><li>Offline support with auto-sync on reconnect</li><li>Version history & collaborative undo/redo</li></ul></div>
+                <div><p class="font-semibold text-cream mb-3">Architecture</p><ul class="space-y-2 text-[#9a9aa2]"><li>Yjs CRDT over Socket.io with backoff</li><li>Stateless services behind a load balancer</li><li>Redis pub/sub fan-out across nodes</li><li>TypeScript monorepo: client · server · shared</li></ul></div>
               </div></div></div>
             </div>
           </div>
@@ -324,91 +340,91 @@
     </section>
 
     <!-- More projects -->
-    <section class="py-20 bg-gray-50/70 border-y border-gray-100">
+    <section class="py-20 bg-[#0b0b0e] border-y border-white/5">
       <div class="max-w-6xl mx-auto px-5">
         <div class="reveal mb-12">
           <span class="eyebrow mb-4">More projects</span>
-          <h2 class="font-display font-extrabold text-3xl md:text-4xl tracking-tight text-gray-900 mt-4">Six more things I've built</h2>
+          <h2 class="font-display font-extrabold text-3xl md:text-4xl tracking-tight text-cream mt-5">Six more things I've built</h2>
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
           <!-- AI-Authenticity -->
           <article class="card reveal p-2 flex flex-col">
-            <div class="mockup-screen rounded-2xl" style="aspect-ratio:16/9;background:linear-gradient(135deg,#f59e0b,#ef4444)"><div class="mockup-glyph" style="font-size:1.6rem">Authentic</div></div>
+            <div class="mockup-screen rounded-[20px]" style="aspect-ratio:16/9;background:linear-gradient(135deg,#f59e0b,#ef4444)"><div class="mockup-glyph" style="font-size:1.6rem">Authentic</div></div>
             <div class="p-5 flex flex-col flex-1">
-              <h3 class="font-display font-bold text-xl text-gray-900 mb-2">AI-Authenticity</h3>
-              <p class="text-gray-500 text-sm leading-relaxed mb-4 flex-1">A React + Python computer-vision app that analyzes uploaded images for manipulation and surfaces trust signals.</p>
+              <h3 class="font-display font-bold text-xl text-cream mb-2">AI-Authenticity</h3>
+              <p class="text-[#9a9aa2] text-sm leading-relaxed mb-4 flex-1">A React + Python computer-vision app that analyzes uploaded images for manipulation and surfaces trust signals.</p>
               <div class="flex flex-wrap gap-1.5 mb-4"><span class="chip">React</span><span class="chip">Vite</span><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">OpenCV</span></div>
               <div class="flex gap-3 text-sm font-semibold">
-                <a href="https://ai-authenticity-detector.vercel.app/" target="_blank" rel="noopener" class="text-brand hover:underline">Live demo →</a>
-                <a href="https://github.com/RickyVishwakarma/ai-authenticity-detector" target="_blank" rel="noopener" class="text-gray-500 hover:text-gray-900">Source ↗</a>
+                <a href="https://ai-authenticity-detector.vercel.app/" target="_blank" rel="noopener" class="gradient-text hover:opacity-80">Live demo →</a>
+                <a href="https://github.com/RickyVishwakarma/ai-authenticity-detector" target="_blank" rel="noopener" class="text-[#9a9aa2] hover:text-cream">Source ↗</a>
               </div>
             </div>
           </article>
 
           <!-- ShopSphere -->
           <article class="card reveal p-2 flex flex-col" data-d="1">
-            <div class="mockup-screen rounded-2xl" style="aspect-ratio:16/9;background:linear-gradient(135deg,#10b981,#059669)"><div class="mockup-glyph" style="font-size:1.6rem">ShopSphere</div></div>
+            <div class="mockup-screen rounded-[20px]" style="aspect-ratio:16/9;background:linear-gradient(135deg,#10b981,#059669)"><div class="mockup-glyph" style="font-size:1.6rem">ShopSphere</div></div>
             <div class="p-5 flex flex-col flex-1">
-              <h3 class="font-display font-bold text-xl text-gray-900 mb-2">ShopSphere</h3>
-              <p class="text-gray-500 text-sm leading-relaxed mb-4 flex-1">E-commerce platform with AI-powered product recommendations built on Genkit AI and Firebase.</p>
+              <h3 class="font-display font-bold text-xl text-cream mb-2">ShopSphere</h3>
+              <p class="text-[#9a9aa2] text-sm leading-relaxed mb-4 flex-1">E-commerce platform with AI-powered product recommendations built on Genkit AI and Firebase.</p>
               <div class="flex flex-wrap gap-1.5 mb-4"><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">Genkit AI</span><span class="chip">Firebase</span><span class="chip">shadcn/ui</span></div>
               <div class="flex gap-3 text-sm font-semibold">
-                <a href="https://shop-sphere-pi.vercel.app/" target="_blank" rel="noopener" class="text-brand hover:underline">Live demo →</a>
-                <a href="https://github.com/RickyVishwakarma/shopSphere" target="_blank" rel="noopener" class="text-gray-500 hover:text-gray-900">Source ↗</a>
+                <a href="https://shop-sphere-pi.vercel.app/" target="_blank" rel="noopener" class="gradient-text hover:opacity-80">Live demo →</a>
+                <a href="https://github.com/RickyVishwakarma/shopSphere" target="_blank" rel="noopener" class="text-[#9a9aa2] hover:text-cream">Source ↗</a>
               </div>
             </div>
           </article>
 
           <!-- Clara AI -->
           <article class="card reveal p-2 flex flex-col" data-d="2">
-            <div class="mockup-screen rounded-2xl" style="aspect-ratio:16/9;background:linear-gradient(135deg,#6366f1,#8b5cf6)"><div class="mockup-glyph" style="font-size:1.6rem">Clara AI</div></div>
+            <div class="mockup-screen rounded-[20px]" style="aspect-ratio:16/9;background:linear-gradient(135deg,#6366f1,#8b5cf6)"><div class="mockup-glyph" style="font-size:1.6rem">Clara AI</div></div>
             <div class="p-5 flex flex-col flex-1">
-              <h3 class="font-display font-bold text-xl text-gray-900 mb-2">Clara AI</h3>
-              <p class="text-gray-500 text-sm leading-relaxed mb-4 flex-1">A modern AI chat application with real-time conversations powered by LangChain, LangGraph and Claude.</p>
+              <h3 class="font-display font-bold text-xl text-cream mb-2">Clara AI</h3>
+              <p class="text-[#9a9aa2] text-sm leading-relaxed mb-4 flex-1">A modern AI chat application with real-time conversations powered by LangChain, LangGraph and Claude.</p>
               <div class="flex flex-wrap gap-1.5 mb-4"><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">LangChain</span><span class="chip">LangGraph</span><span class="chip">Convex</span></div>
               <div class="flex gap-3 text-sm font-semibold">
-                <a href="https://github.com/RickyVishwakarma/AI_Agent" target="_blank" rel="noopener" class="text-gray-500 hover:text-gray-900">Source ↗</a>
+                <a href="https://github.com/RickyVishwakarma/AI_Agent" target="_blank" rel="noopener" class="text-[#9a9aa2] hover:text-cream">Source ↗</a>
               </div>
             </div>
           </article>
 
           <!-- Indigram -->
           <article class="card reveal p-2 flex flex-col">
-            <div class="mockup-screen rounded-2xl" style="aspect-ratio:16/9;background:linear-gradient(135deg,#ec4899,#8b5cf6)"><div class="mockup-glyph" style="font-size:1.6rem">Indigram</div></div>
+            <div class="mockup-screen rounded-[20px]" style="aspect-ratio:16/9;background:linear-gradient(135deg,#ec4899,#8b5cf6)"><div class="mockup-glyph" style="font-size:1.6rem">Indigram</div></div>
             <div class="p-5 flex flex-col flex-1">
-              <h3 class="font-display font-bold text-xl text-gray-900 mb-2">Indigram</h3>
-              <p class="text-gray-500 text-sm leading-relaxed mb-4 flex-1">A feature-rich social platform with real-time chat, posts, stories, and video calls powered by Stream.</p>
+              <h3 class="font-display font-bold text-xl text-cream mb-2">Indigram</h3>
+              <p class="text-[#9a9aa2] text-sm leading-relaxed mb-4 flex-1">A feature-rich social platform with real-time chat, posts, stories, and video calls powered by Stream.</p>
               <div class="flex flex-wrap gap-1.5 mb-4"><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">Convex</span><span class="chip">Clerk</span><span class="chip">Stream</span></div>
               <div class="flex gap-3 text-sm font-semibold">
-                <a href="https://github.com/RickyVishwakarma/Indigram" target="_blank" rel="noopener" class="text-gray-500 hover:text-gray-900">Source ↗</a>
+                <a href="https://github.com/RickyVishwakarma/Indigram" target="_blank" rel="noopener" class="text-[#9a9aa2] hover:text-cream">Source ↗</a>
               </div>
             </div>
           </article>
 
           <!-- Car Parking -->
           <article class="card reveal p-2 flex flex-col" data-d="1">
-            <div class="mockup-screen rounded-2xl" style="aspect-ratio:16/9;background:linear-gradient(135deg,#0f172a,#334155)"><div class="mockup-glyph" style="font-size:1.4rem">Car Parking</div></div>
+            <div class="mockup-screen rounded-[20px]" style="aspect-ratio:16/9;background:linear-gradient(135deg,#0f172a,#334155)"><div class="mockup-glyph" style="font-size:1.4rem">Car Parking</div></div>
             <div class="p-5 flex flex-col flex-1">
-              <h3 class="font-display font-bold text-xl text-gray-900 mb-2">Car Parking System</h3>
-              <p class="text-gray-500 text-sm leading-relaxed mb-4 flex-1">Computer-vision system for real-time parking-space detection using deep learning.</p>
+              <h3 class="font-display font-bold text-xl text-cream mb-2">Car Parking System</h3>
+              <p class="text-[#9a9aa2] text-sm leading-relaxed mb-4 flex-1">Computer-vision system for real-time parking-space detection using deep learning.</p>
               <div class="flex flex-wrap gap-1.5 mb-4"><span class="chip">Python</span><span class="chip">OpenCV</span><span class="chip">TensorFlow</span><span class="chip">Keras</span><span class="chip">NumPy</span></div>
               <div class="flex gap-3 text-sm font-semibold">
-                <a href="https://github.com/RickyVishwakarma/CarParking" target="_blank" rel="noopener" class="text-gray-500 hover:text-gray-900">Source ↗</a>
+                <a href="https://github.com/RickyVishwakarma/CarParking" target="_blank" rel="noopener" class="text-[#9a9aa2] hover:text-cream">Source ↗</a>
               </div>
             </div>
           </article>
 
           <!-- DSA -->
           <article class="card reveal p-2 flex flex-col" data-d="2">
-            <div class="mockup-screen rounded-2xl" style="aspect-ratio:16/9;background:linear-gradient(135deg,#475569,#1e293b)"><div class="mockup-glyph" style="font-size:1.6rem">DSA</div></div>
+            <div class="mockup-screen rounded-[20px]" style="aspect-ratio:16/9;background:linear-gradient(135deg,#475569,#1e293b)"><div class="mockup-glyph" style="font-size:1.6rem">DSA</div></div>
             <div class="p-5 flex flex-col flex-1">
-              <h3 class="font-display font-bold text-xl text-gray-900 mb-2">DSA Projects</h3>
-              <p class="text-gray-500 text-sm leading-relaxed mb-4 flex-1">A collection of data-structure & algorithm projects in modern C++, with Python visualizations.</p>
+              <h3 class="font-display font-bold text-xl text-cream mb-2">DSA Projects</h3>
+              <p class="text-[#9a9aa2] text-sm leading-relaxed mb-4 flex-1">A collection of data-structure & algorithm projects in modern C++, with Python visualizations.</p>
               <div class="flex flex-wrap gap-1.5 mb-4"><span class="chip">C++</span><span class="chip">Python</span><span class="chip">Matplotlib</span><span class="chip">Algorithms</span></div>
               <div class="flex gap-3 text-sm font-semibold">
-                <a href="https://github.com/RickyVishwakarma/DSA-Projects" target="_blank" rel="noopener" class="text-gray-500 hover:text-gray-900">Source ↗</a>
+                <a href="https://github.com/RickyVishwakarma/DSA-Projects" target="_blank" rel="noopener" class="text-[#9a9aa2] hover:text-cream">Source ↗</a>
               </div>
             </div>
           </article>
@@ -422,51 +438,51 @@
       <div class="max-w-6xl mx-auto px-5">
         <div class="reveal max-w-2xl mb-12">
           <span class="eyebrow mb-4">Recognition</span>
-          <h2 class="font-display font-extrabold text-3xl md:text-5xl tracking-tight text-gray-900 mt-4">Achievements</h2>
+          <h2 class="font-display font-extrabold text-3xl md:text-5xl tracking-tight text-cream mt-5">Achievements</h2>
         </div>
         <div class="grid md:grid-cols-2 gap-5">
-          <div class="card reveal p-6"><p class="font-display font-bold text-lg text-gray-900">800+ DSA problems solved</p><p class="text-gray-500 text-sm mt-1">Across LeetCode, Codeforces & CodeChef</p></div>
-          <div class="card reveal p-6" data-d="1"><p class="font-display font-bold text-lg text-gray-900">Rank 1180 — Squarepoint Challenge 2025</p><p class="text-gray-500 text-sm mt-1">Codeforces</p></div>
-          <div class="card reveal p-6"><p class="font-display font-bold text-lg text-gray-900">Top triple-digit rank</p><p class="text-gray-500 text-sm mt-1">IIT Madras Reverse Coding Contest 2025</p></div>
-          <div class="card reveal p-6" data-d="1"><p class="font-display font-bold text-lg text-gray-900">Rank 60 — CodeChef Starters 196</p><p class="text-gray-500 text-sm mt-1">Global contest ranking</p></div>
-          <div class="card reveal p-6 md:col-span-2"><p class="font-display font-bold text-lg text-gray-900">Rank 744 — LeetCode Weekly Contest 504</p><p class="text-gray-500 text-sm mt-1">Global contest ranking</p></div>
+          <div class="card reveal p-6"><p class="font-display font-bold text-lg text-cream">800+ DSA problems solved</p><p class="text-[#8a8a92] text-sm mt-1">Across LeetCode, Codeforces & CodeChef</p></div>
+          <div class="card reveal p-6" data-d="1"><p class="font-display font-bold text-lg text-cream">Rank 1180 — Squarepoint Challenge 2025</p><p class="text-[#8a8a92] text-sm mt-1">Codeforces</p></div>
+          <div class="card reveal p-6"><p class="font-display font-bold text-lg text-cream">Top triple-digit rank</p><p class="text-[#8a8a92] text-sm mt-1">IIT Madras Reverse Coding Contest 2025</p></div>
+          <div class="card reveal p-6" data-d="1"><p class="font-display font-bold text-lg text-cream">Rank 60 — CodeChef Starters 196</p><p class="text-[#8a8a92] text-sm mt-1">Global contest ranking</p></div>
+          <div class="card reveal p-6 md:col-span-2"><p class="font-display font-bold text-lg text-cream">Rank 744 — LeetCode Weekly Contest 504</p><p class="text-[#8a8a92] text-sm mt-1">Global contest ranking</p></div>
         </div>
       </div>
     </section>
 
     <!-- Profiles + open source -->
-    <section id="profiles" class="py-20 bg-gray-50/70 border-y border-gray-100 scroll-mt-20">
+    <section id="profiles" class="py-20 bg-[#0b0b0e] border-y border-white/5 scroll-mt-20">
       <div class="max-w-6xl mx-auto px-5">
-        <div class="reveal mb-10"><span class="eyebrow mb-4">Profiles</span><h2 class="font-display font-extrabold text-3xl md:text-4xl tracking-tight text-gray-900 mt-4">Competitive programming & open source</h2></div>
+        <div class="reveal mb-10"><span class="eyebrow mb-4">Profiles</span><h2 class="font-display font-extrabold text-3xl md:text-4xl tracking-tight text-cream mt-5">Competitive programming & open source</h2></div>
 
         <div class="grid md:grid-cols-3 gap-5 mb-10">
           <a href="https://leetcode.com/u/stephen_76/" target="_blank" rel="noopener" class="card reveal p-6 flex items-center gap-4 group">
-            <div class="w-12 h-12 rounded-xl bg-orange-100 text-orange-600 font-bold flex items-center justify-center font-mono">LC</div>
-            <div><p class="font-display font-bold text-gray-900 group-hover:text-brand transition">LeetCode</p><p class="text-sm text-gray-500">Knight · Top 3.3%</p></div>
+            <div class="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/20 text-orange-400 font-bold flex items-center justify-center font-mono">LC</div>
+            <div><p class="font-display font-bold text-cream group-hover:gradient-text transition">LeetCode</p><p class="text-sm text-[#8a8a92]">Knight · Top 3.3%</p></div>
           </a>
           <a href="https://www.codechef.com/users/stephen_76" target="_blank" rel="noopener" class="card reveal p-6 flex items-center gap-4 group" data-d="1">
-            <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 font-bold flex items-center justify-center font-mono">CC</div>
-            <div><p class="font-display font-bold text-gray-900 group-hover:text-brand transition">CodeChef</p><p class="text-sm text-gray-500">4★ Rating</p></div>
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 font-bold flex items-center justify-center font-mono">CC</div>
+            <div><p class="font-display font-bold text-cream group-hover:gradient-text transition">CodeChef</p><p class="text-sm text-[#8a8a92]">4★ Rating</p></div>
           </a>
           <a href="https://codeforces.com/profile/stephen76" target="_blank" rel="noopener" class="card reveal p-6 flex items-center gap-4 group" data-d="2">
-            <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 font-bold flex items-center justify-center font-mono">CF</div>
-            <div><p class="font-display font-bold text-gray-900 group-hover:text-brand transition">Codeforces</p><p class="text-sm text-gray-500">Specialist</p></div>
+            <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 font-bold flex items-center justify-center font-mono">CF</div>
+            <div><p class="font-display font-bold text-cream group-hover:gradient-text transition">Codeforces</p><p class="text-sm text-[#8a8a92]">Specialist</p></div>
           </a>
         </div>
 
-        <p class="reveal text-xs font-semibold tracking-widest text-gray-400 uppercase mb-5">Open-source contributions</p>
+        <p class="reveal font-mono text-xs tracking-[0.22em] text-[#5e5e68] uppercase mb-5">Open-source contributions</p>
         <div class="grid md:grid-cols-3 gap-5">
           <a href="https://github.com/RickyVishwakarma/ralph" target="_blank" rel="noopener" class="card reveal p-6 group">
-            <div class="flex items-center gap-2 mb-2"><p class="font-display font-bold text-gray-900 group-hover:text-brand transition">Ralph</p><span class="ml-auto text-xs font-semibold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100">merged</span></div>
-            <p class="text-sm text-gray-500">Autonomous AI agent loop that runs until every PRD item is complete.</p>
+            <div class="flex items-center gap-2 mb-2"><p class="font-display font-bold text-cream group-hover:gradient-text transition">Ralph</p><span class="ml-auto text-xs font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">merged</span></div>
+            <p class="text-sm text-[#8a8a92]">Autonomous AI agent loop that runs until every PRD item is complete.</p>
           </a>
           <a href="https://github.com/RickyVishwakarma/eigent" target="_blank" rel="noopener" class="card reveal p-6 group" data-d="1">
-            <div class="flex items-center gap-2 mb-2"><p class="font-display font-bold text-gray-900 group-hover:text-brand transition">Eigent</p><span class="ml-auto text-xs font-semibold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100">merged</span></div>
-            <p class="text-sm text-gray-500">Open-source cowork desktop to unlock exceptional productivity.</p>
+            <div class="flex items-center gap-2 mb-2"><p class="font-display font-bold text-cream group-hover:gradient-text transition">Eigent</p><span class="ml-auto text-xs font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">merged</span></div>
+            <p class="text-sm text-[#8a8a92]">Open-source cowork desktop to unlock exceptional productivity.</p>
           </a>
           <a href="https://github.com/RickyVishwakarma/CloudBot.git" target="_blank" rel="noopener" class="card reveal p-6 group" data-d="2">
-            <div class="flex items-center gap-2 mb-2"><p class="font-display font-bold text-gray-900 group-hover:text-brand transition">CloudBot</p><span class="ml-auto text-xs font-semibold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100">merged</span></div>
-            <p class="text-sm text-gray-500">A simple, fast, expandable open-source Python IRC bot.</p>
+            <div class="flex items-center gap-2 mb-2"><p class="font-display font-bold text-cream group-hover:gradient-text transition">CloudBot</p><span class="ml-auto text-xs font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">merged</span></div>
+            <p class="text-sm text-[#8a8a92]">A simple, fast, expandable open-source Python IRC bot.</p>
           </a>
         </div>
       </div>
@@ -475,19 +491,19 @@
     <!-- CTA / Contact -->
     <section id="contact" class="py-24 scroll-mt-20">
       <div class="max-w-5xl mx-auto px-5">
-        <div class="reveal rounded-[32px] p-10 md:p-16 text-center relative overflow-hidden" style="background:linear-gradient(135deg,#4f46e5,#7c3aed 55%,#db2777)">
-          <div class="absolute inset-0 opacity-20" style="background-image:radial-gradient(circle at 1px 1px, rgba(255,255,255,0.4) 1px, transparent 0);background-size:24px 24px"></div>
-          <div class="relative">
-            <h2 class="font-display font-extrabold text-4xl md:text-5xl text-white tracking-tight mb-5">Let's build something great together</h2>
-            <p class="text-white/80 text-lg max-w-xl mx-auto mb-9">I'm currently open to new opportunities. Whether you have a question or just want to say hi, my inbox is always open.</p>
+        <div class="reveal card rounded-[34px] p-10 md:p-16 text-center relative overflow-hidden">
+          <div class="absolute inset-0 -z-0" style="background:radial-gradient(circle at 50% 0%, rgba(216,185,116,0.16), transparent 60%)"></div>
+          <div class="relative z-10">
+            <h2 class="font-display font-extrabold text-4xl md:text-5xl text-cream tracking-tight mb-5">Let's build something <span class="gradient-text">great</span> together</h2>
+            <p class="text-[#9a9aa2] text-lg max-w-xl mx-auto mb-9">I'm currently open to new opportunities. Whether you have a question or just want to say hi, my inbox is always open.</p>
             <div class="flex flex-wrap items-center justify-center gap-3">
-              <a href="mailto:ricky.vishwakarma.dev@gmail.com" class="btn bg-white text-gray-900 px-7 py-3.5 hover:bg-gray-100">Say hello →</a>
-              <a href="Ricky_Vishwakarma_Resume.pdf" download class="btn border border-white/40 text-white px-7 py-3.5 hover:bg-white/10">Download résumé</a>
+              <a href="mailto:ricky.vishwakarma.dev@gmail.com" class="btn btn-gold px-7 py-3.5">Say hello →</a>
+              <a href="Ricky_Vishwakarma_Resume.pdf" download class="btn btn-ghost px-7 py-3.5">Download résumé</a>
             </div>
-            <div class="flex items-center justify-center gap-6 mt-9 text-white/80 text-sm font-semibold">
-              <a href="https://github.com/RickyVishwakarma" target="_blank" rel="noopener" class="hover:text-white transition">GitHub</a>
-              <a href="https://www.linkedin.com/in/ricky-vishwakarma-ab5700287/" target="_blank" rel="noopener" class="hover:text-white transition">LinkedIn</a>
-              <a href="https://x.com/RICKYVISHW17342" target="_blank" rel="noopener" class="hover:text-white transition">X</a>
+            <div class="flex items-center justify-center gap-6 mt-9 text-[#9a9aa2] text-sm font-semibold">
+              <a href="https://github.com/RickyVishwakarma" target="_blank" rel="noopener" class="hover:text-cream transition">GitHub</a>
+              <a href="https://www.linkedin.com/in/ricky-vishwakarma-ab5700287/" target="_blank" rel="noopener" class="hover:text-cream transition">LinkedIn</a>
+              <a href="https://x.com/RICKYVISHW17342" target="_blank" rel="noopener" class="hover:text-cream transition">X</a>
             </div>
           </div>
         </div>
@@ -495,8 +511,8 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-10 border-t border-gray-100">
-      <div class="max-w-6xl mx-auto px-5 flex flex-col md:flex-row items-center justify-between gap-3 text-sm text-gray-400">
+    <footer class="py-10 border-t border-white/5">
+      <div class="max-w-6xl mx-auto px-5 flex flex-col md:flex-row items-center justify-between gap-3 font-mono text-xs text-[#5e5e68]">
         <p>© 2026 Ricky Vishwakarma</p>
         <p>Designed & hand-coded with HTML, Tailwind & vanilla JS</p>
       </div>
@@ -512,7 +528,7 @@
       document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
     })();
 
-    // Nav shadow on scroll
+    // Nav background on scroll
     (function () {
       var nav = document.getElementById('nav');
       function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 8); }
