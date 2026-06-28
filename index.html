@@ -157,7 +157,7 @@
           <a href="#work" class="btn btn-brand px-7 py-3.5 text-[0.95rem]">View my work</a>
           <a href="#contact" class="btn btn-light px-7 py-3.5 text-[0.95rem]">Let's talk →</a>
         </div>
-        <p class="reveal mt-5 text-sm text-gray-400" data-d="3">9 shipped projects · LeetCode Knight · 800+ DSA solved</p>
+        <p class="reveal mt-5 text-sm text-gray-400" data-d="3">10 shipped projects · LeetCode Knight · 800+ DSA solved</p>
       </div>
 
       <!-- Hero product mockup -->
@@ -194,7 +194,7 @@
     <!-- Stats band -->
     <section class="py-16">
       <div class="max-w-6xl mx-auto px-5 grid grid-cols-2 md:grid-cols-4 gap-6">
-        <div class="reveal text-center md:text-left"><p class="font-display font-extrabold text-4xl text-gray-900">9</p><p class="text-gray-500 text-sm mt-1">Projects shipped</p></div>
+        <div class="reveal text-center md:text-left"><p class="font-display font-extrabold text-4xl text-gray-900">10</p><p class="text-gray-500 text-sm mt-1">Projects shipped</p></div>
         <div class="reveal text-center md:text-left" data-d="1"><p class="font-display font-extrabold text-4xl text-gray-900">10K+</p><p class="text-gray-500 text-sm mt-1">Bugs fixed by AI</p></div>
         <div class="reveal text-center md:text-left" data-d="2"><p class="font-display font-extrabold text-4xl text-gray-900">Knight</p><p class="text-gray-500 text-sm mt-1">LeetCode · Top 3.3%</p></div>
         <div class="reveal text-center md:text-left" data-d="3"><p class="font-display font-extrabold text-4xl text-gray-900">800+</p><p class="text-gray-500 text-sm mt-1">DSA problems solved</p></div>
@@ -288,6 +288,32 @@
               <div class="details"><div><div class="grid sm:grid-cols-2 gap-6 text-sm">
                 <div><p class="font-semibold text-gray-900 mb-3">Key features</p><ul class="space-y-2 text-gray-500"><li>Multi-user editing with CRDT resolution</li><li>Live cursors, selections & presence</li><li>Offline support with auto-sync on reconnect</li><li>Version history & collaborative undo/redo</li></ul></div>
                 <div><p class="font-semibold text-gray-900 mb-3">Architecture</p><ul class="space-y-2 text-gray-500"><li>Yjs CRDT over Socket.io with backoff</li><li>Stateless services behind a load balancer</li><li>Redis pub/sub fan-out across nodes</li><li>TypeScript monorepo: client · server · shared</li></ul></div>
+              </div></div></div>
+            </div>
+          </div>
+
+          <!-- FlowCare AI -->
+          <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+            <div class="reveal lg:order-2">
+              <div class="mockup">
+                <div class="mockup-bar"><div class="mockup-dots"><span class="bg-[#ff5f57]"></span><span class="bg-[#febc2e]"></span><span class="bg-[#28c840]"></span></div><div class="mockup-url">github.com/RickyVishwakarma/flowcareAI</div></div>
+                <div class="mockup-screen" style="background:linear-gradient(135deg,#059669,#0d9488 55%,#0891b2)"><div class="mockup-glyph">FlowCare AI</div><div class="mockup-tag">Referral → OCR → AI extraction → scheduled patient</div></div>
+              </div>
+            </div>
+            <div class="reveal lg:order-1" data-d="1">
+              <div class="flex items-center gap-3 mb-3"><span class="chip chip-brand">Featured</span><span class="chip">Healthcare AI</span></div>
+              <h3 class="font-display font-extrabold text-3xl text-gray-900 mb-4">FlowCare AI</h3>
+              <p class="text-gray-500 leading-relaxed mb-6">A production-grade healthcare referral-automation platform with a visual workflow builder. It turns any referral — PDF, fax, scanned image, or web form — into a verified, scheduled patient automatically, using OCR, LLMs, and a queue-based pipeline with a full audit trail.</p>
+              <div class="flex flex-wrap gap-2 mb-7">
+                <span class="chip">FastAPI</span><span class="chip">Python</span><span class="chip">PostgreSQL</span><span class="chip">Redis</span><span class="chip">Celery</span><span class="chip">Claude</span><span class="chip">Tesseract</span><span class="chip">Twilio</span><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">Docker</span>
+              </div>
+              <div class="flex flex-wrap items-center gap-3">
+                <a href="https://github.com/RickyVishwakarma/flowcareAI" target="_blank" rel="noopener" class="btn btn-dark px-5 py-2.5 text-sm">Source ↗</a>
+                <button onclick="toggleDetails(this)" class="text-sm font-semibold text-gray-500 hover:text-gray-900 ml-auto transition">Details ↓</button>
+              </div>
+              <div class="details"><div><div class="grid sm:grid-cols-2 gap-6 text-sm">
+                <div><p class="font-semibold text-gray-900 mb-3">Key features</p><ul class="space-y-2 text-gray-500"><li>Omni-channel intake: PDF, image, fax, web form</li><li>OCR + Claude extraction with per-field confidence</li><li>Drag-and-drop visual workflow engine</li><li>Human-in-the-loop review & immutable audit trail</li></ul></div>
+                <div><p class="font-semibold text-gray-900 mb-3">Architecture</p><ul class="space-y-2 text-gray-500"><li>FastAPI API; heavy work runs in Celery workers</li><li>Redis broker: retry → backoff → dead-letter queue</li><li>PostgreSQL (14-table schema) + audit log</li><li>JWT rotating-refresh auth, RBAC, multi-tenant</li></ul></div>
               </div></div></div>
             </div>
           </div>
